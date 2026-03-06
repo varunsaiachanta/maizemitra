@@ -184,6 +184,8 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 24px;
+  width: 100%;
 }
 
 /* legacy aliases used on inner pages */
@@ -192,6 +194,8 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 24px;
+  width: 100%;
 }
 
 .logo,
@@ -227,18 +231,21 @@ button {
   gap: 32px;
   list-style: none;
   flex: 1;
+  min-width: 0;
 }
 
 .nav-links a,
 .nav-link {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   font-size: 15px;
   font-weight: 700;
   color: var(--t2);
   transition: color .2s;
   padding: 4px 0;
   border-bottom: 2px solid transparent;
+  white-space: nowrap;
 }
 
 .nav-links a:hover {
@@ -251,6 +258,12 @@ button {
 }
 
 .nav-link.active {
+  color: var(--g800);
+  border-bottom-color: var(--g800);
+}
+
+.nav-links a.active-link,
+.nav-link.active-link {
   color: var(--g800);
   border-bottom-color: var(--g800);
 }
@@ -270,42 +283,54 @@ button {
   display: flex;
   align-items: center;
   gap: 8px;
+  flex-shrink: 0;
 }
 
 .btn-nav {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: 9px 20px;
   border-radius: var(--rr);
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
   cursor: pointer;
   border: none;
   transition: all .2s;
 }
 
-.btn-nav-ghost {
-  background: transparent;
-  color: var(--t2);
-}
-
-#navbar.transparent .btn-nav-ghost {
-  color: rgba(255, 255, 255, .8);
-}
-
-.btn-nav-ghost:hover {
-  background: var(--g50);
-}
-
-#navbar.transparent .btn-nav-ghost:hover {
-  background: rgba(255, 255, 255, .1);
-}
-
-.btn-nav-primary {
+.btn-nav-primary,
+.btn-nav-solid {
   background: var(--g800);
   color: #fff;
 }
 
-.btn-nav-primary:hover {
+.btn-nav-primary:hover,
+.btn-nav-solid:hover {
   background: var(--g700);
+}
+
+.btn-nav-ghost,
+.btn-nav-outline {
+  background: transparent;
+  color: var(--g800);
+  border: 1.5px solid var(--g800);
+}
+
+#navbar.transparent .btn-nav-ghost,
+#navbar.transparent .btn-nav-outline {
+  color: rgba(255, 255, 255, .8);
+  border-color: rgba(255, 255, 255, .3);
+}
+
+.btn-nav-ghost:hover,
+.btn-nav-outline:hover {
+  background: var(--g50);
+}
+
+#navbar.transparent .btn-nav-ghost:hover,
+#navbar.transparent .btn-nav-outline:hover {
+  background: rgba(255, 255, 255, .1);
 }
 
 /* hamburger */
@@ -325,7 +350,19 @@ button {
   transition: all .3s;
 }
 
+.hbar {
+  width: 24px;
+  height: 2px;
+  background: var(--g800);
+  border-radius: 2px;
+  transition: all .3s;
+}
+
 #navbar.transparent .hline {
+  background: #fff;
+}
+
+#navbar.transparent .hbar {
   background: #fff;
 }
 
@@ -771,7 +808,8 @@ footer {
   }
 
   .nav-links,
-  .nav-actions {
+  .nav-actions,
+  .nav-cta {
     display: none;
   }
 

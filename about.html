@@ -91,28 +91,34 @@
 <body>
 
 <div class="mobile-nav" id="mobileNav">
-  <a class="mnl" href="index.html">Home</a><a class="mnl" href="products.html">Products</a>
-  <a class="mnl" href="guarantee.html">Guarantee</a><a class="mnl" href="advisory.html">Advisory</a>
-  <a class="mnl" href="about.html">About</a><a class="mnl" href="contact.html">Support</a>
-  <div class="mobile-nav-ctas"><a href="app.html" style="display:block;text-align:center;padding:13px;background:var(--g800);border-radius:50px;color:#fff;font-weight:800;">📱 App Preview</a></div>
+  <a class="mnl" href="index.html">Home</a>
+  <a class="mnl" href="products.html">Products</a>
+  <a class="mnl" href="guarantee.html">Guarantee</a>
+  <a class="mnl" href="advisory.html">Advisory</a>
+  <a class="mnl active" href="about.html">About</a>
+  <a class="mnl" href="contact.html">Support</a>
+  <div class="mobile-nav-ctas">
+    <a href="app.html" style="display:block;text-align:center;padding:13px;background:var(--g800);border-radius:50px;color:#fff;font-weight:800;">📱 App Preview</a>
+    <a href="products.html" style="display:block;text-align:center;padding:13px;background:var(--gold);border-radius:50px;color:#fff;font-weight:800;">🛒 Shop Now</a>
+  </div>
 </div>
 
 <nav id="navbar">
   <div class="container">
-    <div class="nav-wrap">
-      <a href="index.html" class="nav-logo"><span class="nav-logo-icon">🌽</span><span class="nav-logo-text">KisanDirect</span></a>
+    <div class="nav-inner">
+      <a href="index.html" class="logo"><span class="logo-icon">🌽</span><span class="logo-text">KisanDirect</span></a>
       <ul class="nav-links">
-        <li><a href="products.html" class="nav-link">Products</a></li>
-        <li><a href="guarantee.html" class="nav-link">Guarantee</a></li>
-        <li><a href="advisory.html" class="nav-link">Advisory</a></li>
-        <li><a href="about.html" class="nav-link active-link">About</a></li>
-        <li><a href="contact.html" class="nav-link">Support</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="guarantee.html">Guarantee</a></li>
+        <li><a href="advisory.html">Advisory</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="contact.html">Support</a></li>
       </ul>
       <div class="nav-cta">
-        <a href="app.html"><button class="btn-nav btn-nav-ghost">📱 App</button></a>
-        <a href="contact.html"><button class="btn-nav btn-nav-primary">Order Now</button></a>
+        <a href="app.html"><button class="btn-nav btn-nav-outline">📱 App Preview</button></a>
+        <a href="products.html"><button class="btn-nav btn-nav-solid">Shop Now</button></a>
       </div>
-      <div class="hamburger" onclick="toggleNav()"><div class="hbar"></div><div class="hbar"></div><div class="hbar"></div></div>
+      <div class="hamburger" onclick="toggleNav()"><div class="hline"></div><div class="hline"></div><div class="hline"></div></div>
     </div>
   </div>
 </nav>
