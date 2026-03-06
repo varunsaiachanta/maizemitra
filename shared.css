@@ -80,10 +80,10 @@ button{font-family:'Nunito',sans-serif;}
 }
 #navbar.transparent .logo-text,
 #navbar.transparent .nav-logo-text{color:#fff;}
-.nav-links{display:flex;align-items:center;gap:28px;list-style:none;}
+.nav-links{display:flex;align-items:center;gap:32px;list-style:none;}
 .nav-links a,.nav-link{
   display:inline-flex;align-items:center;
-  font-size:13px;font-weight:700;color:var(--t2);
+  font-size:15px;font-weight:700;color:var(--t2);
   transition:color .2s;padding:4px 0;
   border-bottom:2px solid transparent;
 }
@@ -96,8 +96,8 @@ button{font-family:'Nunito',sans-serif;}
 #navbar.transparent .nav-link:hover{color:#fff;}
 .nav-actions,.nav-cta{display:flex;align-items:center;gap:8px;}
 .btn-nav{
-  padding:8px 18px;border-radius:var(--rr);
-  font-size:13px;font-weight:700;cursor:pointer;border:none;
+  padding:9px 20px;border-radius:var(--rr);
+  font-size:14px;font-weight:700;cursor:pointer;border:none;
   transition:all .2s;
 }
 .btn-nav-ghost{
