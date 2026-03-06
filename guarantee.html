@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="KisanDirect Crop Guarantee – India's first 100% money-back guarantee on agricultural inputs. Learn how it works and how to file a claim."/>
+<title>Crop Guarantee – KisanDirect</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Nunito:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="shared.css"/>
+<style>
+/* hero */
+.g-hero {
+  background:linear-gradient(135deg,var(--gold-d),var(--gold),#e6a832);
+  padding:90px 0 80px; position:relative; overflow:hidden;
+}
+.g-hero::before { content:'🛡️'; position:absolute; right:-60px; bottom:-40px; font-size:380px; opacity:.08; line-height:1; }
+.g-hero::after { content:''; position:absolute; bottom:-2px; left:0; right:0; height:90px; background:var(--wh); clip-path:polygon(0 100%,100% 100%,100% 10%,0 100%); }
+
+/* promise bar */
+.promise-bar { background:var(--g800); padding:24px 0; }
+.pb-inner { display:flex; align-items:center; justify-content:space-around; flex-wrap:wrap; gap:20px; }
+.pb-item { display:flex; align-items:center; gap:12px; color:#fff; }
+.pb-icon { font-size:26px; }
+.pb-label { font-size:14px; font-weight:800; }
+.pb-sub { font-size:11px; color:rgba(255,255,255,.55); margin-top:2px; }
+.pb-sep { width:1px; height:36px; background:rgba(255,255,255,.15); }
+
+/* how it works steps */
+.steps-timeline { display:flex; flex-direction:column; gap:0; }
+.st-item { display:flex; gap:24px; padding-bottom:40px; position:relative; }
+.st-item:last-child { padding-bottom:0; }
+.st-left { display:flex; flex-direction:column; align-items:center; gap:0; width:52px; flex-shrink:0; }
+.st-circle { width:52px; height:52px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:20px; flex-shrink:0; border:3px solid var(--g800); font-weight:900; color:var(--g800); font-family:'Cormorant Garamond',serif; font-size:22px; }
+.st-circle.fill { background:var(--g800); color:#fff; font-size:20px; }
+.st-line { flex:1; width:2px; background:var(--g200); margin-top:4px; }
+.st-item:last-child .st-line { display:none; }
+.st-body { flex:1; padding-top:12px; }
+.st-body h3 { font-size:20px; font-weight:800; color:var(--t1); margin-bottom:8px; }
+.st-body p { font-size:14px; color:var(--t3); line-height:1.75; margin-bottom:12px; }
+.st-tips { display:flex; flex-direction:column; gap:7px; }
+.st-tip { display:flex; gap:8px; align-items:flex-start; font-size:13px; color:var(--t2); }
+.st-tip-icon { font-size:14px; flex-shrink:0; margin-top:1px; }
+
+/* covered / not covered */
+.coverage-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+.cov-box { border-radius:var(--r20); border:1px solid var(--br); overflow:hidden; }
+.cov-head { padding:18px 22px; display:flex; align-items:center; gap:10px; }
+.cov-head.green { background:var(--g800); }
+.cov-head.red   { background:#c0392b; }
+.cov-head-icon { font-size:22px; }
+.cov-head h3 { font-size:16px; font-weight:800; color:#fff; }
+.cov-list { padding:18px 22px; display:flex; flex-direction:column; gap:12px; }
+.cov-item { display:flex; gap:10px; align-items:flex-start; }
+.cov-icon { font-size:16px; flex-shrink:0; margin-top:1px; }
+.cov-text { font-size:13px; color:var(--t2); line-height:1.5; }
+.cov-text strong { color:var(--t1); }
+
+/* photo guide */
+.photo-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+.photo-card {
+  background:var(--g50); border-radius:var(--r14); border:1px solid var(--br);
+  padding:20px 14px; text-align:center;
+}
+.photo-card .pc-stage { font-size:32px; margin-bottom:12px; }
+.photo-card h4 { font-size:13px; font-weight:800; color:var(--t1); margin-bottom:6px; }
+.photo-card p { font-size:11px; color:var(--t4); line-height:1.5; }
+.photo-card .pc-day { font-size:10px; font-weight:700; color:var(--g600); background:var(--g100); border-radius:var(--rr); padding:3px 9px; display:inline-block; margin-top:8px; }
+
+/* claim form area */
+.claim-cta-box {
+  background:linear-gradient(135deg,var(--g900),var(--g700));
+  border-radius:24px; padding:52px; position:relative; overflow:hidden;
+}
+.claim-cta-box::before { content:'🛡️'; position:absolute; right:-20px; top:-20px; font-size:200px; opacity:.06; line-height:1; }
+.claim-cta-box h2 { font-family:'Cormorant Garamond',serif; font-size:38px; font-weight:700; color:#fff; margin-bottom:12px; }
+.claim-cta-box p { font-size:15px; color:rgba(255,255,255,.6); line-height:1.75; max-width:500px; margin-bottom:28px; }
+.claim-form { background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.12); border-radius:var(--r14); padding:24px; display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.claim-form .full { grid-column:1/-1; }
+.claim-inp { background:rgba(255,255,255,.08); border:1.5px solid rgba(255,255,255,.15); border-radius:var(--r8); padding:12px 14px; font-size:13px; color:#fff; font-family:'Nunito',sans-serif; outline:none; width:100%; transition:border-color .2s; }
+.claim-inp::placeholder { color:rgba(255,255,255,.35); }
+.claim-inp:focus { border-color:rgba(255,255,255,.4); }
+.claim-inp-label { font-size:11px; font-weight:700; color:rgba(255,255,255,.5); margin-bottom:5px; display:block; }
+
+/* faq accordion */
+.faq-list { display:flex; flex-direction:column; gap:10px; }
+.faq-item { background:var(--wh); border:1px solid var(--br); border-radius:var(--r14); overflow:hidden; }
+.faq-q {
+  padding:18px 20px; display:flex; justify-content:space-between; align-items:center;
+  cursor:pointer; transition:background .2s;
+}
+.faq-q:hover { background:var(--g50); }
+.faq-q-text { font-size:14px; font-weight:700; color:var(--t1); }
+.faq-icon { font-size:18px; color:var(--t4); transition:transform .3s; font-weight:300; }
+.faq-item.open .faq-icon { transform:rotate(45deg); color:var(--g600); }
+.faq-a { max-height:0; overflow:hidden; transition:max-height .35s ease; }
+.faq-item.open .faq-a { max-height:300px; }
+.faq-a-inner { padding:0 20px 18px; font-size:13px; color:var(--t3); line-height:1.75; border-top:1px solid var(--br); padding-top:14px; }
+
+/* guarantee card */
+.guar-card-big {
+  background:linear-gradient(135deg,var(--gold-d),var(--gold));
+  border-radius:24px; padding:40px; text-align:center; position:relative; overflow:hidden;
+}
+.guar-card-big::before { content:''; position:absolute; top:-60px; right:-60px; width:200px; height:200px; background:rgba(255,255,255,.08); border-radius:50%; }
+.gcb-icon { font-size:64px; margin-bottom:16px; }
+.gcb-title { font-family:'Cormorant Garamond',serif; font-size:32px; font-weight:700; color:#fff; margin-bottom:8px; }
+.gcb-sub { font-size:15px; color:rgba(255,255,255,.75); line-height:1.6; margin-bottom:24px; }
+.gcb-amount { font-family:'Cormorant Garamond',serif; font-size:48px; font-weight:700; color:#fff; margin-bottom:4px; }
+.gcb-amount-label { font-size:13px; color:rgba(255,255,255,.6); }
+
+@media(max-width:800px){
+  .coverage-grid { grid-template-columns:1fr; }
+  .photo-grid { grid-template-columns:1fr 1fr; }
+  .claim-form { grid-template-columns:1fr; }
+  .claim-form .full { grid-column:1; }
+  .claim-cta-box { padding:28px 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <a class="mnl" href="index.html">Home</a>
+  <a class="mnl" href="products.html">Products</a>
+  <a class="mnl" href="guarantee.html">Guarantee</a>
+  <a class="mnl" href="advisory.html">Advisory</a>
+  <a class="mnl" href="about.html">About</a>
+  <a class="mnl" href="contact.html">Support</a>
+  <div class="mobile-nav-ctas">
+    <a href="app.html" style="display:block;text-align:center;padding:13px;background:var(--g800);border-radius:50px;color:#fff;font-weight:800;">📱 App Preview</a>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="container">
+    <div class="nav-wrap">
+      <a href="index.html" class="nav-logo"><span class="nav-logo-icon">🌽</span><span class="nav-logo-text">KisanDirect</span></a>
+      <ul class="nav-links">
+        <li><a href="products.html" class="nav-link">Products</a></li>
+        <li><a href="guarantee.html" class="nav-link active-link">Guarantee</a></li>
+        <li><a href="advisory.html" class="nav-link">Advisory</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="contact.html" class="nav-link">Support</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="app.html"><button class="btn-nav btn-nav-ghost">📱 App</button></a>
+        <a href="contact.html"><button class="btn-nav btn-nav-primary">Order Now</button></a>
+      </div>
+      <div class="hamburger" onclick="toggleNav()"><div class="hbar"></div><div class="hbar"></div><div class="hbar"></div></div>
+    </div>
+  </div>
+</nav>
+
+<div class="page-body">
+
+<!-- HERO -->
+<section class="g-hero">
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="breadcrumb"><a href="index.html">Home</a><span class="sep">›</span><span class="cur">Guarantee</span></div>
+    <div style="font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:14px;">India's First</div>
+    <h1 style="font-family:'Cormorant Garamond',serif;font-size:clamp(42px,6vw,72px);font-weight:700;color:#fff;line-height:1.05;margin-bottom:16px;">
+      100% Crop<br/>Guarantee
+    </h1>
+    <p style="font-size:17px;color:rgba(255,255,255,.75);max-width:560px;line-height:1.75;">
+      We don't just sell seeds. We back every product with a full money-back guarantee. If your crop fails despite following our guidelines — we refund. Every rupee. No arguments.
+    </p>
+  </div>
+</section>
+
+<!-- PROMISE BAR -->
+<div class="promise-bar">
+  <div class="container">
+    <div class="pb-inner">
+      <div class="pb-item"><span class="pb-icon">💰</span><div><div class="pb-label">Full Refund</div><div class="pb-sub">100% of purchase price</div></div></div>
+      <div class="pb-sep"></div>
+      <div class="pb-item"><span class="pb-icon">⏱️</span><div><div class="pb-label">7 Days</div><div class="pb-sub">From inspection to payment</div></div></div>
+      <div class="pb-sep"></div>
+      <div class="pb-item"><span class="pb-icon">📋</span><div><div class="pb-label">Simple Process</div><div class="pb-sub">3 steps to file a claim</div></div></div>
+      <div class="pb-sep"></div>
+      <div class="pb-item"><span class="pb-icon">🌽</span><div><div class="pb-label">All Products</div><div class="pb-sub">Seeds & pesticides covered</div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section class="sec">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;">
+      <div>
+        <div class="section-eyebrow reveal">The Process</div>
+        <h2 class="section-title reveal d1">How the Guarantee Works</h2>
+        <p class="section-desc reveal d2" style="margin-bottom:48px;">Three simple steps protect your entire crop investment from the moment you order to the day you harvest.</p>
+        <div class="steps-timeline">
+          <div class="st-item reveal">
+            <div class="st-left"><div class="st-circle fill">1</div><div class="st-line"></div></div>
+            <div class="st-body">
+              <h3>Order & Follow Our Guidelines</h3>
+              <p>Every product comes with a printed farming guide. Follow our recommended seed rate, spacing, sowing time, and pesticide schedule. These are your guarantee conditions.</p>
+              <div class="st-tips">
+                <div class="st-tip"><span class="st-tip-icon">📏</span>Seed rate: 8–10 kg per acre</div>
+                <div class="st-tip"><span class="st-tip-icon">📐</span>Spacing: 60 cm × 20 cm</div>
+                <div class="st-tip"><span class="st-tip-icon">📅</span>Sow during June–July (Kharif)</div>
+              </div>
+            </div>
+          </div>
+          <div class="st-item reveal d1">
+            <div class="st-left"><div class="st-circle fill">2</div><div class="st-line"></div></div>
+            <div class="st-body">
+              <h3>Submit Crop Photos at 3 Stages</h3>
+              <p>Take photos at three key crop stages and upload them via our app or WhatsApp. This creates your proof record and keeps your guarantee active throughout the season.</p>
+              <div class="st-tips">
+                <div class="st-tip"><span class="st-tip-icon">📸</span>Photo 1: Seed bag before sowing (Day 0)</div>
+                <div class="st-tip"><span class="st-tip-icon">📸</span>Photo 2: Field after sowing (Day 7)</div>
+                <div class="st-tip"><span class="st-tip-icon">📸</span>Photo 3: Crop at vegetative stage (Day 20–25)</div>
+              </div>
+            </div>
+          </div>
+          <div class="st-item reveal d2">
+            <div class="st-left"><div class="st-circle fill">3</div></div>
+            <div class="st-body">
+              <h3>Raise a Claim — Refund in 7 Days</h3>
+              <p>If your crop fails due to a product issue, raise a claim via the app, WhatsApp, or phone. Our team reviews your photos and visits the field if needed. Approved refunds are processed within 7 days.</p>
+              <div class="st-tips">
+                <div class="st-tip"><span class="st-tip-icon">📋</span>Claim review within 48 hours</div>
+                <div class="st-tip"><span class="st-tip-icon">🔍</span>Field inspection if required</div>
+                <div class="st-tip"><span class="st-tip-icon">💰</span>Full refund to your UPI / bank account</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Guarantee card -->
+      <div style="position:sticky;top:100px;">
+        <div class="guar-card-big reveal">
+          <div class="gcb-icon">🛡️</div>
+          <div class="gcb-title">Crop Guarantee Certificate</div>
+          <div class="gcb-sub">Activated on every purchase from KisanDirect. Covers all listed maize seeds and pesticides for the full growing season.</div>
+          <div class="gcb-amount">₹0</div>
+          <div class="gcb-amount-label">Farmer bears if product fails & guidelines followed</div>
+          <div style="background:rgba(255,255,255,.15);border-radius:var(--r14);padding:16px;margin-top:24px;text-align:left;">
+            <div style="font-size:11px;font-weight:700;color:rgba(255,255,255,.6);margin-bottom:10px;text-transform:uppercase;letter-spacing:.5px;">Guarantee Covers</div>
+            <div style="display:flex;flex-direction:column;gap:8px;">
+              <div style="display:flex;gap:8px;font-size:13px;color:rgba(255,255,255,.85);"><span>✅</span>Seed germination failure (&lt;70%)</div>
+              <div style="display:flex;gap:8px;font-size:13px;color:rgba(255,255,255,.85);"><span>✅</span>Pesticide ineffectiveness on target pest</div>
+              <div style="display:flex;gap:8px;font-size:13px;color:rgba(255,255,255,.85);"><span>✅</span>Herbicide failure to control weeds</div>
+              <div style="display:flex;gap:8px;font-size:13px;color:rgba(255,255,255,.85);"><span>✅</span>Expired or defective product supplied</div>
+            </div>
+          </div>
+        </div>
+        <div style="background:var(--g50);border-radius:var(--r14);border:1px solid var(--br);padding:20px;margin-top:16px;">
+          <div style="font-size:13px;font-weight:700;color:var(--t1);margin-bottom:4px;">📞 Questions about your guarantee?</div>
+          <div style="font-size:12px;color:var(--t3);margin-bottom:12px;">Our team is available Mon–Sat 8 AM–7 PM</div>
+          <a href="contact.html"><button class="btn btn-outline btn-md btn-block" style="border-radius:var(--r8);">Contact Support →</button></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COVERED / NOT COVERED -->
+<section class="sec sec-soft">
+  <div class="container">
+    <div class="sec-head center">
+      <div class="section-eyebrow reveal">Scope</div>
+      <h2 class="section-title reveal d1">What's Covered & What's Not</h2>
+      <p class="section-desc reveal d2">Being transparent is core to how we build trust. Here is exactly what our guarantee covers and what falls outside its scope.</p>
+    </div>
+    <div class="coverage-grid">
+      <div class="cov-box reveal">
+        <div class="cov-head green"><span class="cov-head-icon">✅</span><h3>Guarantee Covers</h3></div>
+        <div class="cov-list">
+          <div class="cov-item"><span class="cov-icon">🌱</span><div class="cov-text"><strong>Germination failure below 70%</strong> when sown at recommended rate, spacing, and time.</div></div>
+          <div class="cov-item"><span class="cov-icon">🐛</span><div class="cov-text"><strong>Pesticide ineffectiveness</strong> on the target pest when applied at correct dosage and timing.</div></div>
+          <div class="cov-item"><span class="cov-icon">🌿</span><div class="cov-text"><strong>Herbicide failure</strong> to control the specified weeds when applied as directed on the product label.</div></div>
+          <div class="cov-item"><span class="cov-icon">📦</span><div class="cov-text"><strong>Expired or defective products</strong> supplied by KisanDirect, including leaking bottles or damaged seed bags.</div></div>
+          <div class="cov-item"><span class="cov-icon">💰</span><div class="cov-text"><strong>Full purchase price refunded</strong> if claim is approved after inspection within 7 working days.</div></div>
+        </div>
+      </div>
+      <div class="cov-box reveal d1">
+        <div class="cov-head red"><span class="cov-head-icon">❌</span><h3>Not Covered</h3></div>
+        <div class="cov-list">
+          <div class="cov-item"><span class="cov-icon">🌧️</span><div class="cov-text"><strong>Natural disasters</strong> — floods, drought, hailstorm, or extreme weather events that damage the crop.</div></div>
+          <div class="cov-item"><span class="cov-icon">📋</span><div class="cov-text"><strong>Non-compliance with guidelines</strong> — wrong seed rate, incorrect spacing, out-of-season sowing.</div></div>
+          <div class="cov-item"><span class="cov-icon">📸</span><div class="cov-text"><strong>No photo documentation</strong> — claims without submitted crop photos at all 3 required stages.</div></div>
+          <div class="cov-item"><span class="cov-icon">🕐</span><div class="cov-text"><strong>Late claims</strong> — claims raised more than 30 days after visible crop failure symptoms first appeared.</div></div>
+          <div class="cov-item"><span class="cov-icon">🌍</span><div class="cov-text"><strong>Soil or land issues</strong> — crop failures attributable to known poor soil quality, waterlogging, or salinity.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHOTO GUIDE -->
+<section class="sec">
+  <div class="container">
+    <div class="sec-head center">
+      <div class="section-eyebrow reveal">Photo Requirements</div>
+      <h2 class="section-title reveal d1">4 Photos to Protect Your Crop</h2>
+      <p class="section-desc reveal d2">Submit these photos via the app or WhatsApp. Just 30 seconds per photo — and your entire crop investment is protected.</p>
+    </div>
+    <div class="photo-grid">
+      <div class="photo-card reveal"><div class="pc-stage">📦</div><h4>Seed Bag</h4><p>Photograph the front of the seed bag showing the batch number and date before opening.</p><div class="pc-day">Day 0 — Before Sowing</div></div>
+      <div class="photo-card reveal d1"><div class="pc-stage">🌱</div><h4>Field After Sowing</h4><p>Photograph the sown field with row spacing clearly visible. Include your invoice in the frame.</p><div class="pc-day">Day 1–3 — After Sowing</div></div>
+      <div class="photo-card reveal d2"><div class="pc-stage">🌿</div><h4>Germination Check</h4><p>Photo showing germination rate. Minimum 70% germination required to proceed with guarantee.</p><div class="pc-day">Day 7–10 — Germination</div></div>
+      <div class="photo-card reveal d3"><div class="pc-stage">🌽</div><h4>Vegetative Stage</h4><p>Wide-angle photo of the crop at 20–25 days. Submit before this deadline to keep guarantee active.</p><div class="pc-day">Day 20–25 — Vegetative</div></div>
+    </div>
+    <div style="background:var(--g50);border-radius:var(--r14);border:1px solid var(--br);padding:20px 24px;margin-top:28px;display:flex;align-items:center;gap:16px;" class="reveal">
+      <span style="font-size:28px;">💡</span>
+      <div><strong style="font-size:14px;color:var(--t1);">Pro tip:</strong><span style="font-size:13px;color:var(--t3);"> Make sure each photo clearly shows the date (hold your phone next to the field), include recognisable landmarks, and photograph in natural daylight for best results.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CLAIM FORM CTA -->
+<section class="sec sec-cream">
+  <div class="container">
+    <div class="claim-cta-box reveal">
+      <div style="position:relative;z-index:1;">
+        <div style="font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--g300);margin-bottom:14px;">File a Claim</div>
+        <h2>Something Went Wrong?<br/>We've Got You.</h2>
+        <p>Start your claim below or reach us directly via WhatsApp. We respond within 4 business hours.</p>
+        <div class="claim-form">
+          <div>
+            <label class="claim-inp-label">Your Name</label>
+            <input class="claim-inp" placeholder="Ramesh Kumar"/>
+          </div>
+          <div>
+            <label class="claim-inp-label">Mobile Number</label>
+            <input class="claim-inp" placeholder="98765 43210"/>
+          </div>
+          <div>
+            <label class="claim-inp-label">Order Number</label>
+            <input class="claim-inp" placeholder="e.g. KD-20245"/>
+          </div>
+          <div>
+            <label class="claim-inp-label">Crop Stage at Claim</label>
+            <select class="claim-inp" style="background:rgba(255,255,255,.08);cursor:pointer;">
+              <option style="background:#1a4d2e;">Select stage…</option>
+              <option style="background:#1a4d2e;">Germination (Day 0–10)</option>
+              <option style="background:#1a4d2e;">Vegetative (Day 10–45)</option>
+              <option style="background:#1a4d2e;">Flowering (Day 45–75)</option>
+              <option style="background:#1a4d2e;">Harvest (Day 75+)</option>
+            </select>
+          </div>
+          <div class="full">
+            <label class="claim-inp-label">Describe the Issue</label>
+            <textarea class="claim-inp" rows="3" placeholder="Describe what happened — e.g. seeds did not germinate, pest damage continued after spraying…" style="resize:none;"></textarea>
+          </div>
+          <div class="full">
+            <button class="btn btn-gold btn-lg btn-block" style="border-radius:var(--r8);">
+              🛡️ Submit Guarantee Claim
+            </button>
+          </div>
+        </div>
+        <div style="display:flex;gap:12px;margin-top:14px;flex-wrap:wrap;">
+          <a href="contact.html" style="color:rgba(255,255,255,.55);font-size:13px;">📞 Call us instead →</a>
+          <a href="contact.html" style="color:rgba(255,255,255,.55);font-size:13px;">💬 WhatsApp us →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;">
+      <div>
+        <div class="section-eyebrow reveal">FAQ</div>
+        <h2 class="section-title reveal d1">Common Questions<br/>About the Guarantee</h2>
+        <p class="section-desc reveal d2">Can't find your answer here? <a href="contact.html" style="color:var(--g600);font-weight:700;">Contact our support team</a> — we respond within 2 hours.</p>
+      </div>
+      <div class="faq-list reveal">
+        <div class="faq-item open">
+          <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How long does the refund take after approval?</span><span class="faq-icon">+</span></div>
+          <div class="faq-a"><div class="faq-a-inner">Once your claim is approved, we process the refund to your UPI ID or bank account within 7 working days. You will receive a confirmation message once payment is initiated.</div></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Do I need to visit an office to file a claim?</span><span class="faq-icon">+</span></div>
+          <div class="faq-a"><div class="faq-a-inner">No office visit needed. You can file the claim entirely through the KisanDirect app, WhatsApp, or this website. If a field inspection is required, our agent will come to your farm — you don't need to go anywhere.</div></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">What if only part of my crop failed?</span><span class="faq-icon">+</span></div>
+          <div class="faq-a"><div class="faq-a-inner">Partial crop failures are assessed proportionally. If 40% of your field failed due to a product issue and 60% grew normally, the claim would cover approximately 40% of the relevant product cost. Our inspection team will determine the affected area.</div></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">I forgot to submit the Day 7 photo. Can I still claim?</span><span class="faq-icon">+</span></div>
+          <div class="faq-a"><div class="faq-a-inner">Missing one photo makes the claim harder to approve but not automatically invalid. Contact our support team as soon as possible to discuss your situation. We review each case individually with fairness.</div></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Can I claim for multiple products in one order?</span><span class="faq-icon">+</span></div>
+          <div class="faq-a"><div class="faq-a-inner">Yes. If multiple products from one order contributed to the crop failure, you can include all of them in a single claim. Each product will be assessed separately based on its specific usage conditions.</div></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Does the guarantee cover delivery damage?</span><span class="faq-icon">+</span></div>
+          <div class="faq-a"><div class="faq-a-inner">Yes. If you receive a damaged seed bag, leaking bottle, or any product with a broken seal, report it immediately via WhatsApp with a photo. We replace or refund the product at no cost within 48 hours.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div><!-- page-body -->
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand"><div class="fb-logo"><span class="fb-logo-icon">🌽</span><span class="fb-logo-text">KisanDirect</span></div><p>Authentic maize seeds and pesticides, factory direct with 100% crop guarantee.</p><div class="socials"><div class="sico">📘</div><div class="sico">💬</div><div class="sico">📸</div></div></div>
+      <div class="footer-col"><h4>Products</h4><ul><li><a href="products.html">Maize Seeds</a></li><li><a href="products.html">Pesticides</a></li><li><a href="products.html">Herbicides</a></li></ul></div>
+      <div class="footer-col"><h4>Platform</h4><ul><li><a href="guarantee.html">Guarantee</a></li><li><a href="advisory.html">Advisory</a></li><li><a href="about.html">About</a></li></ul></div>
+      <div class="footer-col"><h4>Support</h4><ul><li><a href="contact.html">Contact Us</a></li><li><a href="guarantee.html">File a Claim</a></li><li><a href="contact.html">FAQs</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 KisanDirect.</span><span>Made with 💚 for Indian farmers</span></div>
+  </div>
+</footer>
+
+<script>
+function toggleNav(){ document.getElementById('mobileNav').classList.toggle('open'); }
+function toggleFaq(el){
+  const item = el.closest('.faq-item');
+  document.querySelectorAll('.faq-item').forEach(i=>{ if(i!==item) i.classList.remove('open'); });
+  item.classList.toggle('open');
+}
+window.addEventListener('scroll',()=>{ document.getElementById('navbar').classList.toggle('solid', scrollY>50); });
+const obs = new IntersectionObserver(e=>e.forEach(x=>{ if(x.isIntersecting) x.target.classList.add('up'); }),{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>

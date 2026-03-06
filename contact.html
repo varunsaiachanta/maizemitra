@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Contact & Support – KisanDirect</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Nunito:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="shared.css"/>
+<style>
+/* hero */
+.contact-hero { background:linear-gradient(135deg,var(--g900),var(--g700)); padding:90px 0 80px; position:relative; overflow:hidden; }
+.contact-hero::before { content:'💬'; position:absolute; right:-40px; bottom:-30px; font-size:300px; opacity:.05; line-height:1; }
+.contact-hero::after { content:''; position:absolute; bottom:-2px; left:0; right:0; height:90px; background:var(--wh); clip-path:polygon(0 100%,100% 100%,100% 10%,0 100%); }
+/* contact cards */
+.contact-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-bottom:56px; }
+.cc-card { background:var(--wh); border-radius:var(--r20); border:1px solid var(--br); padding:32px 24px; box-shadow:0 4px 16px var(--sh); text-align:center; transition:all .3s; cursor:pointer; }
+.cc-card:hover { transform:translateY(-6px); box-shadow:0 16px 40px var(--sh2); border-color:var(--g200); }
+.cc-icon { font-size:48px; margin-bottom:16px; }
+.cc-title { font-size:18px; font-weight:800; color:var(--t1); margin-bottom:8px; }
+.cc-detail { font-size:16px; font-weight:700; color:var(--g800); margin-bottom:6px; }
+.cc-sub { font-size:13px; color:var(--t4); line-height:1.5; margin-bottom:20px; }
+.cc-btn { display:inline-block; padding:10px 24px; border-radius:var(--rr); font-size:13px; font-weight:700; cursor:pointer; border:none; font-family:'Nunito',sans-serif; }
+/* main form layout */
+.contact-wrap { display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:start; }
+/* contact form */
+.contact-form { background:var(--wh); border-radius:var(--r20); border:1px solid var(--br); box-shadow:0 8px 32px var(--sh); overflow:hidden; }
+.cf-head { background:linear-gradient(135deg,var(--g800),var(--g600)); padding:24px 28px; }
+.cf-head h3 { font-family:'Cormorant Garamond',serif; font-size:24px; font-weight:700; color:#fff; margin-bottom:4px; }
+.cf-head p { font-size:12px; color:rgba(255,255,255,.6); }
+.cf-body { padding:28px; display:flex; flex-direction:column; gap:16px; }
+.form-row2 { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.inquiry-tabs { display:flex; gap:6px; flex-wrap:wrap; }
+.inq-tab { padding:8px 14px; border-radius:var(--rr); border:1.5px solid var(--br); font-size:12px; font-weight:700; color:var(--t2); cursor:pointer; transition:all .2s; font-family:'Nunito',sans-serif; background:var(--wh); }
+.inq-tab.on { background:var(--g800); color:#fff; border-color:var(--g800); }
+.inp-textarea { min-height:100px; resize:vertical; }
+.char-count { font-size:11px; color:var(--t4); text-align:right; margin-top:-8px; }
+.file-upload { border:2px dashed var(--br); border-radius:var(--r8); padding:20px; text-align:center; cursor:pointer; transition:all .2s; }
+.file-upload:hover { border-color:var(--g400); background:var(--g50); }
+.fu-icon { font-size:28px; margin-bottom:6px; }
+.fu-text { font-size:13px; font-weight:700; color:var(--t2); margin-bottom:2px; }
+.fu-sub { font-size:11px; color:var(--t4); }
+/* sidebar info */
+.contact-sidebar { display:flex; flex-direction:column; gap:16px; }
+.info-card { background:var(--g50); border-radius:var(--r14); border:1px solid var(--br); padding:20px 22px; }
+.ic-head { display:flex; align-items:center; gap:10px; margin-bottom:14px; }
+.ic-icon { font-size:22px; }
+.ic-title { font-size:14px; font-weight:800; color:var(--t1); }
+.ic-row { display:flex; gap:10px; margin-bottom:10px; align-items:flex-start; font-size:13px; color:var(--t2); }
+.ic-row-icon { font-size:14px; flex-shrink:0; margin-top:1px; }
+.response-time { background:linear-gradient(135deg,var(--g800),var(--g600)); border-radius:var(--r14); padding:20px 22px; }
+.rt-inner { display:flex; gap:12px; align-items:center; margin-bottom:10px; }
+.rt-icon { font-size:28px; }
+.rt-label { font-size:14px; font-weight:800; color:#fff; }
+.rt-sub { font-size:12px; color:rgba(255,255,255,.6); margin-top:2px; }
+.rt-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+.rt-item { background:rgba(255,255,255,.1); border-radius:var(--r8); padding:10px 12px; }
+.rt-item-label { font-size:10px; color:rgba(255,255,255,.5); font-weight:700; text-transform:uppercase; letter-spacing:.3px; }
+.rt-item-val { font-size:14px; font-weight:800; color:#fff; margin-top:2px; }
+.hours-grid { display:flex; flex-direction:column; gap:8px; }
+.hg-row { display:flex; justify-content:space-between; font-size:13px; color:var(--t2); border-bottom:1px solid var(--br); padding-bottom:8px; }
+.hg-row:last-child { border-bottom:none; padding-bottom:0; }
+.hg-day { font-weight:700; color:var(--t1); }
+.hg-status { font-size:10px; font-weight:700; padding:2px 8px; border-radius:var(--rr); }
+.status-open { background:var(--g100); color:var(--g800); }
+.status-closed { background:var(--br); color:var(--t4); }
+/* claim section */
+.claim-section { background:linear-gradient(135deg,var(--gold-d),var(--gold)); border-radius:var(--r20); padding:36px; position:relative; overflow:hidden; }
+.claim-section::before { content:'🛡️'; position:absolute; right:-20px; top:-20px; font-size:180px; opacity:.1; line-height:1; }
+.claim-section h3 { font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:700; color:#fff; margin-bottom:10px; }
+.claim-section p { font-size:14px; color:rgba(255,255,255,.7); line-height:1.7; margin-bottom:20px; }
+/* faq */
+.faq-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.faq-item { background:var(--wh); border:1px solid var(--br); border-radius:var(--r14); overflow:hidden; }
+.faq-q { padding:16px 18px; display:flex; justify-content:space-between; align-items:center; cursor:pointer; transition:background .2s; }
+.faq-q:hover { background:var(--g50); }
+.faq-q-text { font-size:13px; font-weight:700; color:var(--t1); flex:1; padding-right:10px; }
+.faq-icon { font-size:18px; color:var(--t4); transition:transform .3s; flex-shrink:0; }
+.faq-item.open .faq-icon { transform:rotate(45deg); color:var(--g600); }
+.faq-a { max-height:0; overflow:hidden; transition:max-height .35s ease; }
+.faq-item.open .faq-a { max-height:200px; }
+.faq-a-inner { padding:0 18px 16px; font-size:12px; color:var(--t3); line-height:1.65; border-top:1px solid var(--br); padding-top:14px; }
+/* success state */
+.success-msg { display:none; background:var(--g50); border:1.5px solid var(--g300); border-radius:var(--r14); padding:20px 24px; text-align:center; }
+.success-msg.show { display:block; }
+.success-msg .sm-icon { font-size:40px; margin-bottom:10px; }
+.success-msg h4 { font-size:16px; font-weight:800; color:var(--g800); margin-bottom:6px; }
+.success-msg p { font-size:13px; color:var(--t3); line-height:1.6; }
+
+@media(max-width:900px){
+  .contact-cards { grid-template-columns:1fr 1fr; }
+  .contact-wrap { grid-template-columns:1fr; }
+  .faq-grid { grid-template-columns:1fr; }
+  .form-row2 { grid-template-columns:1fr; }
+}
+@media(max-width:600px){
+  .contact-cards { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="mobile-nav" id="mobileNav">
+  <a class="mnl" href="index.html">Home</a><a class="mnl" href="products.html">Products</a>
+  <a class="mnl" href="guarantee.html">Guarantee</a><a class="mnl" href="advisory.html">Advisory</a>
+  <a class="mnl" href="about.html">About</a><a class="mnl" href="contact.html">Support</a>
+  <div class="mobile-nav-ctas"><a href="app.html" style="display:block;text-align:center;padding:13px;background:var(--g800);border-radius:50px;color:#fff;font-weight:800;">📱 App Preview</a></div>
+</div>
+
+<nav id="navbar">
+  <div class="container">
+    <div class="nav-wrap">
+      <a href="index.html" class="nav-logo"><span class="nav-logo-icon">🌽</span><span class="nav-logo-text">KisanDirect</span></a>
+      <ul class="nav-links">
+        <li><a href="products.html" class="nav-link">Products</a></li>
+        <li><a href="guarantee.html" class="nav-link">Guarantee</a></li>
+        <li><a href="advisory.html" class="nav-link">Advisory</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="contact.html" class="nav-link active-link">Support</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="app.html"><button class="btn-nav btn-nav-ghost">📱 App</button></a>
+        <a href="products.html"><button class="btn-nav btn-nav-primary">Shop Now</button></a>
+      </div>
+      <div class="hamburger" onclick="toggleNav()"><div class="hbar"></div><div class="hbar"></div><div class="hbar"></div></div>
+    </div>
+  </div>
+</nav>
+
+<div class="page-body">
+
+<!-- HERO -->
+<section class="contact-hero">
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="breadcrumb"><a href="index.html">Home</a><span class="sep">›</span><span class="cur">Support</span></div>
+    <div style="font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--g300);margin-bottom:12px;">We're Here to Help</div>
+    <h1 style="font-family:'Cormorant Garamond',serif;font-size:clamp(38px,5vw,62px);font-weight:700;color:#fff;line-height:1.08;margin-bottom:14px;">
+      Support That Works<br/>as Hard as You Do
+    </h1>
+    <p style="font-size:16px;color:rgba(255,255,255,.6);max-width:520px;line-height:1.75;">
+      Questions about your order? Crop guidance needed? Guarantee claim to file? We respond within 2 hours — Monday to Saturday.
+    </p>
+  </div>
+</section>
+
+<!-- CONTACT CHANNELS -->
+<section class="sec">
+  <div class="container">
+    <div class="contact-cards">
+      <div class="cc-card reveal">
+        <div class="cc-icon">📞</div>
+        <div class="cc-title">Call Us</div>
+        <div class="cc-detail">+91 98765 43210</div>
+        <div class="cc-sub">Talk directly to our team. Available for order help, crop advice, and claim queries.</div>
+        <button class="cc-btn btn-primary btn" style="border-radius:var(--rr);">📞 Call Now</button>
+      </div>
+      <div class="cc-card reveal d1">
+        <div class="cc-icon">💬</div>
+        <div class="cc-title">WhatsApp</div>
+        <div class="cc-detail">+91 98765 43210</div>
+        <div class="cc-sub">Send us a crop photo. Our agronomist will diagnose the problem and respond in under 2 hours.</div>
+        <button class="cc-btn btn-primary btn" style="border-radius:var(--rr);background:#25D366;">💬 WhatsApp Us</button>
+      </div>
+      <div class="cc-card reveal d2">
+        <div class="cc-icon">🛡️</div>
+        <div class="cc-title">File a Claim</div>
+        <div class="cc-detail">Guarantee Claims</div>
+        <div class="cc-sub">Crop didn't perform? Start your claim process online. Refund in 7 days after inspection.</div>
+        <a href="guarantee.html"><button class="cc-btn btn-gold btn" style="border-radius:var(--rr);">🛡️ Start Claim</button></a>
+      </div>
+    </div>
+
+    <!-- MAIN CONTACT FORM + SIDEBAR -->
+    <div class="contact-wrap">
+      <!-- FORM -->
+      <div class="contact-form">
+        <div class="cf-head">
+          <h3>Send Us a Message</h3>
+          <p>We'll respond within 2 business hours · Mon–Sat 8 AM – 7 PM</p>
+        </div>
+        <div class="cf-body" id="contactForm">
+          <div>
+            <label class="inp-label">What's this about?</label>
+            <div class="inquiry-tabs">
+              <button class="inq-tab on" onclick="selectTab(this)">📦 My Order</button>
+              <button class="inq-tab" onclick="selectTab(this)">🌽 Crop Issue</button>
+              <button class="inq-tab" onclick="selectTab(this)">🛡️ Claim</button>
+              <button class="inq-tab" onclick="selectTab(this)">🛍️ Product Info</button>
+              <button class="inq-tab" onclick="selectTab(this)">💬 Other</button>
+            </div>
+          </div>
+          <div class="form-row2">
+            <div>
+              <label class="inp-label">Your Name *</label>
+              <input class="inp" placeholder="Ramesh Kumar" id="inp-name"/>
+            </div>
+            <div>
+              <label class="inp-label">Mobile Number *</label>
+              <input class="inp" placeholder="98765 43210" id="inp-phone"/>
+            </div>
+          </div>
+          <div class="form-row2">
+            <div>
+              <label class="inp-label">Village / Location</label>
+              <input class="inp" placeholder="Nandgaon, Maharashtra" id="inp-village"/>
+            </div>
+            <div>
+              <label class="inp-label">Order Number (if any)</label>
+              <input class="inp" placeholder="KD-20245" id="inp-order"/>
+            </div>
+          </div>
+          <div>
+            <label class="inp-label">Your Message *</label>
+            <textarea class="inp inp-textarea" placeholder="Describe your issue or question in detail. The more information you provide, the faster we can help…" id="inp-message" oninput="updateCount(this)"></textarea>
+            <div class="char-count" id="charCount">0 / 500 characters</div>
+          </div>
+          <!-- File upload -->
+          <div>
+            <label class="inp-label">Attach Photos (optional)</label>
+            <div class="file-upload">
+              <div class="fu-icon">📸</div>
+              <div class="fu-text">Tap to upload crop photos</div>
+              <div class="fu-sub">JPG, PNG · Max 5MB each · Up to 4 photos</div>
+            </div>
+          </div>
+          <button class="btn btn-primary btn-lg btn-block" style="border-radius:var(--r8);" onclick="submitForm()">
+            Send Message 📨
+          </button>
+        </div>
+        <!-- Success state -->
+        <div class="success-msg" id="successMsg">
+          <div class="sm-icon">✅</div>
+          <h4>Message Received!</h4>
+          <p>Thank you for reaching out. Our team will respond to your query within 2 business hours. You will receive a confirmation on your WhatsApp shortly.</p>
+          <div style="margin-top:14px;"><a href="index.html"><button class="btn btn-primary btn-md" style="border-radius:var(--rr);">Back to Home</button></a></div>
+        </div>
+      </div>
+
+      <!-- SIDEBAR -->
+      <div class="contact-sidebar">
+        <!-- Response times -->
+        <div class="response-time reveal">
+          <div class="rt-inner">
+            <span class="rt-icon">⚡</span>
+            <div><div class="rt-label">Our Response Times</div><div class="rt-sub">Guaranteed response windows</div></div>
+          </div>
+          <div class="rt-grid">
+            <div class="rt-item"><div class="rt-item-label">WhatsApp</div><div class="rt-item-val">&lt; 2 hrs</div></div>
+            <div class="rt-item"><div class="rt-item-label">Phone</div><div class="rt-item-val">Instant</div></div>
+            <div class="rt-item"><div class="rt-item-label">Web Form</div><div class="rt-item-val">&lt; 4 hrs</div></div>
+            <div class="rt-item"><div class="rt-item-label">Claim Review</div><div class="rt-item-val">48 hrs</div></div>
+          </div>
+        </div>
+        <!-- Support hours -->
+        <div class="info-card reveal d1">
+          <div class="ic-head"><span class="ic-icon">🕐</span><div class="ic-title">Support Hours</div></div>
+          <div class="hours-grid">
+            <div class="hg-row"><span class="hg-day">Monday – Friday</span><div><span class="hg-status status-open">Open</span><span style="font-size:12px;color:var(--t4);margin-left:6px;">8 AM – 7 PM</span></div></div>
+            <div class="hg-row"><span class="hg-day">Saturday</span><div><span class="hg-status status-open">Open</span><span style="font-size:12px;color:var(--t4);margin-left:6px;">8 AM – 5 PM</span></div></div>
+            <div class="hg-row"><span class="hg-day">Sunday</span><div><span class="hg-status status-closed">Closed</span><span style="font-size:12px;color:var(--t4);margin-left:6px;">WhatsApp only</span></div></div>
+            <div class="hg-row"><span class="hg-day">Public Holidays</span><div><span class="hg-status status-closed">Closed</span><span style="font-size:12px;color:var(--t4);margin-left:6px;">Emergencies via WA</span></div></div>
+          </div>
+        </div>
+        <!-- Address -->
+        <div class="info-card reveal d2">
+          <div class="ic-head"><span class="ic-icon">📍</span><div class="ic-title">Our Office</div></div>
+          <div class="ic-row"><span class="ic-row-icon">🏢</span>KisanDirect Agricultural Services</div>
+          <div class="ic-row"><span class="ic-row-icon">📮</span>Near Gram Panchayat Office, Nandgaon Village, Wardha District, Maharashtra – 442001</div>
+          <div class="ic-row"><span class="ic-row-icon">✉️</span>support@kisandirect.in</div>
+        </div>
+        <!-- Guarantee claim promo -->
+        <div class="claim-section reveal d3">
+          <div style="position:relative;z-index:1;">
+            <h3>Crop Issue?<br/>You're Covered.</h3>
+            <p>Don't wait. If your crop is showing problems, raise a guarantee claim today. We inspect within 48 hours and refund in 7 days.</p>
+            <a href="guarantee.html"><button class="btn btn-lg" style="background:#fff;color:var(--gold-d);border-radius:var(--rr);font-weight:800;padding:12px 28px;font-family:'Nunito',sans-serif;border:none;cursor:pointer;">🛡️ File a Claim</button></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec sec-soft">
+  <div class="container">
+    <div class="sec-head center">
+      <div class="section-eyebrow reveal">Quick Answers</div>
+      <h2 class="section-title reveal d1">Frequently Asked Questions</h2>
+      <p class="section-desc reveal d2">Common questions from our farmers. Can't find your answer? <a href="#" style="color:var(--g600);font-weight:700;">WhatsApp us directly</a>.</p>
+    </div>
+    <div class="faq-grid reveal">
+      <div class="faq-item open">
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How do I track my order?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Once your order is placed, you will receive a WhatsApp confirmation with a tracking link. You can also check order status in the KisanDirect app under "My Orders". Delivery updates are sent automatically at each stage.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Can I cancel my order?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Orders can be cancelled within 2 hours of placing them before they are packed. After packing begins, cancellation is not possible but we accept returns of unopened products within 48 hours of delivery.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">What if I receive a damaged product?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Take a photo of the damaged product immediately and send it to our WhatsApp. We replace or refund within 48 hours, no questions asked. This includes leaking bottles, torn seed bags, or broken seals.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">I can't read the dosage instructions. Can you help?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Absolutely. Call us or send a WhatsApp photo of the product and we'll walk you through the exact dosage, timing, and application method verbally or via voice note. We also have video guides in Hindi and Marathi.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How do I submit crop photos for the guarantee?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">You can submit crop photos three ways: through the KisanDirect app (Photos section), via WhatsApp to our support number, or by emailing them to support@kisandirect.in. Include your order number in the message.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Do you deliver outside Nandgaon village?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Currently we are in a pilot phase serving Nandgaon village only. We are expanding to 4 neighbouring villages in Q3 2025. Contact us with your village name and we'll add you to our early access list for your area.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">What payment methods do you accept?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">We accept Cash on Delivery (pay when you receive your order), UPI payments (GPay, PhonePe, Paytm), and bank transfers. We do not accept credit/debit card payments at this time.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Can I get an invoice for my purchase?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes. A GST invoice is generated automatically for every order and sent to your WhatsApp number. You can also download it from the app under "My Orders → Invoice". Physical copies are available on request.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EMERGENCY ADVISORY -->
+<section class="sec">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+      <div style="background:linear-gradient(135deg,#7a3900,#b85700);border-radius:var(--r20);padding:36px;position:relative;overflow:hidden;" class="reveal">
+        <div style="position:absolute;right:-10px;top:-10px;font-size:120px;opacity:.1;">🐛</div>
+        <div style="position:relative;z-index:1;">
+          <div style="font-size:12px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:10px;">Emergency Support</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:700;color:#fff;margin-bottom:10px;">Crop Emergency?</div>
+          <div style="font-size:14px;color:rgba(255,255,255,.65);line-height:1.7;margin-bottom:20px;">If you see sudden crop damage — wilting, unusual spots, pest outbreak — act fast. Send us a photo right now and our agronomist will respond in 1 hour.</div>
+          <button class="btn btn-lg" style="background:rgba(255,255,255,.15);color:#fff;border:1.5px solid rgba(255,255,255,.3);border-radius:var(--rr);padding:12px 24px;font-family:'Nunito',sans-serif;cursor:pointer;font-weight:700;">📸 Send Crop Photo Now</button>
+        </div>
+      </div>
+      <div style="background:linear-gradient(135deg,var(--g900),var(--g800));border-radius:var(--r20);padding:36px;position:relative;overflow:hidden;" class="reveal d1">
+        <div style="position:absolute;right:-10px;top:-10px;font-size:120px;opacity:.1;">🌽</div>
+        <div style="position:relative;z-index:1;">
+          <div style="font-size:12px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:10px;">Pilot Programme</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:700;color:#fff;margin-bottom:10px;">New Farmer?</div>
+          <div style="font-size:14px;color:rgba(255,255,255,.55);line-height:1.7;margin-bottom:20px;">Join the KisanDirect pilot in Nandgaon village. Register today and get your first order with free crop advisory for the entire Kharif 2025 season.</div>
+          <a href="about.html"><button class="btn btn-gold btn-lg" style="border-radius:var(--rr);">🌱 Join the Pilot →</button></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div><!-- page-body -->
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand"><div class="fb-logo"><span class="fb-logo-icon">🌽</span><span class="fb-logo-text">KisanDirect</span></div><p>Authentic maize seeds and pesticides, factory direct with 100% crop guarantee.</p><div class="socials"><div class="sico">📘</div><div class="sico">💬</div><div class="sico">📸</div></div></div>
+      <div class="footer-col"><h4>Products</h4><ul><li><a href="products.html">Maize Seeds</a></li><li><a href="products.html">Pesticides</a></li><li><a href="products.html">Herbicides</a></li></ul></div>
+      <div class="footer-col"><h4>Platform</h4><ul><li><a href="guarantee.html">Guarantee</a></li><li><a href="advisory.html">Advisory</a></li><li><a href="about.html">About</a></li></ul></div>
+      <div class="footer-col"><h4>Support</h4><ul><li><a href="contact.html">Contact</a></li><li><a href="guarantee.html">File Claim</a></li><li><a href="app.html">App Preview</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 KisanDirect.</span><span>Made with 💚 for Indian farmers</span></div>
+  </div>
+</footer>
+
+<script>
+function toggleNav(){ document.getElementById('mobileNav').classList.toggle('open'); }
+function selectTab(el){ document.querySelectorAll('.inq-tab').forEach(t=>t.classList.remove('on')); el.classList.add('on'); }
+function updateCount(el){ document.getElementById('charCount').textContent = el.value.length+' / 500 characters'; }
+function toggleFaq(el){
+  const item = el.closest('.faq-item');
+  document.querySelectorAll('.faq-item').forEach(i=>{ if(i!==item) i.classList.remove('open'); });
+  item.classList.toggle('open');
+}
+function submitForm(){
+  const name=document.getElementById('inp-name').value;
+  const phone=document.getElementById('inp-phone').value;
+  const msg=document.getElementById('inp-message').value;
+  if(!name||!phone||!msg){ alert('Please fill in your name, phone number, and message.'); return; }
+  document.getElementById('contactForm').style.display='none';
+  document.getElementById('successMsg').classList.add('show');
+}
+window.addEventListener('scroll',()=>{ document.getElementById('navbar').classList.toggle('solid', scrollY>50); });
+const obs = new IntersectionObserver(e=>e.forEach(x=>{ if(x.isIntersecting) x.target.classList.add('up'); }),{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>

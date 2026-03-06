@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Crop Advisory – KisanDirect</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Nunito:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="shared.css"/>
+<style>
+/* hero */
+.adv-hero { background:linear-gradient(135deg,var(--g900),var(--g700)); padding:90px 0 80px; position:relative; overflow:hidden; }
+.adv-hero::before { content:''; position:absolute; inset:0; background:radial-gradient(circle at 80% 40%,rgba(74,173,114,.12),transparent 55%); }
+.adv-hero::after { content:''; position:absolute; bottom:-2px; left:0; right:0; height:90px; background:var(--wh); clip-path:polygon(0 100%,100% 100%,100% 10%,0 100%); }
+/* weather card */
+.weather-card {
+  background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.15);
+  border-radius:var(--r20); padding:24px 28px;
+  display:grid; grid-template-columns:1fr auto; gap:20px; align-items:center;
+  margin-top:28px; max-width:600px;
+}
+.wc-main { display:flex; align-items:center; gap:20px; }
+.wc-icon { font-size:52px; }
+.wc-temp { font-family:'Cormorant Garamond',serif; font-size:52px; font-weight:700; color:#fff; line-height:1; }
+.wc-desc { font-size:14px; color:rgba(255,255,255,.6); margin-top:4px; }
+.wc-details { display:flex; flex-direction:column; gap:8px; }
+.wcd-item { font-size:13px; color:rgba(255,255,255,.65); display:flex; align-items:center; gap:6px; }
+/* alerts */
+.alert-strip { background:linear-gradient(90deg,#7a3900,#b85700); border-radius:var(--r14); padding:18px 22px; display:flex; align-items:flex-start; gap:14px; margin-bottom:14px; }
+.as-icon { font-size:28px; flex-shrink:0; }
+.as-badge { font-size:10px; font-weight:700; background:rgba(255,255,255,.2); color:#fff; border-radius:var(--rr); padding:2px 8px; margin-bottom:4px; display:inline-block; }
+.as-title { font-size:15px; font-weight:800; color:#fff; margin-bottom:4px; }
+.as-desc { font-size:13px; color:rgba(255,255,255,.7); line-height:1.5; }
+.as-action { margin-left:auto; flex-shrink:0; }
+.as-btn { padding:8px 16px; border-radius:var(--rr); border:1.5px solid rgba(255,255,255,.4); background:transparent; color:#fff; font-size:12px; font-weight:700; cursor:pointer; font-family:'Nunito',sans-serif; white-space:nowrap; }
+/* crop calendar */
+.calendar-wrap { overflow-x:auto; }
+.crop-calendar { display:flex; gap:0; min-width:700px; }
+.cal-month { flex:1; text-align:center; }
+.cal-month-label { font-size:11px; font-weight:700; color:var(--t4); padding:8px 4px; border-right:1px solid var(--br); }
+.cal-bar { height:32px; position:relative; }
+.stage-bar { position:absolute; top:4px; height:24px; border-radius:4px; display:flex; align-items:center; justify-content:center; font-size:10px; font-weight:700; color:#fff; overflow:hidden; white-space:nowrap; }
+/* stage tabs */
+.stage-tabs { display:flex; gap:0; border:1px solid var(--br); border-radius:var(--r14); overflow:hidden; margin-bottom:32px; }
+.stage-tab { flex:1; padding:12px 8px; text-align:center; cursor:pointer; font-size:13px; font-weight:700; color:var(--t4); border-right:1px solid var(--br); transition:all .2s; }
+.stage-tab:last-child { border-right:none; }
+.stage-tab.active { background:var(--g800); color:#fff; }
+/* stage detail card */
+.stage-detail { background:var(--wh); border-radius:var(--r20); border:1px solid var(--br); box-shadow:0 4px 20px var(--sh); overflow:hidden; }
+.sd-header { background:linear-gradient(135deg,var(--g800),var(--g600)); padding:24px 28px; display:flex; align-items:center; gap:20px; }
+.sd-header .emoji { font-size:48px; }
+.sd-header h2 { font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:700; color:#fff; margin-bottom:4px; }
+.sd-header p { font-size:13px; color:rgba(255,255,255,.6); }
+.sd-body { padding:28px; display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+.sd-col h4 { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.5px; color:var(--t4); margin-bottom:14px; }
+.task-item { display:flex; gap:12px; align-items:flex-start; padding:12px 14px; background:var(--g50); border-radius:var(--r8); margin-bottom:8px; border:1px solid var(--br); }
+.task-icon { font-size:18px; flex-shrink:0; }
+.task-label { font-size:13px; font-weight:700; color:var(--t1); margin-bottom:3px; }
+.task-sub { font-size:12px; color:var(--t4); line-height:1.4; }
+.task-urgent { border-color:var(--gold); background:var(--gold-l); }
+.product-rec { display:flex; align-items:center; gap:12px; padding:12px 14px; background:var(--g50); border-radius:var(--r8); margin-bottom:8px; border:1px solid var(--br); cursor:pointer; transition:all .2s; }
+.product-rec:hover { border-color:var(--g400); }
+.pr-icon { font-size:28px; }
+.pr-name { font-size:13px; font-weight:700; color:var(--t1); margin-bottom:2px; }
+.pr-dosage { font-size:11px; color:var(--t4); }
+.pr-btn { margin-left:auto; padding:6px 12px; background:var(--g800); color:#fff; border:none; border-radius:var(--r8); font-size:11px; font-weight:700; cursor:pointer; flex-shrink:0; font-family:'Nunito',sans-serif; }
+/* spray schedule */
+.spray-table { width:100%; border-collapse:collapse; font-size:13px; }
+.spray-table th { padding:10px 14px; background:var(--g800); color:#fff; font-size:11px; font-weight:700; text-align:left; letter-spacing:.3px; }
+.spray-table th:first-child { border-radius:var(--r8) 0 0 0; }
+.spray-table th:last-child { border-radius:0 var(--r8) 0 0; }
+.spray-table td { padding:12px 14px; border-bottom:1px solid var(--br); color:var(--t2); vertical-align:top; }
+.spray-table tr:last-child td { border-bottom:none; }
+.spray-table tr:hover td { background:var(--g20); }
+.priority-high { color:var(--red); font-weight:700; }
+.priority-med  { color:var(--gold); font-weight:700; }
+.priority-low  { color:var(--g600); font-weight:700; }
+/* pest library */
+.pest-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+.pest-card { background:var(--wh); border-radius:var(--r14); border:1px solid var(--br); overflow:hidden; box-shadow:0 2px 8px var(--sh); transition:all .3s; }
+.pest-card:hover { transform:translateY(-4px); box-shadow:0 10px 32px var(--sh2); }
+.pest-card-top { padding:20px; background:var(--g50); text-align:center; }
+.pest-icon { font-size:48px; margin-bottom:8px; }
+.pest-name { font-size:14px; font-weight:800; color:var(--t1); }
+.pest-card-body { padding:16px; }
+.pest-risk { display:inline-flex; align-items:center; gap:4px; border-radius:var(--rr); padding:3px 9px; font-size:10px; font-weight:700; margin-bottom:10px; }
+.risk-high { background:var(--red-l); color:var(--red); }
+.risk-med  { background:var(--gold-l); color:var(--gold-d); }
+.risk-low  { background:var(--g100); color:var(--g800); }
+.pest-detail { font-size:12px; color:var(--t3); line-height:1.55; margin-bottom:10px; }
+.pest-treatment { font-size:12px; font-weight:700; color:var(--t1); }
+.pest-treatment span { color:var(--g600); }
+/* tips grid */
+.tips-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+.tip-box { background:var(--wh); border-radius:var(--r14); border:1px solid var(--br); padding:20px 16px; text-align:center; }
+.tip-box-icon { font-size:32px; margin-bottom:10px; }
+.tip-box-title { font-size:13px; font-weight:800; color:var(--t1); margin-bottom:6px; }
+.tip-box-desc { font-size:12px; color:var(--t4); line-height:1.5; }
+
+@media(max-width:900px){
+  .sd-body { grid-template-columns:1fr; }
+  .pest-grid { grid-template-columns:1fr 1fr; }
+  .tips-grid { grid-template-columns:1fr 1fr; }
+}
+@media(max-width:600px){
+  .pest-grid { grid-template-columns:1fr; }
+  .tips-grid { grid-template-columns:1fr 1fr; }
+  .stage-tab span { display:none; }
+}
+</style>
+</head>
+<body>
+
+<div class="mobile-nav" id="mobileNav">
+  <a class="mnl" href="index.html">Home</a><a class="mnl" href="products.html">Products</a>
+  <a class="mnl" href="guarantee.html">Guarantee</a><a class="mnl" href="advisory.html">Advisory</a>
+  <a class="mnl" href="about.html">About</a><a class="mnl" href="contact.html">Support</a>
+  <div class="mobile-nav-ctas"><a href="app.html" style="display:block;text-align:center;padding:13px;background:var(--g800);border-radius:50px;color:#fff;font-weight:800;">📱 App Preview</a></div>
+</div>
+
+<nav id="navbar">
+  <div class="container">
+    <div class="nav-wrap">
+      <a href="index.html" class="nav-logo"><span class="nav-logo-icon">🌽</span><span class="nav-logo-text">KisanDirect</span></a>
+      <ul class="nav-links">
+        <li><a href="products.html" class="nav-link">Products</a></li>
+        <li><a href="guarantee.html" class="nav-link">Guarantee</a></li>
+        <li><a href="advisory.html" class="nav-link active-link">Advisory</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="contact.html" class="nav-link">Support</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="app.html"><button class="btn-nav btn-nav-ghost">📱 App</button></a>
+        <a href="contact.html"><button class="btn-nav btn-nav-primary">Order Now</button></a>
+      </div>
+      <div class="hamburger" onclick="toggleNav()"><div class="hbar"></div><div class="hbar"></div><div class="hbar"></div></div>
+    </div>
+  </div>
+</nav>
+
+<div class="page-body">
+
+<!-- HERO -->
+<section class="adv-hero">
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="breadcrumb"><a href="index.html">Home</a><span class="sep">›</span><span class="cur">Crop Advisory</span></div>
+    <div style="font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--g300);margin-bottom:12px;">Free with Every Order</div>
+    <h1 style="font-family:'Cormorant Garamond',serif;font-size:clamp(38px,5vw,62px);font-weight:700;color:#fff;line-height:1.08;margin-bottom:14px;">
+      Grow Smarter.<br/>Harvest More.
+    </h1>
+    <p style="font-size:16px;color:rgba(255,255,255,.6);max-width:520px;line-height:1.75;margin-bottom:0;">
+      Stage-by-stage crop guidance built by agronomists, tuned for your maize field. Know exactly what to do, when to spray, and how to protect your yield.
+    </p>
+    <div class="weather-card reveal">
+      <div class="wc-main">
+        <div class="wc-icon">🌤️</div>
+        <div>
+          <div class="wc-temp">32°C</div>
+          <div style="font-size:15px;font-weight:700;color:#fff;">Partly Cloudy</div>
+          <div class="wc-desc">Nandgaon Village · March 6, 2025</div>
+        </div>
+      </div>
+      <div class="wc-details">
+        <div class="wcd-item">💧 Humidity: 68%</div>
+        <div class="wcd-item">💨 Wind: 12 km/h NW</div>
+        <div class="wcd-item">🌧️ Rain chance: 20%</div>
+        <div class="wcd-item">🌡️ Soil temp: 28°C</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACTIVE ALERTS -->
+<section class="sec-sm" style="background:var(--g20);border-bottom:1px solid var(--br);">
+  <div class="container">
+    <div style="font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--t4);margin-bottom:14px;">⚠️ Active Alerts — Nandgaon Village</div>
+    <div class="alert-strip">
+      <span class="as-icon">🐛</span>
+      <div>
+        <div class="as-badge">HIGH RISK</div>
+        <div class="as-title">Fall Armyworm — Spray This Week</div>
+        <div class="as-desc">FAW pressure is high in your region. Apply Coragen at 20–25 DAP. Spray before 10 AM when larvae are most active. Coverage: underside of leaves.</div>
+      </div>
+      <div class="as-action"><button class="as-btn" onclick="window.location.href='products.html'">Buy Coragen →</button></div>
+    </div>
+    <div style="background:linear-gradient(90deg,#00457a,#0984e3);border-radius:var(--r14);padding:16px 22px;display:flex;align-items:center;gap:14px;">
+      <span style="font-size:24px;">🌧️</span>
+      <div>
+        <div style="font-size:13px;font-weight:800;color:#fff;margin-bottom:3px;">Weather Advisory — Heavy Rain Expected Friday</div>
+        <div style="font-size:12px;color:rgba(255,255,255,.7);">Avoid foliar sprays Thursday evening. Resume after Friday rain passes. Soil moisture will be adequate — skip scheduled irrigation this week.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CROP STAGE GUIDE -->
+<section class="sec">
+  <div class="container">
+    <div class="sec-head">
+      <div class="section-eyebrow reveal">Kharif 2025</div>
+      <h2 class="section-title reveal d1">Stage-by-Stage Crop Guide</h2>
+      <p class="section-desc reveal d2">Click any stage below to see the complete task list, recommended products, and timing for that growth phase.</p>
+    </div>
+    <div class="stage-tabs reveal">
+      <div class="stage-tab active" onclick="showStage(0,this)">🌱 <span>Germination</span><br/><small style="font-size:10px;font-weight:500;">Day 0–10</small></div>
+      <div class="stage-tab" onclick="showStage(1,this)">🌿 <span>Vegetative</span><br/><small style="font-size:10px;font-weight:500;">Day 10–45</small></div>
+      <div class="stage-tab" onclick="showStage(2,this)">🌸 <span>Flowering</span><br/><small style="font-size:10px;font-weight:500;">Day 45–75</small></div>
+      <div class="stage-tab" onclick="showStage(3,this)">🌽 <span>Grain Fill</span><br/><small style="font-size:10px;font-weight:500;">Day 75–95</small></div>
+      <div class="stage-tab" onclick="showStage(4,this)">🏆 <span>Harvest</span><br/><small style="font-size:10px;font-weight:500;">Day 95–110</small></div>
+    </div>
+
+    <!-- Stage 0: Germination -->
+    <div class="stage-detail" id="stage-0">
+      <div class="sd-header">
+        <div class="emoji">🌱</div>
+        <div>
+          <h2>Germination Stage</h2>
+          <p>Day 0 – Day 10 · <strong style="color:rgba(255,255,255,.85);">Current Stage</strong> for Kharif 2025</p>
+        </div>
+        <div style="margin-left:auto;" class="badge badge-green">Active Now</div>
+      </div>
+      <div class="sd-body">
+        <div class="sd-col">
+          <h4>This Week's Tasks</h4>
+          <div class="task-item task-urgent">
+            <span class="task-icon">📸</span>
+            <div><div class="task-label">Submit Seed Bag Photo</div><div class="task-sub">Photograph before opening bag. Batch number must be visible. <strong>Required for guarantee.</strong></div></div>
+          </div>
+          <div class="task-item">
+            <span class="task-icon">💧</span>
+            <div><div class="task-label">Light Irrigation</div><div class="task-sub">Irrigate within 48 hours of sowing. Avoid waterlogging — just enough to keep soil moist.</div></div>
+          </div>
+          <div class="task-item">
+            <span class="task-icon">📐</span>
+            <div><div class="task-label">Verify Row Spacing</div><div class="task-sub">Confirm 60 cm row × 20 cm plant spacing before seeds are covered with soil.</div></div>
+          </div>
+          <div class="task-item">
+            <span class="task-icon">🌡️</span>
+            <div><div class="task-label">Monitor Soil Temp</div><div class="task-sub">Ideal range: 20–30°C. Check early morning. Below 18°C slows germination significantly.</div></div>
+          </div>
+          <div class="task-item task-urgent">
+            <span class="task-icon">📸</span>
+            <div><div class="task-label">Day 7 Field Photo</div><div class="task-sub">Photograph germinating crop at day 7. Expected germination: 70%+. Required for guarantee activation.</div></div>
+          </div>
+        </div>
+        <div class="sd-col">
+          <h4>Recommended Products</h4>
+          <div class="product-rec">
+            <div class="pr-icon">🌽</div>
+            <div><div class="pr-name">DKC 9108 Hybrid Maize Seed</div><div class="pr-dosage">Rate: 8–10 kg/acre · Depth: 3–4 cm</div></div>
+            <button class="pr-btn" onclick="window.location.href='products.html'">Order</button>
+          </div>
+          <h4 style="margin-top:16px;">Germination Tips</h4>
+          <div style="background:var(--gold-l);border-radius:var(--r8);border:1px solid var(--gold);padding:14px;margin-bottom:8px;">
+            <div style="font-size:12px;font-weight:700;color:var(--gold-d);margin-bottom:6px;">💡 Seed Treatment</div>
+            <div style="font-size:12px;color:#7a5200;line-height:1.5;">Treat seed with Thiram (2g/kg) before sowing to prevent seed rot and early damping-off.</div>
+          </div>
+          <div style="background:var(--blue-l);border-radius:var(--r8);border:1px solid var(--blue);padding:14px;">
+            <div style="font-size:12px;font-weight:700;color:var(--blue);margin-bottom:6px;">🌧️ Rain After Sowing?</div>
+            <div style="font-size:12px;color:#00457a;line-height:1.5;">If rain is forecast within 24 hours of sowing, skip pre-sowing irrigation. Let rain do the work.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stage 1: Vegetative (hidden) -->
+    <div class="stage-detail" id="stage-1" style="display:none;">
+      <div class="sd-header"><div class="emoji">🌿</div><div><h2>Vegetative Stage</h2><p>Day 10 – Day 45 · Critical pest window</p></div></div>
+      <div class="sd-body">
+        <div class="sd-col">
+          <h4>Priority Tasks</h4>
+          <div class="task-item task-urgent"><span class="task-icon">🐛</span><div><div class="task-label">Spray for Fall Armyworm (Day 20–25)</div><div class="task-sub">Use Coragen at 0.4 ml/litre. Spray morning. Target: growing point and whorl of plant.</div></div></div>
+          <div class="task-item"><span class="task-icon">🌿</span><div><div class="task-label">Apply Herbicide (Day 3–5)</div><div class="task-sub">Atrazine 50% WP at 1 kg/acre pre-emergent. Apply before weed germination for best results.</div></div></div>
+          <div class="task-item"><span class="task-icon">💧</span><div><div class="task-label">Irrigation Schedule</div><div class="task-sub">Every 7–10 days. Increase frequency if weather is dry and temperatures exceed 35°C.</div></div></div>
+          <div class="task-item task-urgent"><span class="task-icon">📸</span><div><div class="task-label">Day 20 Guarantee Photo</div><div class="task-sub">Wide-angle photo of your crop. Final chance to submit guarantee documentation.</div></div></div>
+        </div>
+        <div class="sd-col">
+          <h4>Recommended Products</h4>
+          <div class="product-rec"><div class="pr-icon">🧴</div><div><div class="pr-name">Coragen Insecticide</div><div class="pr-dosage">0.4 ml/litre · Spray at Day 20–25</div></div><button class="pr-btn" onclick="window.location.href='products.html'">Order</button></div>
+          <div class="product-rec"><div class="pr-icon">🌿</div><div><div class="pr-name">Atrazine 50% WP</div><div class="pr-dosage">1 kg/acre · Pre-emergent application</div></div><button class="pr-btn" onclick="window.location.href='products.html'">Order</button></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stages 2–4: Placeholders (same pattern) -->
+    <div class="stage-detail" id="stage-2" style="display:none;">
+      <div class="sd-header"><div class="emoji">🌸</div><div><h2>Flowering Stage</h2><p>Day 45 – Day 75 · Critical irrigation period</p></div></div>
+      <div class="sd-body">
+        <div class="sd-col"><h4>Priority Tasks</h4>
+          <div class="task-item task-urgent"><span class="task-icon">💧</span><div><div class="task-label">Critical Irrigation at Silking</div><div class="task-sub">Do NOT allow drought stress during tassel emergence and silking. Water stress = 30–50% yield loss.</div></div></div>
+          <div class="task-item"><span class="task-icon">🍄</span><div><div class="task-label">Fungicide if Leaf Blight Appears</div><div class="task-sub">Mancozeb 75% WP at 2.5g/litre at first sign of leaf blight. Spray 2–3 times at weekly intervals.</div></div></div>
+        </div>
+        <div class="sd-col"><h4>Recommended Products</h4>
+          <div class="product-rec"><div class="pr-icon">🍄</div><div><div class="pr-name">Mancozeb 75% WP</div><div class="pr-dosage">2.5g/litre · Preventive fungicide</div></div><button class="pr-btn" onclick="window.location.href='products.html'">Order</button></div>
+        </div>
+      </div>
+    </div>
+    <div class="stage-detail" id="stage-3" style="display:none;">
+      <div class="sd-header"><div class="emoji">🌽</div><div><h2>Grain Fill Stage</h2><p>Day 75 – Day 95 · Final push to yield</p></div></div>
+      <div class="sd-body">
+        <div class="sd-col"><h4>Priority Tasks</h4>
+          <div class="task-item"><span class="task-icon">💧</span><div><div class="task-label">Reduce Irrigation Gradually</div><div class="task-sub">Taper irrigation as grain reaches dough stage. Stop 2 weeks before planned harvest.</div></div></div>
+          <div class="task-item"><span class="task-icon">🐛</span><div><div class="task-label">Monitor for Cob Borers</div><div class="task-sub">Check cobs weekly. If boring damage is visible on more than 5% of plants, apply chlorpyrifos spray.</div></div></div>
+        </div>
+        <div class="sd-col"><h4>Recommended Products</h4>
+          <div class="product-rec"><div class="pr-icon">🔬</div><div><div class="pr-name">Chlorpyrifos 20% EC</div><div class="pr-dosage">2ml/litre · Cob borer control</div></div><button class="pr-btn" onclick="window.location.href='products.html'">Order</button></div>
+        </div>
+      </div>
+    </div>
+    <div class="stage-detail" id="stage-4" style="display:none;">
+      <div class="sd-header"><div class="emoji">🏆</div><div><h2>Harvest Stage</h2><p>Day 95 – Day 110 · Reap what you sowed</p></div></div>
+      <div class="sd-body">
+        <div class="sd-col"><h4>Harvest Readiness Checks</h4>
+          <div class="task-item"><span class="task-icon">🌽</span><div><div class="task-label">Husk & Kernel Check</div><div class="task-sub">Peel back husk — kernels should be firm, fully dented, and show a black layer at the base (black layer test).</div></div></div>
+          <div class="task-item"><span class="task-icon">💧</span><div><div class="task-label">Moisture Check</div><div class="task-sub">Target grain moisture: 20–25% for fresh market, 12–14% for storage. Use a moisture meter.</div></div></div>
+          <div class="task-item task-urgent"><span class="task-icon">📸</span><div><div class="task-label">Final Harvest Photo</div><div class="task-sub">Submit a harvest photo with harvested cobs clearly visible. Required to close your guarantee record.</div></div></div>
+        </div>
+        <div class="sd-col"><h4>Post-Harvest Tips</h4>
+          <div style="background:var(--g50);border-radius:var(--r8);border:1px solid var(--br);padding:14px;margin-bottom:8px;font-size:13px;color:var(--t2);line-height:1.6;">🌡️ <strong>Dry grain to 12–14%</strong> moisture before storing to prevent mould and aflatoxin formation.</div>
+          <div style="background:var(--g50);border-radius:var(--r8);border:1px solid var(--br);padding:14px;font-size:13px;color:var(--t2);line-height:1.6;">💰 <strong>Contact us for market linkages</strong> — we can connect you with local traders for the best price.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPRAY SCHEDULE -->
+<section class="sec sec-soft">
+  <div class="container">
+    <div class="sec-head">
+      <div class="section-eyebrow reveal">Full Season Plan</div>
+      <h2 class="section-title reveal d1">Spray & Application Schedule</h2>
+      <p class="section-desc reveal d2">Print this schedule and keep it in your field. Every date is based on your sowing date.</p>
+    </div>
+    <div style="overflow-x:auto;" class="reveal">
+      <table class="spray-table">
+        <thead><tr><th>DAP (Days After Planting)</th><th>Activity</th><th>Product</th><th>Dose</th><th>Priority</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Day 0</strong></td><td>Sowing</td><td>Hybrid Maize Seed</td><td>8–10 kg/acre</td><td class="priority-high">Critical</td><td>Treat seed with Thiram before sowing</td></tr>
+          <tr><td><strong>Day 3–5</strong></td><td>Herbicide Spray</td><td>Atrazine 50% WP</td><td>1 kg/acre</td><td class="priority-high">Critical</td><td>Pre-emergent. Apply in 200L water/acre</td></tr>
+          <tr><td><strong>Day 7</strong></td><td>📸 Guarantee Photo</td><td>—</td><td>—</td><td class="priority-high">Required</td><td>Submit germination photo via app</td></tr>
+          <tr><td><strong>Day 20–25</strong></td><td>Insecticide Spray</td><td>Coragen</td><td>0.4 ml/L</td><td class="priority-high">Critical</td><td>FAW prevention. Spray early morning</td></tr>
+          <tr><td><strong>Day 25</strong></td><td>📸 Guarantee Photo</td><td>—</td><td>—</td><td class="priority-high">Required</td><td>Vegetative stage photo for guarantee</td></tr>
+          <tr><td><strong>Day 30–35</strong></td><td>2nd Insecticide</td><td>Chlorpyrifos 20%</td><td>2 ml/L</td><td class="priority-med">Recommended</td><td>Only if stem borer is detected</td></tr>
+          <tr><td><strong>Day 50–55</strong></td><td>Fungicide Spray</td><td>Mancozeb 75% WP</td><td>2.5 g/L</td><td class="priority-med">Preventive</td><td>If leaf blight symptoms appear</td></tr>
+          <tr><td><strong>Day 75–80</strong></td><td>Cob Borer Check</td><td>Chlorpyrifos 20%</td><td>2 ml/L</td><td class="priority-low">If needed</td><td>Spray only if &gt;5% cobs affected</td></tr>
+          <tr><td><strong>Day 95–110</strong></td><td>Harvest</td><td>—</td><td>—</td><td class="priority-high">Critical</td><td>Harvest when moisture is 20–25%</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- PEST LIBRARY -->
+<section class="sec">
+  <div class="container">
+    <div class="sec-head">
+      <div class="section-eyebrow reveal">Pest & Disease Library</div>
+      <h2 class="section-title reveal d1">Know Your Enemies</h2>
+    </div>
+    <div class="pest-grid">
+      <div class="pest-card reveal"><div class="pest-card-top"><div class="pest-icon">🐛</div><div class="pest-name">Fall Armyworm</div></div><div class="pest-card-body"><div class="pest-risk risk-high">● High Risk</div><div class="pest-detail">Feeds on whorl and leaves of young maize plants. Droppings visible in whorl. Severe infestation causes "dead heart" in seedlings.</div><div class="pest-treatment">Treatment: <span>Coragen 0.4ml/L · Day 20–25</span></div></div></div>
+      <div class="pest-card reveal d1"><div class="pest-card-top"><div class="pest-icon">🦗</div><div class="pest-name">Stem Borer</div></div><div class="pest-card-body"><div class="pest-risk risk-med">● Medium Risk</div><div class="pest-detail">Bores into the stem, causing characteristic "window pane" feeding marks on leaves. Weakens plant structure leading to lodging.</div><div class="pest-treatment">Treatment: <span>Chlorpyrifos 2ml/L · Day 30–35</span></div></div></div>
+      <div class="pest-card reveal d2"><div class="pest-card-top"><div class="pest-icon">🌿</div><div class="pest-name">Weeds (Mixed)</div></div><div class="pest-card-body"><div class="pest-risk risk-high">● High Risk — Early Season</div><div class="pest-detail">Competitive weeds in early season can reduce yield by 30–50%. Grass and broadleaf weeds compete for nutrients and moisture.</div><div class="pest-treatment">Treatment: <span>Atrazine 1kg/acre · Day 3–5</span></div></div></div>
+      <div class="pest-card reveal d3"><div class="pest-card-top"><div class="pest-icon">🍂</div><div class="pest-name">Maize Leaf Blight</div></div><div class="pest-card-body"><div class="pest-risk risk-med">● Medium Risk</div><div class="pest-detail">Fungal disease causing large tan-brown lesions on leaves. Spreads in wet humid conditions. Reduces photosynthesis and yield.</div><div class="pest-treatment">Treatment: <span>Mancozeb 2.5g/L · Day 50–55</span></div></div></div>
+      <div class="pest-card reveal"><div class="pest-card-top"><div class="pest-icon">🟡</div><div class="pest-name">Maize Streak Virus</div></div><div class="pest-card-body"><div class="pest-risk risk-low">● Low Risk</div><div class="pest-detail">Yellow streaking on leaves caused by leafhopper-transmitted virus. Use virus-tolerant hybrid varieties and control leafhopper vectors.</div><div class="pest-treatment">Control: <span>Use tolerant varieties like DKC 9108</span></div></div></div>
+      <div class="pest-card reveal d1"><div class="pest-card-top"><div class="pest-icon">🦟</div><div class="pest-name">Aphids</div></div><div class="pest-card-body"><div class="pest-risk risk-low">● Low Risk — Monitor</div><div class="pest-detail">Small sap-sucking insects on undersides of leaves. Heavy infestation causes leaf curl and honeydew deposits. Often controlled by natural predators.</div><div class="pest-treatment">Treatment: <span>Thiamethoxam 0.25g/L if severe</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- GENERAL TIPS -->
+<section class="sec sec-cream">
+  <div class="container">
+    <div class="sec-head center">
+      <div class="section-eyebrow reveal">Best Practices</div>
+      <h2 class="section-title reveal d1">General Farming Tips</h2>
+    </div>
+    <div class="tips-grid">
+      <div class="tip-box reveal"><div class="tip-box-icon">⏰</div><div class="tip-box-title">Spray Timing</div><div class="tip-box-desc">Always spray pesticides early morning (6–9 AM) or late evening. Avoids heat evaporation and bee harm.</div></div>
+      <div class="tip-box reveal d1"><div class="tip-box-icon">💧</div><div class="tip-box-title">Water Quality</div><div class="tip-box-desc">Use clean water for mixing. Hard water reduces effectiveness of some insecticides. Add a spreader-sticker for better coverage.</div></div>
+      <div class="tip-box reveal d2"><div class="tip-box-icon">🔄</div><div class="tip-box-title">Rotate Chemicals</div><div class="tip-box-desc">Rotate pesticide classes each season to prevent resistance development in pests like Fall Armyworm.</div></div>
+      <div class="tip-box reveal d3"><div class="tip-box-icon">🧤</div><div class="tip-box-title">Safety First</div><div class="tip-box-desc">Always wear gloves, mask, and eyewear while mixing and spraying. Wash hands thoroughly after handling any chemical.</div></div>
+      <div class="tip-box reveal"><div class="tip-box-icon">📋</div><div class="tip-box-title">Read the Label</div><div class="tip-box-desc">The product label is a legal document. Always follow label instructions for dosage, timing, and pre-harvest intervals.</div></div>
+      <div class="tip-box reveal d1"><div class="tip-box-icon">🌡️</div><div class="tip-box-title">Temperature Check</div><div class="tip-box-desc">Don't spray when temperatures exceed 35°C — chemicals degrade faster and may damage crops (phytotoxicity).</div></div>
+      <div class="tip-box reveal d2"><div class="tip-box-icon">📷</div><div class="tip-box-title">Document Everything</div><div class="tip-box-desc">Photo your crop at every stage. It protects your guarantee and helps our experts give you better advice.</div></div>
+      <div class="tip-box reveal d3"><div class="tip-box-icon">📞</div><div class="tip-box-title">Ask When Unsure</div><div class="tip-box-desc">Never guess. WhatsApp us a crop photo and our agronomist will respond with specific advice within 2 hours.</div></div>
+    </div>
+  </div>
+</section>
+
+</div><!-- page-body -->
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand"><div class="fb-logo"><span class="fb-logo-icon">🌽</span><span class="fb-logo-text">KisanDirect</span></div><p>Authentic maize seeds and pesticides, factory direct with 100% crop guarantee.</p><div class="socials"><div class="sico">📘</div><div class="sico">💬</div><div class="sico">📸</div></div></div>
+      <div class="footer-col"><h4>Products</h4><ul><li><a href="products.html">Maize Seeds</a></li><li><a href="products.html">Pesticides</a></li><li><a href="products.html">Herbicides</a></li></ul></div>
+      <div class="footer-col"><h4>Platform</h4><ul><li><a href="guarantee.html">Guarantee</a></li><li><a href="advisory.html">Advisory</a></li><li><a href="about.html">About</a></li></ul></div>
+      <div class="footer-col"><h4>Support</h4><ul><li><a href="contact.html">Contact</a></li><li><a href="guarantee.html">File Claim</a></li><li><a href="app.html">App Preview</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 KisanDirect.</span><span>Made with 💚 for Indian farmers</span></div>
+  </div>
+</footer>
+
+<script>
+function toggleNav(){ document.getElementById('mobileNav').classList.toggle('open'); }
+function showStage(idx, el){
+  document.querySelectorAll('.stage-tab').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+  for(let i=0;i<5;i++) document.getElementById('stage-'+i).style.display = i===idx ? 'block' : 'none';
+}
+window.addEventListener('scroll',()=>{ document.getElementById('navbar').classList.toggle('solid', scrollY>50); });
+const obs = new IntersectionObserver(e=>e.forEach(x=>{ if(x.isIntersecting) x.target.classList.add('up'); }),{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
