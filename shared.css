@@ -203,6 +203,8 @@ button {
   display: flex;
   align-items: center;
   gap: 10px;
+  flex: 1 1 0;
+  min-width: 0;
 }
 
 .logo-icon,
@@ -230,8 +232,7 @@ button {
   justify-content: center;
   gap: 32px;
   list-style: none;
-  flex: 1;
-  min-width: 0;
+  flex: 0 0 auto;
 }
 
 .nav-links a,
@@ -283,7 +284,10 @@ button {
   display: flex;
   align-items: center;
   gap: 8px;
+  justify-content: flex-end;
+  flex: 1 1 0;
   flex-shrink: 0;
+  min-width: 0;
 }
 
 .btn-nav {
