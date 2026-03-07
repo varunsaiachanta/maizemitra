@@ -25,10 +25,10 @@
   --red-l: #ffe5e5;
   --blue: #0984e3;
   --blue-l: #dceeff;
-  --rm-teal: #0d7377;
-  --rm-teal-l: #d0f0f1;
-  --rm-teal-d: #095c60;
-  --rm-teal-sh: rgba(13, 115, 119, .15);
+  --rm-teal: #2d7a4f;
+  --rm-teal-l: #e3f2e7;
+  --rm-teal-d: #1a4d2e;
+  --rm-teal-sh: rgba(26, 77, 46, .15);
   --cream: #fdf9f0;
   --cream2: #f7f2e6;
   --wh: #ffffff;
@@ -43,7 +43,7 @@
   --r14: 14px;
   --r20: 20px;
   --rr: 999px;
-  --nav-h: 68px;
+  --nav-h: 80px;
 }
 
 /* ── RESET ───────────────────────────────────── */
@@ -689,7 +689,7 @@ select.input {
 .badge-teal {
   background: var(--rm-teal-l);
   color: var(--rm-teal-d);
-  border: 1px solid rgba(13, 115, 119, .18);
+  border: 1px solid rgba(45, 122, 79, .18);
 }
 
 /* ── DIVIDER ─────────────────────────────────── */

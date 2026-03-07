@@ -25,10 +25,10 @@
       --g100: #d4edd9;
       --g50: #f0f8f2;
       --gold: #c8922a;
-      --rm-teal: #0d7377;
-      --rm-teal-l: #d0f0f1;
-      --rm-teal-d: #095c60;
-      --rm-teal-sh: rgba(13, 115, 119, .16);
+      --rm-teal: #2d7a4f;
+      --rm-teal-l: #e3f2e7;
+      --rm-teal-d: #1a4d2e;
+      --rm-teal-sh: rgba(26, 77, 46, .16);
       --wh: #ffffff;
       --t1: #0f2e1a;
       --t2: #2d4a35;
@@ -52,8 +52,8 @@
       font-family: 'Nunito', sans-serif;
       background:
         radial-gradient(circle at 10% 20%, rgba(74, 173, 114, .08), transparent 35%),
-        radial-gradient(circle at 90% 80%, rgba(13, 115, 119, .07), transparent 28%),
-        linear-gradient(135deg, #edf6ef 0%, #f7fbf8 45%, #eef8f8 100%);
+        radial-gradient(circle at 90% 80%, rgba(45, 122, 79, .07), transparent 28%),
+        linear-gradient(135deg, #edf6ef 0%, #f7fbf8 45%, #f4faf5 100%);
       color: var(--t1);
       display: flex;
       flex-direction: column;
@@ -364,7 +364,7 @@
     .btn-outline {
       background: transparent;
       color: var(--rm-teal-d);
-      border: 1.5px solid rgba(13, 115, 119, .22);
+      border: 1.5px solid rgba(45, 122, 79, .22);
     }
 
     .btn-light {
@@ -504,7 +504,7 @@
     }
 
     .art.blue {
-      background: linear-gradient(135deg, #edf7f8, #d0f0f1);
+      background: linear-gradient(135deg, #eef7f0, #e3f2e7);
     }
 
     .ob-body {
@@ -649,8 +649,8 @@
       margin: 14px 18px 0;
       padding: 14px;
       border-radius: 20px;
-      background: #effafb;
-      border: 1px solid rgba(13, 115, 119, .14);
+      background: #f3faf4;
+      border: 1px solid rgba(45, 122, 79, .14);
       box-shadow: 0 10px 18px var(--rm-teal-sh);
       cursor: pointer;
     }
@@ -668,7 +668,7 @@
       font-weight: 800;
       color: var(--rm-teal-d);
       background: #fff;
-      border: 1px solid rgba(13, 115, 119, .14);
+      border: 1px solid rgba(45, 122, 79, .14);
       border-radius: 14px;
       padding: 10px 8px;
     }
@@ -745,13 +745,13 @@
 
     .yield-card {
       background: var(--rm-teal-l);
-      border: 1px solid rgba(13, 115, 119, .18);
+      border: 1px solid rgba(45, 122, 79, .18);
       color: var(--rm-teal-d);
     }
 
     .cart-strip {
-      background: rgba(13, 115, 119, .08);
-      border: 1px solid rgba(13, 115, 119, .14);
+      background: rgba(45, 122, 79, .08);
+      border: 1px solid rgba(45, 122, 79, .14);
       border-radius: 18px;
       padding: 14px;
       font-size: 13px;
@@ -879,13 +879,13 @@
       height: 230px;
       margin: 18px auto;
       border-radius: 24px;
-      border: 3px dashed rgba(13, 115, 119, .4);
+      border: 3px dashed rgba(45, 122, 79, .4);
       display: flex;
       align-items: center;
       justify-content: center;
       position: relative;
       background:
-        linear-gradient(135deg, rgba(13, 115, 119, .04), rgba(13, 115, 119, .1));
+        linear-gradient(135deg, rgba(45, 122, 79, .04), rgba(45, 122, 79, .1));
     }
 
     .scan-frame::before,
@@ -919,11 +919,11 @@
     @keyframes scanPulse {
       from {
         transform: scale(.98);
-        box-shadow: 0 0 0 0 rgba(13, 115, 119, .06);
+        box-shadow: 0 0 0 0 rgba(45, 122, 79, .06);
       }
       to {
         transform: scale(1.01);
-        box-shadow: 0 0 0 14px rgba(13, 115, 119, .02);
+        box-shadow: 0 0 0 14px rgba(45, 122, 79, .02);
       }
     }
 
@@ -934,7 +934,7 @@
       height: 3px;
       border-radius: 4px;
       background: var(--rm-teal);
-      box-shadow: 0 0 14px rgba(13, 115, 119, .3);
+      box-shadow: 0 0 14px rgba(45, 122, 79, .3);
       animation: scanLine 2s infinite;
     }
 
@@ -979,7 +979,7 @@
 
     .radio.active {
       border-color: var(--rm-teal);
-      background: rgba(13, 115, 119, .06);
+      background: rgba(45, 122, 79, .06);
       color: var(--rm-teal-d);
     }
 
@@ -989,8 +989,8 @@
       justify-content: center;
       min-height: 90px;
       border-radius: 18px;
-      background: rgba(13, 115, 119, .05);
-      border: 2px dashed rgba(13, 115, 119, .18);
+      background: rgba(45, 122, 79, .05);
+      border: 2px dashed rgba(45, 122, 79, .18);
       color: var(--rm-teal-d);
       font-size: 13px;
       font-weight: 800;
@@ -1792,7 +1792,7 @@
                 <div class="check">✅</div>
                 <div class="title">Replacement Confirmed!</div>
                 <div class="sub">Your replacement will be delivered tomorrow.</div>
-                <div class="card" style="margin-top:16px;background:#f8fcfc;border-color:rgba(13,115,119,.14);">
+                <div class="card" style="margin-top:16px;background:#f7fbf8;border-color:rgba(45,122,79,.14);">
                   <div class="strong" style="color:var(--rm-teal-d);">Morning delivery · 8 AM - 12 PM</div>
                   <div class="mini">Our team will call you to confirm.</div>
                 </div>
