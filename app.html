@@ -1,1850 +1,1956 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta
-    name="description"
-    content="Rythu Mitra – Authentic maize seeds and pesticides, factory direct. Protected by Rythu Mitra Suraksha — authenticity seal, yield commitment, and free replacement."
-  />
-  <title>Rythu Mitra – Your Crop's Best Friend</title>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&amp;family=Nunito:wght@300;400;500;600;700;800;900&amp;display=swap"
-    rel="stylesheet"
-  />
-  <style>
-    :root {
-      --g950: #071a0e;
-      --g900: #0f2e1a;
-      --g800: #1a4d2e;
-      --g700: #235c38;
-      --g600: #2d7a4f;
-      --g500: #3d9960;
-      --g400: #4aad72;
-      --g200: #b8e5c8;
-      --g100: #d4edd9;
-      --g50: #f0f8f2;
-      --gold: #c8922a;
-      --rm-teal: #0d7377;
-      --rm-teal-l: #d0f0f1;
-      --rm-teal-d: #095c60;
-      --rm-teal-sh: rgba(13, 115, 119, .16);
-      --wh: #ffffff;
-      --t1: #0f2e1a;
-      --t2: #2d4a35;
-      --t3: #5a7a62;
-      --t4: #94b09a;
-      --br: #d8ead0;
-      --radius: 16px;
-      --rr: 999px;
-      --shadow: 0 14px 34px rgba(15, 46, 26, .12);
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    body {
-      min-height: 100vh;
-      font-family: 'Nunito', sans-serif;
-      background:
-        radial-gradient(circle at 10% 20%, rgba(74, 173, 114, .08), transparent 35%),
-        radial-gradient(circle at 90% 80%, rgba(13, 115, 119, .07), transparent 28%),
-        linear-gradient(135deg, #edf6ef 0%, #f7fbf8 45%, #eef8f8 100%);
-      color: var(--t1);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 30px 16px 56px;
-      overflow-x: hidden;
-    }
-
-    .page-head {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    .page-head h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(28px, 5vw, 40px);
-      color: var(--g800);
-    }
-
-    .page-head p {
-      margin-top: 6px;
-      font-size: 13px;
-      color: var(--t3);
-    }
-
-    .jump-wrap {
-      width: 100%;
-      max-width: 720px;
-      display: grid;
-      gap: 10px;
-      margin-bottom: 26px;
-    }
-
-    .jump-label {
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: var(--t4);
-      padding-left: 4px;
-    }
-
-    .jump-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .jump-btn {
-      padding: 7px 14px;
-      border-radius: var(--rr);
-      border: 1px solid var(--br);
-      background: rgba(255, 255, 255, .88);
-      color: var(--t2);
-      font-size: 11px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: all .2s ease;
-    }
-
-    .jump-btn.active {
-      background: var(--g800);
-      border-color: var(--g800);
-      color: #fff;
-    }
-
-    .phone-wrap {
-      width: 395px;
-      max-width: 100%;
-      position: relative;
-    }
-
-    .phone-frame {
-      position: relative;
-      background: #111;
-      border-radius: 52px;
-      padding: 14px;
-      box-shadow: 0 26px 80px rgba(15, 46, 26, .28), 0 8px 18px rgba(0, 0, 0, .3);
-    }
-
-    .phone-frame::before {
-      content: '';
-      position: absolute;
-      top: 14px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 120px;
-      height: 28px;
-      border-radius: 0 0 18px 18px;
-      background: #111;
-      z-index: 20;
-    }
-
-    .phone-screen {
-      position: relative;
-      height: 790px;
-      background: var(--wh);
-      border-radius: 38px;
-      overflow: hidden;
-    }
-
-    .screen {
-      position: absolute;
-      inset: 0;
-      display: none;
-      flex-direction: column;
-      background: #fbfdfb;
-      animation: fadeIn .24s ease;
-    }
-
-    .screen.active {
-      display: flex;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(8px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .status {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 12px 20px 8px;
-      font-size: 11px;
-      font-weight: 800;
-      color: var(--t1);
-      position: relative;
-      z-index: 3;
-    }
-
-    .status.light {
-      color: #fff;
-    }
-
-    .scroll {
-      flex: 1;
-      overflow-y: auto;
-      -webkit-overflow-scrolling: touch;
-      padding-bottom: 88px;
-    }
-
-    .scroll::-webkit-scrollbar {
-      display: none;
-    }
-
-    .screen-head {
-      position: relative;
-      padding: 18px 18px 20px;
-      color: #fff;
-      overflow: hidden;
-    }
-
-    .screen-head.green {
-      background: linear-gradient(135deg, var(--g800), var(--g600));
-    }
-
-    .screen-head.teal {
-      background: linear-gradient(135deg, var(--rm-teal-d), var(--rm-teal));
-    }
-
-    .screen-head.dark {
-      background: linear-gradient(135deg, var(--g900), var(--g700));
-    }
-
-    .screen-head::after {
-      content: '';
-      position: absolute;
-      right: -20px;
-      bottom: -30px;
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, .06);
-    }
-
-    .screen-head h2 {
-      position: relative;
-      z-index: 1;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 26px;
-      line-height: 1.05;
-      margin-bottom: 4px;
-    }
-
-    .screen-head p {
-      position: relative;
-      z-index: 1;
-      font-size: 12px;
-      line-height: 1.7;
-      color: rgba(255, 255, 255, .72);
-      max-width: 280px;
-    }
-
-    .back {
-      position: relative;
-      z-index: 2;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 34px;
-      height: 34px;
-      border-radius: 50%;
-      border: none;
-      background: rgba(255, 255, 255, .14);
-      color: #fff;
-      font-size: 16px;
-      cursor: pointer;
-      margin-bottom: 14px;
-    }
-
-    .section {
-      padding: 16px 18px 0;
-    }
-
-    .label {
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: .8px;
-      text-transform: uppercase;
-      color: var(--t4);
-      margin-bottom: 10px;
-    }
-
-    .card {
-      background: #fff;
-      border: 1px solid var(--br);
-      border-radius: 22px;
-      box-shadow: 0 8px 18px rgba(15, 46, 26, .06);
-      padding: 18px;
-    }
-
-    .card + .card {
-      margin-top: 12px;
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 5px 10px;
-      border-radius: var(--rr);
-      font-size: 11px;
-      font-weight: 800;
-    }
-
-    .badge.green {
-      background: var(--g100);
-      color: var(--g800);
-    }
-
-    .badge.teal {
-      background: var(--rm-teal-l);
-      color: var(--rm-teal-d);
-    }
-
-    .badge.gold {
-      background: #f5e0b0;
-      color: #9e6f15;
-    }
-
-    .title {
-      font-size: 18px;
-      font-weight: 900;
-      color: var(--t1);
-      margin-bottom: 8px;
-      line-height: 1.35;
-    }
-
-    .sub {
-      font-size: 13px;
-      color: var(--t3);
-      line-height: 1.7;
-    }
-
-    .btn {
-      border: none;
-      border-radius: 16px;
-      padding: 12px 16px;
-      font-size: 13px;
-      font-weight: 800;
-      font-family: 'Nunito', sans-serif;
-      cursor: pointer;
-      transition: transform .2s ease, background .2s ease;
-    }
-
-    .btn:active {
-      transform: translateY(1px);
-    }
-
-    .btn-green {
-      background: var(--g800);
-      color: #fff;
-    }
-
-    .btn-teal {
-      background: var(--rm-teal);
-      color: #fff;
-      box-shadow: 0 12px 24px var(--rm-teal-sh);
-    }
-
-    .btn-outline {
-      background: transparent;
-      color: var(--rm-teal-d);
-      border: 1.5px solid rgba(13, 115, 119, .22);
-    }
-
-    .btn-light {
-      background: rgba(255, 255, 255, .16);
-      color: #fff;
-      border: 1px solid rgba(255, 255, 255, .2);
-    }
-
-    .btn-row {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .full-btn {
-      width: 100%;
-    }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-    }
-
-    .list {
-      display: grid;
-      gap: 12px;
-    }
-
-    .row {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .space {
-      justify-content: space-between;
-    }
-
-    .mini {
-      font-size: 11px;
-      color: var(--t4);
-      line-height: 1.6;
-    }
-
-    .strong {
-      font-size: 14px;
-      font-weight: 900;
-      color: var(--t1);
-    }
-
-    .icon-box {
-      width: 44px;
-      height: 44px;
-      border-radius: 16px;
-      background: #f4faf5;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 22px;
-      flex-shrink: 0;
-    }
-
-    .icon-box.teal {
-      background: var(--rm-teal-l);
-      color: var(--rm-teal-d);
-    }
-
-    .icon-box.gold {
-      background: #fff4dc;
-      color: #9e6f15;
-    }
-
-    .splash {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 14px;
-      background: linear-gradient(160deg, var(--g900), var(--g700));
-      color: #fff;
-      text-align: center;
-      padding: 28px;
-    }
-
-    .splash .logo {
-      font-size: 72px;
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.06); }
-    }
-
-    .splash .brand {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 38px;
-      font-weight: 700;
-    }
-
-    .splash .telugu {
-      font-size: 18px;
-      font-weight: 800;
-      color: rgba(255, 255, 255, .82);
-    }
-
-    .splash .tag {
-      font-size: 13px;
-      max-width: 220px;
-      line-height: 1.7;
-      color: rgba(255, 255, 255, .6);
-    }
-
-    .art {
-      height: 240px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 90px;
-      position: relative;
-    }
-
-    .art.gold {
-      background: linear-gradient(135deg, #fff8ea, #ffefc6);
-    }
-
-    .art.green {
-      background: linear-gradient(135deg, #ecfaf2, #d4edd9);
-    }
-
-    .art.blue {
-      background: linear-gradient(135deg, #edf7f8, #d0f0f1);
-    }
-
-    .ob-body {
-      flex: 1;
-      padding: 22px 20px 18px;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .ob-chip {
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: .8px;
-      text-transform: uppercase;
-      color: var(--t4);
-      margin-bottom: 10px;
-    }
-
-    .ob-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 28px;
-      line-height: 1.2;
-      margin-bottom: 10px;
-      color: var(--t1);
-    }
-
-    .ob-desc {
-      flex: 1;
-      font-size: 13px;
-      color: var(--t3);
-      line-height: 1.75;
-      margin-bottom: 18px;
-    }
-
-    .dots {
-      display: flex;
-      justify-content: center;
-      gap: 6px;
-      margin-bottom: 14px;
-    }
-
-    .dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--br);
-    }
-
-    .dot.on {
-      width: 18px;
-      border-radius: 99px;
-      background: var(--g800);
-    }
-
-    .login-hero {
-      padding: 28px 20px;
-      background: linear-gradient(135deg, var(--g800), var(--g500));
-      text-align: center;
-      color: #fff;
-    }
-
-    .login-hero .logo {
-      font-size: 52px;
-      margin-bottom: 6px;
-    }
-
-    .login-hero .brand {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 30px;
-      font-weight: 700;
-    }
-
-    .login-hero .telugu {
-      font-size: 13px;
-      color: rgba(255, 255, 255, .78);
-      margin-top: 4px;
-    }
-
-    .field {
-      margin-bottom: 14px;
-    }
-
-    .field label {
-      display: block;
-      margin-bottom: 6px;
-      font-size: 12px;
-      font-weight: 800;
-      color: var(--t3);
-    }
-
-    .field input,
-    .field textarea,
-    .field select {
-      width: 100%;
-      border: 1.5px solid var(--br);
-      border-radius: 14px;
-      background: #fff;
-      padding: 12px 14px;
-      font-size: 14px;
-      color: var(--t1);
-      font-family: 'Nunito', sans-serif;
-      outline: none;
-    }
-
-    .field textarea {
-      min-height: 104px;
-      resize: vertical;
-    }
-
-    .home-hero {
-      background: linear-gradient(135deg, var(--g800), var(--g600));
-      padding: 18px;
-      color: #fff;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .home-hero::after {
-      content: '🌾';
-      position: absolute;
-      right: -12px;
-      bottom: -20px;
-      font-size: 120px;
-      opacity: .08;
-    }
-
-    .home-hero .greet {
-      font-size: 12px;
-      color: rgba(255, 255, 255, .74);
-      margin-bottom: 4px;
-    }
-
-    .home-hero .name {
-      font-size: 24px;
-      font-weight: 900;
-      margin-bottom: 12px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .suraksha-strip {
-      margin: 14px 18px 0;
-      padding: 14px;
-      border-radius: 20px;
-      background: #effafb;
-      border: 1px solid rgba(13, 115, 119, .14);
-      box-shadow: 0 10px 18px var(--rm-teal-sh);
-      cursor: pointer;
-    }
-
-    .suraksha-strip .chips {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 8px;
-      margin-bottom: 10px;
-    }
-
-    .suraksha-strip .chip {
-      text-align: center;
-      font-size: 12px;
-      font-weight: 800;
-      color: var(--rm-teal-d);
-      background: #fff;
-      border: 1px solid rgba(13, 115, 119, .14);
-      border-radius: 14px;
-      padding: 10px 8px;
-    }
-
-    .stats-mini {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-    }
-
-    .stats-mini .card {
-      padding: 14px;
-      text-align: center;
-    }
-
-    .stats-mini strong {
-      display: block;
-      font-size: 22px;
-      font-weight: 900;
-      color: var(--g800);
-      margin-bottom: 6px;
-    }
-
-    .product-item {
-      display: flex;
-      gap: 12px;
-      align-items: center;
-      padding: 14px;
-      border: 1px solid var(--br);
-      border-radius: 18px;
-      background: #fff;
-    }
-
-    .product-emoji {
-      width: 54px;
-      height: 54px;
-      border-radius: 18px;
-      background: #f4faf5;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 28px;
-      flex-shrink: 0;
-    }
-
-    .price {
-      font-size: 13px;
-      font-weight: 900;
-      color: var(--g800);
-      margin-top: 4px;
-    }
-
-    .pill-row {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .pill {
-      padding: 8px 12px;
-      border-radius: var(--rr);
-      border: 1px solid var(--br);
-      background: #fff;
-      font-size: 12px;
-      font-weight: 800;
-      color: var(--t2);
-    }
-
-    .pill.active {
-      background: var(--g800);
-      border-color: var(--g800);
-      color: #fff;
-    }
-
-    .yield-card {
-      background: var(--rm-teal-l);
-      border: 1px solid rgba(13, 115, 119, .18);
-      color: var(--rm-teal-d);
-    }
-
-    .cart-strip {
-      background: rgba(13, 115, 119, .08);
-      border: 1px solid rgba(13, 115, 119, .14);
-      border-radius: 18px;
-      padding: 14px;
-      font-size: 13px;
-      font-weight: 800;
-      color: var(--rm-teal-d);
-    }
-
-    .timeline {
-      display: grid;
-      gap: 14px;
-    }
-
-    .timeline .step {
-      display: flex;
-      gap: 12px;
-      align-items: start;
-    }
-
-    .timeline .step .num {
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      background: var(--rm-teal-l);
-      color: var(--rm-teal-d);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 12px;
-      font-weight: 900;
-      flex-shrink: 0;
-    }
-
-    .tabs {
-      display: flex;
-      gap: 8px;
-      padding: 0 18px;
-      margin-top: 12px;
-      overflow-x: auto;
-    }
-
-    .tabs span {
-      padding: 8px 12px;
-      border-radius: var(--rr);
-      background: #f4faf5;
-      border: 1px solid var(--br);
-      font-size: 12px;
-      font-weight: 800;
-      white-space: nowrap;
-    }
-
-    .tabs span.active {
-      background: var(--g800);
-      color: #fff;
-      border-color: var(--g800);
-    }
-
-    .bnav {
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      display: flex;
-      padding: 8px 0 14px;
-      background: #fff;
-      border-top: 1px solid var(--br);
-      border-radius: 0 0 38px 38px;
-      z-index: 5;
-    }
-
-    .bnav .item {
-      flex: 1;
-      text-align: center;
-      font-size: 9px;
-      font-weight: 700;
-      color: var(--t4);
-      cursor: pointer;
-    }
-
-    .bnav .item .ico {
-      display: block;
-      font-size: 18px;
-      margin-bottom: 3px;
-    }
-
-    .bnav .item.active {
-      color: var(--g800);
-    }
-
-    .check {
-      width: 64px;
-      height: 64px;
-      border-radius: 22px;
-      margin: 0 auto 14px;
-      background: var(--rm-teal-l);
-      color: var(--rm-teal-d);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 34px;
-    }
-
-    .center {
-      text-align: center;
-    }
-
-    .menu-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      padding: 16px 0;
-      border-bottom: 1px solid var(--br);
-      font-size: 14px;
-      font-weight: 800;
-      color: var(--t2);
-      cursor: pointer;
-    }
-
-    .menu-item:last-child {
-      border-bottom: none;
-    }
-
-    .scan-frame {
-      width: 230px;
-      height: 230px;
-      margin: 18px auto;
-      border-radius: 24px;
-      border: 3px dashed rgba(13, 115, 119, .4);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      background:
-        linear-gradient(135deg, rgba(13, 115, 119, .04), rgba(13, 115, 119, .1));
-    }
-
-    .scan-frame::before,
-    .scan-frame::after {
-      content: '';
-      position: absolute;
-      width: 42px;
-      height: 42px;
-      border-color: var(--rm-teal);
-      border-style: solid;
-    }
-
-    .scan-frame::before {
-      left: 14px;
-      top: 14px;
-      border-width: 4px 0 0 4px;
-      border-radius: 18px 0 0 0;
-    }
-
-    .scan-frame::after {
-      right: 14px;
-      bottom: 14px;
-      border-width: 0 4px 4px 0;
-      border-radius: 0 0 18px 0;
-    }
-
-    .scan-frame.scanning {
-      animation: scanPulse 1s infinite alternate;
-    }
-
-    @keyframes scanPulse {
-      from {
-        transform: scale(.98);
-        box-shadow: 0 0 0 0 rgba(13, 115, 119, .06);
-      }
-      to {
-        transform: scale(1.01);
-        box-shadow: 0 0 0 14px rgba(13, 115, 119, .02);
-      }
-    }
-
-    .scan-line {
-      position: absolute;
-      left: 18px;
-      right: 18px;
-      height: 3px;
-      border-radius: 4px;
-      background: var(--rm-teal);
-      box-shadow: 0 0 14px rgba(13, 115, 119, .3);
-      animation: scanLine 2s infinite;
-    }
-
-    @keyframes scanLine {
-      from { top: 34px; }
-      to { top: 190px; }
-    }
-
-    .info-table {
-      display: grid;
-      gap: 8px;
-      margin-top: 12px;
-      padding-top: 12px;
-      border-top: 1px solid var(--br);
-    }
-
-    .info-table div {
-      font-size: 13px;
-      line-height: 1.6;
-      color: var(--t2);
-    }
-
-    .info-table strong {
-      color: var(--t1);
-    }
-
-    .radio-row {
-      display: grid;
-      gap: 10px;
-    }
-
-    .radio {
-      padding: 12px 14px;
-      border-radius: 14px;
-      border: 1px solid var(--br);
-      font-size: 13px;
-      font-weight: 800;
-      color: var(--t2);
-      cursor: pointer;
-      background: #fff;
-    }
-
-    .radio.active {
-      border-color: var(--rm-teal);
-      background: rgba(13, 115, 119, .06);
-      color: var(--rm-teal-d);
-    }
-
-    .photo-placeholder {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 90px;
-      border-radius: 18px;
-      background: rgba(13, 115, 119, .05);
-      border: 2px dashed rgba(13, 115, 119, .18);
-      color: var(--rm-teal-d);
-      font-size: 13px;
-      font-weight: 800;
-    }
-  </style>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Rythu Mitra – Full App Preview</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+/* ─── TOKENS ────────────────────────────────── */
+:root{
+  --g900:#0f2e1a; --g800:#1a4d2e; --g700:#235c38;
+  --g600:#2d7a4f; --g500:#3d9960; --g400:#4aad72;
+  --g300:#7fcb9a; --g200:#b8e5c8; --g100:#d4edd9;
+  --g50:#f0f8f2;  --g20:#f8fcf9;
+  --gold:#c8922a; --gold-l:#f5e0b0; --gold-d:#9e6f15;
+  --red:#d63031;  --red-l:#ffe5e5;
+  --blue:#0984e3; --blue-l:#dceeff;
+  --wh:#ffffff;   --off:#f8fcf9;
+  --t1:#0f2e1a;   --t2:#2d4a35;  --t3:#5a7a62;  --t4:#94b09a;
+  --br:#d8ead0;
+  --sh:rgba(15,46,26,.12);
+  --radius:14px;  --rr:50px;
+}
+
+/* ─── RESET & BODY ──────────────────────────── */
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+body{
+  background:linear-gradient(135deg,#e4f2e8 0%,#f5faf6 50%,#e8f5ec 100%);
+  min-height:100vh; font-family:'Nunito',sans-serif;
+  display:flex; flex-direction:column; align-items:center;
+  padding:32px 16px 60px; overflow-x:hidden;
+}
+body::before{
+  content:''; position:fixed; inset:0; pointer-events:none;
+  background:
+    radial-gradient(circle at 10% 20%,rgba(74,173,114,.07) 0%,transparent 45%),
+    radial-gradient(circle at 90% 80%,rgba(26,77,46,.05) 0%,transparent 45%);
+}
+
+/* ─── PAGE HEADER ───────────────────────────── */
+.ph{text-align:center;margin-bottom:24px;}
+.ph h1{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,5vw,40px);
+  font-weight:700;color:var(--g800);letter-spacing:-.5px;}
+.ph p{font-size:13px;color:var(--t3);margin-top:4px;}
+
+/* ─── SCREEN JUMP NAV ───────────────────────── */
+.jump-nav-wrap{
+  display:flex;flex-direction:column;gap:6px;align-items:center;
+  margin-bottom:28px;width:100%;max-width:560px;
+}
+.jump-group-label{font-size:10px;font-weight:700;letter-spacing:1px;
+  color:var(--t4);text-transform:uppercase;align-self:flex-start;padding-left:4px;}
+.jump-row{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;}
+.jbtn{
+  padding:6px 14px;border-radius:50px;font-size:11px;font-weight:600;
+  cursor:pointer;border:1.5px solid var(--br);background:rgba(255,255,255,.75);
+  color:var(--t2);font-family:'Nunito',sans-serif;transition:all .2s;
+  backdrop-filter:blur(6px);
+}
+.jbtn:hover{border-color:var(--g500);color:var(--g700);}
+.jbtn.active{background:var(--g800);color:#fff;border-color:var(--g800);}
+
+/* ─── PHONE SHELL ───────────────────────────── */
+.phone-wrap{position:relative;width:375px;max-width:100%;}
+.phone-frame{
+  background:#111;border-radius:50px;padding:14px;
+  box-shadow:0 0 0 1px rgba(255,255,255,.1),0 40px 90px rgba(15,46,26,.3),0 8px 20px rgba(0,0,0,.4);
+}
+.phone-frame::before{
+  content:'';position:absolute;top:14px;left:50%;transform:translateX(-50%);
+  width:110px;height:28px;background:#111;border-radius:0 0 18px 18px;z-index:20;
+}
+.phone-screen{
+  background:var(--wh);border-radius:38px;overflow:hidden;
+  height:780px;position:relative;
+}
+
+/* ─── STATUS BAR ────────────────────────────── */
+.sbar{
+  background:transparent;padding:12px 22px 6px;
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:11px;font-weight:700;color:var(--t1);position:relative;z-index:10;
+}
+.sbar.light{color:#fff;}
+.sicons{display:flex;gap:5px;align-items:center;font-size:10px;}
+
+/* ─── SCREENS CONTAINER ─────────────────────── */
+.screens{position:relative;height:calc(100% - 36px);}
+.scr{
+  display:none;position:absolute;inset:0;
+  flex-direction:column;overflow:hidden;
+  animation:fadeUp .3s ease forwards;
+}
+.scr.active{display:flex;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+/* ─── SCROLL AREA ───────────────────────────── */
+.scroll{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;}
+.scroll::-webkit-scrollbar{display:none;}
+
+/* ─── BOTTOM NAV ────────────────────────────── */
+.bnav{
+  position:absolute;bottom:0;left:0;right:0;
+  background:var(--wh);border-top:1px solid var(--br);
+  display:flex;padding:8px 0 14px;z-index:50;
+  border-radius:0 0 38px 38px;
+}
+.ni{flex:1;display:flex;flex-direction:column;align-items:center;
+  gap:3px;cursor:pointer;font-size:9px;font-weight:600;
+  color:var(--t4);transition:color .2s;}
+.ni .ico{font-size:19px;}
+.ni.on{color:var(--g800);}
+.ni-dot{width:4px;height:4px;border-radius:50%;background:var(--g800);margin-top:-1px;}
+
+/* ─── COMMON HEADER ─────────────────────────── */
+.hdr{padding:14px 18px 16px;color:#fff;position:relative;overflow:hidden;}
+.hdr.green{background:linear-gradient(135deg,var(--g800),var(--g600));}
+.hdr::after{content:'';position:absolute;bottom:-40px;right:-30px;
+  width:160px;height:160px;background:rgba(255,255,255,.05);border-radius:50%;}
+.hdr::before{content:'';position:absolute;top:-30px;right:20px;
+  width:90px;height:90px;background:rgba(255,255,255,.04);border-radius:50%;}
+.hdr h2{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;position:relative;z-index:1;}
+.hdr p{font-size:12px;color:rgba(255,255,255,.6);margin-top:2px;position:relative;z-index:1;}
+.back-btn{
+  position:absolute;top:50%;left:0;transform:translateY(-50%);
+  width:32px;height:32px;background:rgba(255,255,255,.15);
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:15px;cursor:pointer;border:none;color:#fff;
+}
+
+/* ─── SECTION LABEL ─────────────────────────── */
+.slbl{font-size:10px;font-weight:700;letter-spacing:.8px;color:var(--t4);
+  text-transform:uppercase;padding:14px 16px 6px;}
+
+/* ─── CARDS ─────────────────────────────────── */
+.card{
+  background:var(--wh);border-radius:var(--radius);
+  border:1px solid var(--br);box-shadow:0 2px 8px var(--sh);
+}
+
+/* ─── BADGES ─────────────────────────────────── */
+.badge{display:inline-flex;align-items:center;gap:4px;
+  border-radius:50px;padding:3px 9px;font-size:10px;font-weight:700;}
+.badge.green{background:var(--g100);color:var(--g800);}
+.badge.gold{background:var(--gold-l);color:var(--gold-d);}
+.badge.red{background:var(--red-l);color:var(--red);}
+.badge.blue{background:var(--blue-l);color:var(--blue);}
+
+/* ─── BUTTONS ─────────────────────────────────── */
+.btn{
+  border:none;border-radius:var(--radius);cursor:pointer;
+  font-family:'Nunito',sans-serif;font-weight:700;
+  transition:all .2s;
+}
+.btn-primary{background:var(--g800);color:#fff;}
+.btn-outline{background:transparent;color:var(--g800);border:1.5px solid var(--g800);}
+.btn-sm{padding:7px 14px;font-size:12px;}
+.btn-md{padding:10px 20px;font-size:13px;}
+.btn-lg{padding:14px 20px;font-size:14px;width:100%;}
+.btn-gold{background:var(--gold);color:#fff;}
+
+/* ─── INPUT ──────────────────────────────────── */
+.inp{
+  background:var(--g50);border:1.5px solid var(--br);border-radius:10px;
+  padding:11px 14px;font-size:13px;color:var(--t1);
+  font-family:'Nunito',sans-serif;outline:none;width:100%;
+  transition:border-color .2s;
+}
+.inp:focus{border-color:var(--g500);}
+.inp-lbl{font-size:11px;font-weight:700;color:var(--t3);margin-bottom:5px;letter-spacing:.3px;}
+
+/* ─── TRACK BAR ──────────────────────────────── */
+.tbar{display:flex;align-items:center;margin-top:12px;}
+.tstep{display:flex;flex-direction:column;align-items:center;
+  flex:1;font-size:8.5px;color:var(--t4);text-align:center;gap:3px;}
+.tdot{width:18px;height:18px;border-radius:50%;border:2px solid var(--br);
+  background:var(--wh);display:flex;align-items:center;justify-content:center;font-size:7px;}
+.tdot.done{background:var(--g800);border-color:var(--g800);color:#fff;}
+.tdot.cur{background:var(--wh);border-color:var(--g500);color:var(--g500);}
+.tline{flex:1;height:2px;background:var(--br);margin-top:-11px;}
+.tline.done{background:var(--g800);}
+
+/* ═══════════════════════════════════════════════
+   SCREEN 1 – SPLASH
+═══════════════════════════════════════════════ */
+#s-splash{background:linear-gradient(160deg,var(--g900),var(--g700));}
+#s-splash .splash-inner{
+  flex:1;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;gap:16px;
+}
+.splash-logo{font-size:70px;animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+.splash-brand{font-family:'Cormorant Garamond',serif;font-size:36px;
+  font-weight:700;color:#fff;letter-spacing:-1px;}
+.splash-tagline{font-size:13px;color:rgba(255,255,255,.55);text-align:center;
+  line-height:1.6;max-width:220px;}
+.splash-loader{display:flex;gap:6px;margin-top:8px;}
+.loader-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.4);}
+.loader-dot:nth-child(1){animation:ldot .9s .0s infinite alternate;}
+.loader-dot:nth-child(2){animation:ldot .9s .2s infinite alternate;}
+.loader-dot:nth-child(3){animation:ldot .9s .4s infinite alternate;}
+@keyframes ldot{to{background:rgba(255,255,255,.95);transform:translateY(-4px);}}
+.splash-skip{
+  padding:16px;text-align:center;font-size:12px;color:rgba(255,255,255,.4);cursor:pointer;
+}
+
+/* ═══════════════════════════════════════════════
+   SCREENS 2-4 – ONBOARDING
+═══════════════════════════════════════════════ */
+.ob-wrap{flex:1;display:flex;flex-direction:column;}
+.ob-art{
+  height:300px;display:flex;align-items:center;justify-content:center;
+  font-size:100px;position:relative;overflow:hidden;
+}
+.ob-art.ob1{background:linear-gradient(135deg,#fff8ec,#fff3d6);}
+.ob-art.ob2{background:linear-gradient(135deg,#ecfaf2,#d4edd9);}
+.ob-art.ob3{background:linear-gradient(135deg,#edf5ff,#d0e8ff);}
+.ob-body{flex:1;padding:24px 22px 16px;display:flex;flex-direction:column;}
+.ob-chip{font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;
+  margin-bottom:10px;}
+.ob1 .ob-chip{color:var(--gold);}
+.ob2 .ob-chip{color:var(--g600);}
+.ob3 .ob-chip{color:var(--blue);}
+.ob-title{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:700;
+  color:var(--t1);line-height:1.25;margin-bottom:10px;}
+.ob-desc{font-size:13px;color:var(--t3);line-height:1.65;flex:1;}
+.ob-dots{display:flex;gap:6px;align-items:center;justify-content:center;
+  padding:12px 0;}
+.ob-dot{width:6px;height:6px;border-radius:50%;background:var(--br);}
+.ob-dot.on{width:18px;border-radius:4px;background:var(--g800);}
+.ob-btns{display:flex;gap:10px;padding:0 0 10px;}
+
+/* ═══════════════════════════════════════════════
+   SCREEN 5 – LOGIN
+═══════════════════════════════════════════════ */
+#s-login .login-art{
+  height:200px;background:linear-gradient(135deg,var(--g800),var(--g500));
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;
+}
+#s-login .login-art .logo{font-size:50px;}
+#s-login .login-art .brand{font-family:'Cormorant Garamond',serif;font-size:26px;
+  font-weight:700;color:#fff;}
+#s-login .login-body{padding:24px 20px;flex:1;}
+#s-login h3{font-size:20px;font-weight:800;color:var(--t1);margin-bottom:4px;}
+#s-login p{font-size:12px;color:var(--t3);margin-bottom:20px;}
+.phone-input-row{display:flex;gap:8px;}
+.country-code{
+  width:60px;background:var(--g50);border:1.5px solid var(--br);
+  border-radius:10px;display:flex;align-items:center;justify-content:center;
+  font-size:13px;font-weight:700;color:var(--t2);flex-shrink:0;
+}
+.divider{text-align:center;font-size:11px;color:var(--t4);
+  margin:16px 0;position:relative;}
+.divider::before,.divider::after{content:'';position:absolute;top:50%;
+  width:40%;height:1px;background:var(--br);}
+.divider::before{left:0;} .divider::after{right:0;}
+.social-btn{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  background:var(--wh);border:1.5px solid var(--br);border-radius:10px;
+  padding:11px;font-size:13px;font-weight:600;color:var(--t2);cursor:pointer;
+}
+.footer-link{text-align:center;font-size:12px;color:var(--t3);margin-top:14px;}
+.footer-link span{color:var(--g600);font-weight:700;cursor:pointer;}
+.login-gap{margin-top:12px;}
+
+/* ═══════════════════════════════════════════════
+   SCREEN 6 – REGISTER
+═══════════════════════════════════════════════ */
+#s-register .reg-hdr{
+  background:linear-gradient(135deg,var(--g800),var(--g600));
+  padding:16px 18px 20px;color:#fff;
+}
+#s-register .reg-hdr h2{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;}
+#s-register .reg-hdr p{font-size:12px;color:rgba(255,255,255,.6);margin-top:2px;}
+#s-register .reg-body{padding:20px 18px;display:flex;flex-direction:column;gap:14px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.radio-group{display:flex;gap:8px;}
+.radio-opt{
+  flex:1;border:1.5px solid var(--br);border-radius:10px;padding:9px;
+  text-align:center;cursor:pointer;transition:all .2s;
+}
+.radio-opt.on{border-color:var(--g500);background:var(--g50);color:var(--g800);}
+.radio-opt .ro-icon{font-size:18px;margin-bottom:3px;}
+.radio-opt .ro-lbl{font-size:11px;font-weight:700;}
+
+/* ═══════════════════════════════════════════════
+   SCREEN 7 – HOME
+═══════════════════════════════════════════════ */
+.home-hero{
+  background:linear-gradient(135deg,var(--g800),var(--g600));
+  padding:14px 18px 18px;position:relative;overflow:hidden;
+}
+.home-hero::after{content:'🌾';position:absolute;right:-10px;bottom:-10px;
+  font-size:90px;opacity:.08;}
+.hero-greeting{font-size:11px;color:rgba(255,255,255,.6);margin-bottom:2px;}
+.hero-name{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:#fff;margin-bottom:10px;}
+.hero-badges{display:flex;gap:6px;flex-wrap:wrap;}
+.hbadge{
+  display:inline-flex;align-items:center;gap:4px;
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);
+  border-radius:20px;padding:4px 10px;font-size:10px;color:rgba(255,255,255,.85);font-weight:600;
+}
+.hbadge .dot{width:5px;height:5px;border-radius:50%;background:var(--g300);}
+.hero-stats{
+  display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;
+  margin:10px 18px;padding:12px;background:var(--wh);
+  border-radius:var(--radius);border:1px solid var(--br);
+  box-shadow:0 2px 8px var(--sh);
+}
+.stat-item{text-align:center;}
+.stat-val{font-size:16px;font-weight:800;color:var(--g800);}
+.stat-lbl{font-size:9px;color:var(--t4);margin-top:2px;font-weight:600;}
+
+.search-row{
+  display:flex;align-items:center;gap:8px;
+  margin:6px 18px;background:var(--wh);
+  border:1.5px solid var(--br);border-radius:10px;padding:9px 12px;
+}
+.search-row input{border:none;background:transparent;outline:none;
+  font-size:12px;color:var(--t2);width:100%;font-family:'Nunito',sans-serif;}
+.notif-btn{
+  width:34px;height:34px;background:var(--g50);border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;cursor:pointer;flex-shrink:0;position:relative;
+}
+.notif-badge{
+  position:absolute;top:-2px;right:-2px;width:14px;height:14px;
+  background:var(--red);border-radius:50%;border:2px solid var(--wh);
+  font-size:8px;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;
+}
+.chips-row{display:flex;gap:6px;padding:0 18px 2px;overflow-x:auto;}
+.chips-row::-webkit-scrollbar{display:none;}
+.chip{
+  flex-shrink:0;padding:7px 13px;border-radius:var(--rr);font-size:11px;font-weight:700;
+  border:1.5px solid var(--br);background:var(--wh);color:var(--t2);cursor:pointer;
+  transition:all .2s;display:flex;align-items:center;gap:4px;
+}
+.chip.on{background:var(--g800);color:#fff;border-color:var(--g800);}
+
+.prod-card{
+  display:flex;background:var(--wh);border-radius:var(--radius);
+  border:1px solid var(--br);margin:0 18px 10px;
+  box-shadow:0 2px 6px var(--sh);overflow:hidden;cursor:pointer;
+}
+.prod-img{
+  width:82px;flex-shrink:0;background:var(--g50);
+  display:flex;align-items:center;justify-content:center;font-size:34px;
+}
+.prod-info{padding:11px 12px;flex:1;}
+.prod-name{font-size:13px;font-weight:700;color:var(--t1);line-height:1.3;margin-bottom:4px;}
+.prod-tag{font-size:9px;font-weight:700;color:var(--g600);background:var(--g50);
+  border-radius:4px;padding:2px 5px;display:inline-block;margin-bottom:6px;}
+.prod-foot{display:flex;align-items:center;justify-content:space-between;}
+.prod-price{font-size:14px;font-weight:800;color:var(--g800);}
+.prod-unit{font-size:9px;color:var(--t4);}
+.add-btn{background:var(--g800);color:#fff;border:none;border-radius:8px;
+  padding:6px 11px;font-size:11px;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;}
+
+.guarantee-strip{
+  background:linear-gradient(90deg,var(--g800),var(--g600));
+  margin:6px 18px;border-radius:14px;padding:13px 16px;
+  display:flex;align-items:center;gap:12px;cursor:pointer;
+}
+.gs-icon{font-size:26px;}
+.gs-title{color:#fff;font-size:12px;font-weight:700;margin-bottom:2px;}
+.gs-sub{color:rgba(255,255,255,.65);font-size:10px;line-height:1.4;}
+
+/* ═══════════════════════════════════════════════
+   SCREEN 8 – CATALOG
+═══════════════════════════════════════════════ */
+.filter-bar{
+  display:flex;align-items:center;gap:8px;
+  padding:8px 18px;background:var(--wh);border-bottom:1px solid var(--br);
+}
+.filter-btn{
+  display:flex;align-items:center;gap:5px;padding:7px 12px;border-radius:50px;
+  border:1.5px solid var(--br);background:var(--wh);font-size:11px;font-weight:700;
+  color:var(--t2);cursor:pointer;
+}
+.filter-btn.active-filter{background:var(--g800);color:#fff;border-color:var(--g800);}
+.cat-section-hdr{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 18px 6px;
+}
+.cat-section-hdr span{font-size:10px;color:var(--g600);font-weight:700;cursor:pointer;}
+.prod-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 18px;}
+.grid-card{
+  background:var(--wh);border-radius:var(--radius);border:1px solid var(--br);
+  overflow:hidden;box-shadow:0 2px 6px var(--sh);cursor:pointer;
+}
+.gc-img{height:80px;background:var(--g50);display:flex;align-items:center;
+  justify-content:center;font-size:40px;}
+.gc-body{padding:10px;}
+.gc-name{font-size:12px;font-weight:700;color:var(--t1);line-height:1.3;margin-bottom:4px;}
+.gc-price{font-size:13px;font-weight:800;color:var(--g800);}
+.gc-add{width:24px;height:24px;background:var(--g800);border:none;
+  border-radius:6px;color:#fff;font-size:14px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;}
+
+/* ═══════════════════════════════════════════════
+   SCREEN 9 – PRODUCT DETAIL
+═══════════════════════════════════════════════ */
+.det-hero{
+  height:210px;background:linear-gradient(135deg,var(--g50),var(--g100));
+  display:flex;align-items:center;justify-content:center;font-size:90px;
+  position:relative;
+}
+.det-back{
+  position:absolute;top:14px;left:14px;
+  width:34px;height:34px;background:var(--wh);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;font-size:16px;
+  box-shadow:0 2px 8px var(--sh);cursor:pointer;border:none;
+}
+.det-share{
+  position:absolute;top:14px;right:14px;
+  width:34px;height:34px;background:var(--wh);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;font-size:16px;
+  box-shadow:0 2px 8px var(--sh);cursor:pointer;border:none;
+}
+.det-body{padding:18px;flex:1;}
+.det-cat{font-size:10px;font-weight:700;color:var(--g600);letter-spacing:.5px;
+  text-transform:uppercase;margin-bottom:5px;}
+.det-name{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:700;
+  color:var(--t1);line-height:1.2;margin-bottom:10px;}
+.det-price-row{display:flex;align-items:flex-end;gap:8px;margin-bottom:12px;}
+.det-price{font-size:24px;font-weight:800;color:var(--g800);}
+.det-old{font-size:13px;color:var(--t4);text-decoration:line-through;}
+.det-save{font-size:10px;color:var(--gold);background:var(--gold-l);
+  border-radius:4px;padding:2px 7px;font-weight:700;}
+.det-rating{display:flex;align-items:center;gap:4px;margin-bottom:14px;}
+.stars{font-size:12px;}
+.rating-val{font-size:12px;font-weight:700;color:var(--t1);}
+.rating-cnt{font-size:11px;color:var(--t4);}
+.info-box{background:var(--off);border-radius:12px;padding:13px;
+  margin-bottom:10px;border:1px solid var(--br);}
+.info-box h5{font-size:10px;font-weight:700;text-transform:uppercase;
+  letter-spacing:.5px;color:var(--t3);margin-bottom:8px;}
+.info-row{display:flex;gap:8px;margin-bottom:6px;align-items:flex-start;}
+.info-row:last-child{margin-bottom:0;}
+.ir-icon{font-size:13px;margin-top:1px;flex-shrink:0;}
+.ir-text{font-size:12px;color:var(--t2);line-height:1.5;}
+.qty-row{display:flex;align-items:center;gap:12px;margin-bottom:12px;}
+.qty-box{display:flex;align-items:center;gap:0;
+  border:1.5px solid var(--br);border-radius:10px;overflow:hidden;}
+.qty-btn{width:34px;height:34px;border:none;background:var(--g50);
+  font-size:16px;font-weight:700;cursor:pointer;color:var(--g800);}
+.qty-val{width:36px;text-align:center;font-size:14px;font-weight:700;color:var(--t1);}
+.det-cta{
+  position:sticky;bottom:0;padding:10px 18px 14px;background:var(--wh);
+  border-top:1px solid var(--br);display:flex;gap:10px;
+}
+.wish-btn{
+  width:44px;height:44px;border:1.5px solid var(--br);border-radius:10px;
+  background:var(--wh);display:flex;align-items:center;justify-content:center;
+  font-size:18px;cursor:pointer;flex-shrink:0;
+}
+
+/* ═══════════════════════════════════════════════
+   SCREEN 10 – CART
+═══════════════════════════════════════════════ */
+.cart-item{
+  display:flex;gap:10px;padding:12px 14px;background:var(--wh);
+  border-radius:var(--radius);border:1px solid var(--br);
+  margin:0 18px 10px;box-shadow:0 2px 6px var(--sh);
+}
+.ci-img{width:56px;height:56px;background:var(--g50);border-radius:10px;
+  display:flex;align-items:center;justify-content:center;font-size:28px;flex-shrink:0;}
+.ci-info{flex:1;}
+.ci-name{font-size:12px;font-weight:700;color:var(--t1);margin-bottom:3px;}
+.ci-sub{font-size:10px;color:var(--t4);}
+.ci-foot{display:flex;align-items:center;justify-content:space-between;margin-top:6px;}
+.ci-price{font-size:13px;font-weight:800;color:var(--g800);}
+.ci-qty{display:flex;align-items:center;gap:0;
+  border:1px solid var(--br);border-radius:8px;overflow:hidden;}
+.cq-btn{width:24px;height:24px;border:none;background:var(--g50);
+  font-size:13px;cursor:pointer;color:var(--g800);font-weight:700;}
+.cq-val{width:26px;text-align:center;font-size:12px;font-weight:700;}
+.summary-box{
+  background:var(--wh);border-radius:var(--radius);border:1px solid var(--br);
+  margin:6px 18px;padding:14px;
+}
+.sum-row{display:flex;justify-content:space-between;
+  font-size:12px;color:var(--t2);margin-bottom:8px;}
+.sum-row.total{border-top:1px solid var(--br);padding-top:10px;margin-top:4px;
+  font-size:14px;font-weight:800;color:var(--t1);}
+.promo-row{
+  display:flex;gap:8px;margin:0 18px 10px;
+}
+.promo-row .inp{flex:1;}
+.promo-btn{padding:0 14px;background:var(--g50);border:1.5px solid var(--br);
+  border-radius:10px;font-size:12px;font-weight:700;color:var(--g800);
+  cursor:pointer;white-space:nowrap;}
+
+/* ═══════════════════════════════════════════════
+   SCREEN 11 – CHECKOUT
+═══════════════════════════════════════════════ */
+.payment-opt{
+  display:flex;align-items:center;gap:12px;padding:12px;
+  background:var(--wh);border:1.5px solid var(--br);border-radius:12px;
+  cursor:pointer;margin-bottom:8px;transition:all .2s;
+}
+.payment-opt.sel{border-color:var(--g500);background:var(--g50);}
+.po-icon{font-size:22px;}
+.po-info{flex:1;}
+.po-title{font-size:13px;font-weight:700;color:var(--t1);}
+.po-sub{font-size:11px;color:var(--t4);}
+.po-radio{width:18px;height:18px;border-radius:50%;border:2px solid var(--br);
+  display:flex;align-items:center;justify-content:center;}
+.po-radio.sel{border-color:var(--g500);}
+.po-radio.sel::after{content:'';width:8px;height:8px;border-radius:50%;background:var(--g500);}
+.delivery-opt{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.do-card{
+  border:1.5px solid var(--br);border-radius:12px;padding:12px;
+  text-align:center;cursor:pointer;transition:all .2s;
+}
+.do-card.sel{border-color:var(--g500);background:var(--g50);}
+.do-icon{font-size:24px;margin-bottom:4px;}
+.do-title{font-size:12px;font-weight:700;color:var(--t1);}
+.do-sub{font-size:10px;color:var(--t4);margin-top:2px;}
+
+/* ═══════════════════════════════════════════════
+   SCREEN 12 – ORDER CONFIRMED
+═══════════════════════════════════════════════ */
+.confirm-wrap{
+  flex:1;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;padding:30px 24px;text-align:center;
+}
+.confirm-anim{font-size:80px;margin-bottom:16px;
+  animation:pop .4s ease;}
+@keyframes pop{from{transform:scale(0)}to{transform:scale(1)}}
+.confirm-circle{
+  width:120px;height:120px;border-radius:50%;
+  background:linear-gradient(135deg,var(--g100),var(--g200));
+  display:flex;align-items:center;justify-content:center;
+  font-size:55px;margin:0 auto 20px;
+  animation:pop .4s ease;
+}
+.confirm-title{font-family:'Cormorant Garamond',serif;font-size:28px;
+  font-weight:700;color:var(--t1);margin-bottom:6px;}
+.confirm-sub{font-size:13px;color:var(--t3);line-height:1.6;margin-bottom:24px;}
+.confirm-detail{
+  background:var(--off);border-radius:14px;border:1px solid var(--br);
+  padding:14px 18px;width:100%;margin-bottom:20px;text-align:left;
+}
+.cd-row{display:flex;justify-content:space-between;
+  font-size:12px;margin-bottom:8px;color:var(--t2);}
+.cd-row strong{color:var(--t1);font-weight:700;}
+.cd-row:last-child{margin-bottom:0;}
+
+/* ═══════════════════════════════════════════════
+   SCREEN 13 – ORDERS LIST
+═══════════════════════════════════════════════ */
+.order-tabs{
+  display:flex;background:var(--wh);border-bottom:1px solid var(--br);
+}
+.otab{
+  flex:1;text-align:center;padding:10px 4px;font-size:11px;font-weight:700;
+  color:var(--t4);cursor:pointer;border-bottom:2px solid transparent;transition:all .2s;
+}
+.otab.on{color:var(--g800);border-bottom-color:var(--g800);}
+.order-card{
+  background:var(--wh);border-radius:var(--radius);border:1px solid var(--br);
+  margin:0 18px 10px;padding:12px 14px;box-shadow:0 2px 6px var(--sh);cursor:pointer;
+}
+.oc-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px;}
+.oc-id{font-size:10px;color:var(--t4);}
+.oc-date{font-size:10px;color:var(--t4);margin-top:2px;}
+.oc-product{display:flex;align-items:center;gap:10px;
+  padding-top:10px;border-top:1px solid var(--br);}
+.oc-emoji{
+  width:44px;height:44px;background:var(--g50);border-radius:10px;
+  display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;
+}
+.oc-pname{font-size:12px;font-weight:700;color:var(--t1);}
+.oc-psub{font-size:10px;color:var(--t4);margin-top:2px;}
+.oc-price{font-size:13px;font-weight:800;color:var(--g800);margin-left:auto;}
+
+/* ═══════════════════════════════════════════════
+   SCREEN 14 – ORDER TRACKING
+═══════════════════════════════════════════════ */
+.track-card{
+  background:var(--wh);border-radius:var(--radius);border:1px solid var(--br);
+  margin:0 18px 12px;padding:14px;box-shadow:0 2px 6px var(--sh);
+}
+.track-map{
+  height:130px;background:linear-gradient(135deg,var(--g50),var(--g100));
+  border-radius:12px;display:flex;align-items:center;justify-content:center;
+  font-size:40px;margin-bottom:10px;position:relative;overflow:hidden;
+}
+.track-map::after{content:'';position:absolute;inset:0;
+  background:repeating-linear-gradient(0deg,transparent,transparent 20px,rgba(26,77,46,.04) 20px,rgba(26,77,46,.04) 21px),
+  repeating-linear-gradient(90deg,transparent,transparent 20px,rgba(26,77,46,.04) 20px,rgba(26,77,46,.04) 21px);}
+.map-pin{position:relative;z-index:1;font-size:40px;}
+.track-timeline{display:flex;flex-direction:column;gap:0;}
+.tt-item{display:flex;gap:12px;padding-bottom:14px;position:relative;}
+.tt-item:last-child{padding-bottom:0;}
+.tt-item::before{content:'';position:absolute;left:8px;top:20px;bottom:0;
+  width:1.5px;background:var(--br);}
+.tt-item.done::before{background:var(--g800);}
+.tt-item:last-child::before{display:none;}
+.tt-dot{width:18px;height:18px;border-radius:50%;border:2.5px solid var(--br);
+  background:var(--wh);flex-shrink:0;margin-top:2px;}
+.tt-dot.done{background:var(--g800);border-color:var(--g800);}
+.tt-dot.cur{background:var(--wh);border-color:var(--g500);}
+.tt-info .tt-title{font-size:12px;font-weight:700;color:var(--t1);}
+.tt-info .tt-time{font-size:10px;color:var(--t4);margin-top:2px;}
+
+/* ═══════════════════════════════════════════════
+   SCREEN 15 – GUARANTEE CLAIM
+═══════════════════════════════════════════════ */
+.claim-hdr{
+  background:linear-gradient(135deg,var(--gold-d),var(--gold));
+  padding:16px 18px 20px;color:#fff;position:relative;overflow:hidden;
+}
+.claim-hdr::after{content:'🛡️';position:absolute;right:10px;bottom:-10px;font-size:70px;opacity:.15;}
+.upload-box{
+  border:2px dashed var(--g200);border-radius:12px;
+  background:var(--g50);padding:20px;text-align:center;cursor:pointer;
+}
+.ub-icon{font-size:32px;margin-bottom:6px;}
+.ub-title{font-size:13px;font-weight:700;color:var(--t2);margin-bottom:3px;}
+.ub-sub{font-size:11px;color:var(--t4);}
+.photo-thumbs{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;}
+.thumb{
+  width:60px;height:60px;border-radius:8px;background:var(--g100);
+  display:flex;align-items:center;justify-content:center;font-size:22px;
+  border:1px solid var(--br);position:relative;flex-shrink:0;
+}
+.thumb .x{position:absolute;top:-4px;right:-4px;width:14px;height:14px;
+  background:var(--red);border-radius:50%;color:#fff;font-size:9px;
+  display:flex;align-items:center;justify-content:center;}
+.claim-step{
+  display:flex;gap:10px;align-items:flex-start;
+  background:var(--wh);border-radius:12px;border:1px solid var(--br);
+  padding:12px;margin-bottom:8px;
+}
+.cs-num{
+  width:24px;height:24px;border-radius:50%;background:var(--g800);
+  color:#fff;font-size:11px;font-weight:800;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.cs-info .cs-title{font-size:12px;font-weight:700;color:var(--t1);}
+.cs-info .cs-sub{font-size:11px;color:var(--t4);margin-top:2px;line-height:1.4;}
+
+/* ═══════════════════════════════════════════════
+   SCREEN 16 – CROP ADVISORY
+═══════════════════════════════════════════════ */
+.advisory-hero{
+  background:linear-gradient(135deg,var(--g800),var(--g500));
+  padding:14px 18px 20px;color:#fff;
+}
+.weather-row{
+  display:flex;align-items:center;gap:10px;
+  background:rgba(255,255,255,.1);border-radius:10px;
+  padding:10px 12px;margin-top:10px;
+}
+.wr-icon{font-size:28px;}
+.wr-temp{font-size:22px;font-weight:800;}
+.wr-desc{font-size:11px;color:rgba(255,255,255,.65);margin-top:2px;}
+.wr-right{margin-left:auto;text-align:right;}
+.wr-hum{font-size:10px;color:rgba(255,255,255,.65);}
+
+.stage-card{
+  background:var(--wh);border-radius:var(--radius);border:1px solid var(--br);
+  margin:0 18px 10px;overflow:hidden;box-shadow:0 2px 6px var(--sh);
+}
+.sc-top{display:flex;align-items:center;gap:10px;padding:12px 14px;
+  border-bottom:1px solid var(--br);}
+.sc-emoji{font-size:28px;}
+.sc-title{font-size:13px;font-weight:700;color:var(--t1);}
+.sc-sub{font-size:10px;color:var(--t4);margin-top:2px;}
+.sc-badge{margin-left:auto;}
+.sc-tips{padding:10px 14px;display:flex;flex-direction:column;gap:6px;}
+.tip-row{display:flex;gap:8px;align-items:flex-start;}
+.tip-icon{font-size:12px;margin-top:1px;}
+.tip-text{font-size:11px;color:var(--t2);line-height:1.5;}
+.alert-card{
+  background:linear-gradient(90deg,#fff8ec,#fffdf5);
+  border:1px solid #f0d080;border-radius:var(--radius);
+  margin:6px 18px 10px;padding:12px 14px;
+  display:flex;align-items:flex-start;gap:10px;
+}
+.ac-icon{font-size:22px;flex-shrink:0;}
+.ac-title{font-size:12px;font-weight:700;color:#7a5200;}
+.ac-sub{font-size:11px;color:#9a6c00;margin-top:3px;line-height:1.4;}
+
+/* ═══════════════════════════════════════════════
+   SCREEN 17 – NOTIFICATIONS
+═══════════════════════════════════════════════ */
+.notif-item{
+  display:flex;gap:10px;padding:12px 18px;border-bottom:1px solid var(--br);
+  cursor:pointer;transition:background .2s;
+}
+.notif-item:hover{background:var(--g20);}
+.notif-item.unread{background:var(--g50);}
+.ni-icon{
+  width:40px;height:40px;border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;flex-shrink:0;
+}
+.ni-icon.green{background:var(--g100);}
+.ni-icon.gold{background:var(--gold-l);}
+.ni-icon.blue{background:var(--blue-l);}
+.ni-icon.red{background:var(--red-l);}
+.ni-body{flex:1;}
+.ni-title{font-size:12px;font-weight:700;color:var(--t1);margin-bottom:2px;}
+.ni-desc{font-size:11px;color:var(--t3);line-height:1.4;}
+.ni-time{font-size:10px;color:var(--t4);margin-top:4px;}
+.ni-unread-dot{width:8px;height:8px;border-radius:50%;background:var(--g500);
+  flex-shrink:0;margin-top:6px;}
+
+/* ═══════════════════════════════════════════════
+   SCREEN 18 – SUPPORT
+═══════════════════════════════════════════════ */
+.contact-card{
+  background:var(--wh);border-radius:var(--radius);
+  margin:0 18px 10px;padding:14px;border:1px solid var(--br);
+  box-shadow:0 2px 6px var(--sh);
+  display:flex;gap:12px;align-items:center;cursor:pointer;
+}
+.cc-icon{
+  width:44px;height:44px;border-radius:12px;
+  display:flex;align-items:center;justify-content:center;font-size:20px;
+  flex-shrink:0;
+}
+.cc-icon.g{background:var(--g100);}
+.cc-icon.w{background:#d4f5e0;}
+.cc-icon.o{background:#fff0e0;}
+.cc-info h4{font-size:13px;font-weight:700;color:var(--t1);}
+.cc-info p{font-size:11px;color:var(--t4);margin-top:2px;}
+.cc-arrow{margin-left:auto;color:var(--t4);font-size:16px;}
+.faq-item{
+  background:var(--wh);border-radius:var(--radius);border:1px solid var(--br);
+  margin:0 18px 8px;padding:13px 14px;cursor:pointer;
+}
+.faq-q{font-size:12px;font-weight:700;color:var(--t1);margin-bottom:5px;
+  display:flex;justify-content:space-between;align-items:center;}
+.faq-a{font-size:11px;color:var(--t3);line-height:1.55;}
+
+/* ═══════════════════════════════════════════════
+   SCREEN 19 – PROFILE
+═══════════════════════════════════════════════ */
+.profile-hero{
+  background:linear-gradient(135deg,var(--g800),var(--g600));
+  padding:20px 18px 30px;color:#fff;text-align:center;
+}
+.avatar{
+  width:72px;height:72px;border-radius:50%;background:var(--g400);
+  border:3px solid rgba(255,255,255,.4);
+  display:flex;align-items:center;justify-content:center;
+  font-size:30px;margin:0 auto 10px;
+}
+.profile-name{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;}
+.profile-id{font-size:11px;color:rgba(255,255,255,.55);margin-top:2px;}
+.profile-stats{
+  display:grid;grid-template-columns:1fr 1fr 1fr;
+  background:var(--wh);border-radius:var(--radius);
+  border:1px solid var(--br);margin:-18px 18px 12px;
+  box-shadow:0 4px 14px var(--sh);
+}
+.ps-item{padding:14px 8px;text-align:center;}
+.ps-item:not(:last-child){border-right:1px solid var(--br);}
+.ps-val{font-size:18px;font-weight:800;color:var(--g800);}
+.ps-lbl{font-size:9px;color:var(--t4);margin-top:2px;font-weight:600;}
+.menu-item{
+  display:flex;align-items:center;gap:12px;padding:14px 18px;
+  border-bottom:1px solid var(--br);cursor:pointer;transition:background .2s;
+}
+.menu-item:hover{background:var(--g20);}
+.mi-icon{width:36px;height:36px;border-radius:10px;background:var(--g50);
+  display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
+.mi-label{font-size:13px;font-weight:600;color:var(--t1);flex:1;}
+.mi-arrow{color:var(--t4);font-size:14px;}
+.mi-badge{
+  font-size:9px;font-weight:700;background:var(--g800);color:#fff;
+  border-radius:50px;padding:2px 7px;
+}
+</style>
 </head>
 <body>
-  <div class="page-head">
-    <h1>🌾 Rythu Mitra</h1>
-    <p>24-screen mobile prototype with the full Rythu Mitra Suraksha flow.</p>
+
+<div class="ph">
+  <h1>🌾 Rythu Mitra</h1>
+  <p>Complete App Preview — 19 Screens · Click any screen to jump</p>
+</div>
+
+<!-- ─── JUMP NAV ──────────────────────────────────── -->
+<div class="jump-nav-wrap">
+  <div class="jump-group-label">Getting Started</div>
+  <div class="jump-row">
+    <button class="jbtn active" onclick="go('splash')">💫 Splash</button>
+    <button class="jbtn" onclick="go('ob1')">📖 Onboard 1</button>
+    <button class="jbtn" onclick="go('ob2')">📖 Onboard 2</button>
+    <button class="jbtn" onclick="go('ob3')">📖 Onboard 3</button>
+    <button class="jbtn" onclick="go('login')">🔐 Login</button>
+    <button class="jbtn" onclick="go('register')">📝 Register</button>
+  </div>
+  <div class="jump-group-label">Shopping</div>
+  <div class="jump-row">
+    <button class="jbtn" onclick="go('home')">🏠 Home</button>
+    <button class="jbtn" onclick="go('catalog')">🗂️ Catalog</button>
+    <button class="jbtn" onclick="go('product')">🌽 Product</button>
+    <button class="jbtn" onclick="go('cart')">🛒 Cart</button>
+    <button class="jbtn" onclick="go('checkout')">💳 Checkout</button>
+    <button class="jbtn" onclick="go('confirm')">✅ Confirmed</button>
+  </div>
+  <div class="jump-group-label">Orders & Support</div>
+  <div class="jump-row">
+    <button class="jbtn" onclick="go('orders')">📦 My Orders</button>
+    <button class="jbtn" onclick="go('tracking')">📍 Tracking</button>
+    <button class="jbtn" onclick="go('claim')">🛡️ Claim</button>
+    <button class="jbtn" onclick="go('advisory')">🌿 Advisory</button>
+    <button class="jbtn" onclick="go('notifs')">🔔 Notifications</button>
+    <button class="jbtn" onclick="go('support')">💬 Support</button>
+    <button class="jbtn" onclick="go('profile')">👤 Profile</button>
+  </div>
+</div>
+
+<!-- ─── PHONE ─────────────────────────────────────── -->
+<div class="phone-wrap">
+<div class="phone-frame">
+<div class="phone-screen">
+
+  <!-- STATUS BAR -->
+  <div class="sbar" id="sbar"><span>9:41</span><div class="sicons"><span>●●●</span><span>WiFi</span><span>🔋</span></div></div>
+
+  <div class="screens">
+
+  <!-- ════════ 1. SPLASH ════════ -->
+  <div class="scr active" id="s-splash" style="background:linear-gradient(160deg,#0f2e1a,#235c38);">
+    <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;">
+      <div style="font-size:72px;animation:pulse 2s infinite;">🌾</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:700;color:#fff;letter-spacing:-1px;">Rythu Mitra</div>
+      <div style="font-size:13px;color:rgba(255,255,255,.5);text-align:center;line-height:1.7;max-width:200px;">Authentic seeds · Guaranteed crops · Direct from factory</div>
+      <div style="display:flex;gap:7px;margin-top:8px;">
+        <div class="loader-dot"></div><div class="loader-dot"></div><div class="loader-dot"></div>
+      </div>
+    </div>
+    <div style="padding:16px;text-align:center;font-size:12px;color:rgba(255,255,255,.3);cursor:pointer;" onclick="go('ob1')">Tap anywhere to continue →</div>
   </div>
 
-  <div class="jump-wrap">
-    <div class="jump-label">Screens 1-19</div>
-    <div class="jump-row">
-      <button class="jump-btn active" data-screen="s1" onclick="go('s1')">1 Splash</button>
-      <button class="jump-btn" data-screen="s2" onclick="go('s2')">2 Onboarding 1</button>
-      <button class="jump-btn" data-screen="s3" onclick="go('s3')">3 Onboarding 2</button>
-      <button class="jump-btn" data-screen="s4" onclick="go('s4')">4 Onboarding 3</button>
-      <button class="jump-btn" data-screen="s5" onclick="go('s5')">5 Login</button>
-      <button class="jump-btn" data-screen="s6" onclick="go('s6')">6 Home</button>
-      <button class="jump-btn" data-screen="s7" onclick="go('s7')">7 Products</button>
-      <button class="jump-btn" data-screen="s8" onclick="go('s8')">8 Product Detail</button>
-      <button class="jump-btn" data-screen="s9" onclick="go('s9')">9 Cart</button>
-      <button class="jump-btn" data-screen="s10" onclick="go('s10')">10 Order Confirmed</button>
-      <button class="jump-btn" data-screen="s11" onclick="go('s11')">11 My Orders</button>
-      <button class="jump-btn" data-screen="s12" onclick="go('s12')">12 Order Tracking</button>
-      <button class="jump-btn" data-screen="s13" onclick="go('s13')">13 Advisory</button>
-      <button class="jump-btn" data-screen="s14" onclick="go('s14')">14 Notifications</button>
-      <button class="jump-btn" data-screen="s15" onclick="go('s15')">15 Support</button>
-      <button class="jump-btn" data-screen="s16" onclick="go('s16')">16 FAQ</button>
-      <button class="jump-btn" data-screen="s17" onclick="go('s17')">17 Profile</button>
-      <button class="jump-btn" data-screen="s18" onclick="go('s18')">18 Settings</button>
-      <button class="jump-btn" data-screen="s19" onclick="go('s19')">19 Preferences</button>
-    </div>
-    <div class="jump-label">Screens 20-24</div>
-    <div class="jump-row">
-      <button class="jump-btn" data-screen="s20" onclick="go('s20')">20 Suraksha Hub</button>
-      <button class="jump-btn" data-screen="s21" onclick="go('s21')">21 Scan Product</button>
-      <button class="jump-btn" data-screen="s22" onclick="go('s22')">22 Verified Card</button>
-      <button class="jump-btn" data-screen="s23" onclick="go('s23')">23 Replacement Form</button>
-      <button class="jump-btn" data-screen="s24" onclick="go('s24')">24 Replacement Confirmed</button>
-    </div>
-  </div>
-
-  <div class="phone-wrap">
-    <div class="phone-frame">
-      <div class="phone-screen">
-        <section class="screen active" id="s1">
-          <div class="splash">
-            <div class="logo">🌾</div>
-            <div class="brand">Rythu Mitra</div>
-            <div class="telugu">రైతు మిత్ర</div>
-            <div class="tag">Real seeds · Real results · Real support</div>
-            <button class="btn btn-light" onclick="go('s2')">Enter Preview</button>
-          </div>
-        </section>
-
-        <section class="screen" id="s2">
-          <div class="status"><span>9:41</span><span>●●● 🔋</span></div>
-          <div class="art gold">🚫</div>
-          <div class="ob-body">
-            <div class="ob-chip">Why this app exists</div>
-            <div class="ob-title">Counterfeit inputs ruin entire seasons.</div>
-            <div class="ob-desc">Every year, farmers lose money, labour, and crop confidence because they cannot verify what they bought from the local market. Rythu Mitra starts by fixing that first layer of trust.</div>
-            <div class="dots"><span class="dot on"></span><span class="dot"></span><span class="dot"></span></div>
-            <div class="btn-row">
-              <button class="btn btn-green full-btn" onclick="go('s3')">Next</button>
-            </div>
-          </div>
-        </section>
-
-        <section class="screen" id="s3">
-          <div class="status"><span>9:41</span><span>●●● 🔋</span></div>
-          <div class="art green">🚚</div>
-          <div class="ob-body">
-            <div class="ob-chip">What changes</div>
-            <div class="ob-title">Factory-direct inputs with proof built in.</div>
-            <div class="ob-desc">Rythu Mitra gives you verified products, clear usage guidance, and batch-level traceability before the season begins. No vague promises and no hidden dealer chain.</div>
-            <div class="dots"><span class="dot"></span><span class="dot on"></span><span class="dot"></span></div>
-            <div class="btn-row">
-              <button class="btn btn-outline" onclick="go('s2')">Back</button>
-              <button class="btn btn-green" onclick="go('s4')">Next</button>
-            </div>
-          </div>
-        </section>
-
-        <section class="screen" id="s4">
-          <div class="status"><span>9:41</span><span>●●● 🔋</span></div>
-          <div class="art blue">🌾</div>
-          <div class="ob-body">
-            <div class="ob-chip">Protection system</div>
-            <div class="ob-title">Rythu Mitra Suraksha - 3-pillar crop protection</div>
-            <div class="ob-desc">Scan to verify the product, view the result you should expect, and request a free replacement fast if the product still underperforms despite correct usage.</div>
-            <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot on"></span></div>
-            <div class="btn-row">
-              <button class="btn btn-outline" onclick="go('s3')">Back</button>
-              <button class="btn btn-teal" onclick="go('s5')">Start</button>
-            </div>
-          </div>
-        </section>
-
-        <section class="screen" id="s5">
-          <div class="status"><span>9:41</span><span>●●● 🔋</span></div>
-          <div class="login-hero">
-            <div class="logo">🌾</div>
-            <div class="brand">Rythu Mitra</div>
-            <div class="telugu">రైతు మిత్ర</div>
-          </div>
-          <div class="scroll">
-            <div class="section">
-              <div class="title">Welcome back</div>
-              <div class="sub" style="margin-bottom:18px;">Join Rythu Mitra - your direct farm input platform.</div>
-              <div class="field">
-                <label>Mobile Number</label>
-                <input placeholder="98765 43210" />
-              </div>
-              <div class="field">
-                <label>Village</label>
-                <input placeholder="Nandgaon" />
-              </div>
-              <button class="btn btn-green full-btn" onclick="go('s6')">Continue</button>
-            </div>
-          </div>
-        </section>
-
-        <section class="screen" id="s6">
-          <div class="status light"><span>9:41</span><span>●●● 🔋</span></div>
-          <div class="scroll">
-            <div class="home-hero">
-              <div class="greet">Good morning ☀️ · Nandgaon</div>
-              <div class="name">Ramesh Kumar</div>
-              <div class="badge teal">🌾 Suraksha Active</div>
-            </div>
-
-            <div class="suraksha-strip" onclick="go('s20')">
-              <div class="chips">
-                <div class="chip">🔍 Scan</div>
-                <div class="chip">🌾 Yield</div>
-                <div class="chip">🔄 Replace</div>
-              </div>
-              <div class="strong" style="color:var(--rm-teal-d);">Rythu Mitra Suraksha Active</div>
-              <div class="mini">Tap to open your full protection hub.</div>
-            </div>
-
-            <div class="section">
-              <div class="label">Quick Stats</div>
-              <div class="stats-mini">
-                <div class="card"><strong>2</strong><div class="mini">Orders</div></div>
-                <div class="card"><strong>12</strong><div class="mini">Support messages</div></div>
-                <div class="card"><strong>0</strong><div class="mini">Issues raised</div></div>
-              </div>
-            </div>
-
-            <div class="section">
-              <div class="label">Recommended Products</div>
-              <div class="list">
-                <div class="product-item" onclick="go('s8')">
-                  <div class="product-emoji">🌽</div>
-                  <div style="flex:1;">
-                    <div class="strong">DKC 9108 Hybrid Maize Seed</div>
-                    <div class="mini">🌾 Yield Commitment: 28-32 quintals per acre</div>
-                    <div class="price">₹1,800 / bag</div>
-                  </div>
-                </div>
-                <div class="product-item">
-                  <div class="product-emoji">🧴</div>
-                  <div style="flex:1;">
-                    <div class="strong">Coragen</div>
-                    <div class="mini">🌾 95%+ FAW control within 48 hours</div>
-                    <div class="price">₹950 / bottle</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="bnav">
-            <div class="item active" onclick="go('s6')"><span class="ico">🏠</span>Home</div>
-            <div class="item" onclick="go('s7')"><span class="ico">🛍️</span>Products</div>
-            <div class="item" onclick="go('s11')"><span class="ico">📦</span>Orders</div>
-            <div class="item" onclick="go('s13')"><span class="ico">🌿</span>Advisory</div>
-            <div class="item" onclick="go('s17')"><span class="ico">👤</span>Profile</div>
-          </div>
-        </section>
-
-        <section class="screen" id="s7">
-          <div class="status"><span>9:41</span><span>●●● 🔋</span></div>
-          <div class="screen-head green">
-            <button class="back" onclick="go('s6')">‹</button>
-            <h2>Verified Products</h2>
-            <p>Every listing carries its expected field result before you buy.</p>
-          </div>
-          <div class="scroll">
-            <div class="section">
-              <div class="pill-row">
-                <span class="pill active">🌽 All</span>
-                <span class="pill">🌱 Seeds</span>
-                <span class="pill">🐛 Pest</span>
-                <span class="pill">🌿 Weed</span>
-              </div>
-            </div>
-            <div class="section">
-              <div class="list">
-                <div class="product-item" onclick="go('s8')">
-                  <div class="product-emoji">🌽</div>
-                  <div style="flex:1;">
-                    <div class="strong">DKC 9108 Hybrid Maize Seed</div>
-                    <div class="mini">🌾 28-32 quintals per acre</div>
-                    <div class="price">₹1,800 / bag</div>
-                  </div>
-                  <div class="badge teal">🌾 RM Verified</div>
-                </div>
-                <div class="product-item">
-                  <div class="product-emoji">🧴</div>
-                  <div style="flex:1;">
-                    <div class="strong">Coragen</div>
-                    <div class="mini">🌾 95%+ FAW control within 48 hours</div>
-                    <div class="price">₹950 / bottle</div>
-                  </div>
-                  <div class="badge teal">🌾 RM Verified</div>
-                </div>
-                <div class="product-item">
-                  <div class="product-emoji">🌿</div>
-                  <div style="flex:1;">
-                    <div class="strong">Atrazine 50% WP</div>
-                    <div class="mini">🌾 80%+ weed suppression for 6 weeks</div>
-                    <div class="price">₹420 / pack</div>
-                  </div>
-                  <div class="badge teal">🌾 RM Verified</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="bnav">
-            <div class="item" onclick="go('s6')"><span class="ico">🏠</span>Home</div>
-            <div class="item active" onclick="go('s7')"><span class="ico">🛍️</span>Products</div>
-            <div class="item" onclick="go('s11')"><span class="ico">📦</span>Orders</div>
-            <div class="item" onclick="go('s13')"><span class="ico">🌿</span>Advisory</div>
-            <div class="item" onclick="go('s17')"><span class="ico">👤</span>Profile</div>
-          </div>
-        </section>
-
-        <section class="screen" id="s8">
-          <div class="status"><span>9:41</span><span>●●● 🔋</span></div>
-          <div class="screen-head green">
-            <button class="back" onclick="go('s7')">‹</button>
-            <h2>DKC 9108 Hybrid Maize</h2>
-            <p>Factory direct seed with verified batch details and clear yield target.</p>
-          </div>
-          <div class="scroll">
-            <div class="section">
-              <div class="card center">
-                <div style="font-size:72px;margin-bottom:8px;">🌽</div>
-                <div class="badge teal">🌾 RM Verified</div>
-                <div class="title" style="margin-top:12px;">High-yield kharif hybrid maize seed</div>
-                <div class="sub">Recommended depth 3-4 cm · 4 kg bag · Suitable for Nandgaon cluster.</div>
-              </div>
-            </div>
-            <div class="section">
-              <button class="btn btn-teal full-btn" onclick="go('s21')">🔍 Scan to Verify</button>
-            </div>
-            <div class="section">
-              <div class="card yield-card">
-                <div class="row" style="margin-bottom:10px;">
-                  <div class="icon-box teal">🌾</div>
-                  <div>
-                    <div class="strong" style="color:var(--rm-teal-d);">Yield Commitment</div>
-                    <div class="mini" style="color:var(--rm-teal-d);opacity:.86;">Follow our usage guide to achieve this result</div>
-                  </div>
-                </div>
-                <div style="font-size:28px;font-weight:900;">28-32 quintals per acre</div>
-              </div>
-            </div>
-            <div class="section">
-              <button class="btn btn-green full-btn" onclick="go('s9')">Add to Cart</button>
-            </div>
-          </div>
-        </section>
-
-        <section class="screen" id="s9">
-          <div class="status"><span>9:41</span><span>●●● 🔋</span></div>
-          <div class="screen-head green">
-            <button class="back" onclick="go('s8')">‹</button>
-            <h2>Your Cart</h2>
-            <p>Review the products heading to your field this week.</p>
-          </div>
-          <div class="scroll">
-            <div class="section">
-              <div class="card">
-                <div class="row space">
-                  <div>
-                    <div class="strong">DKC 9108 Hybrid Maize Seed</div>
-                    <div class="mini">1 bag · ₹1,800</div>
-                  </div>
-                  <div class="badge teal">🌾 Covered</div>
-                </div>
-              </div>
-              <div class="card" style="margin-top:12px;">
-                <div class="row space">
-                  <div>
-                    <div class="strong">Coragen</div>
-                    <div class="mini">1 bottle · ₹950</div>
-                  </div>
-                  <div class="badge teal">🌾 Covered</div>
-                </div>
-              </div>
-            </div>
-            <div class="section">
-              <div class="card">
-                <div class="row space"><span class="mini">Items total</span><span class="strong">₹2,750</span></div>
-                <div class="row space" style="margin-top:10px;"><span class="mini">Delivery</span><span class="strong">₹0</span></div>
-                <div class="row space" style="margin-top:10px;"><span class="mini">Total</span><span class="strong">₹2,750</span></div>
-              </div>
-            </div>
-            <div class="section">
-              <div class="cart-strip">🌾 Rythu Mitra Suraksha active for all items in cart</div>
-            </div>
-            <div class="section">
-              <button class="btn btn-green full-btn" onclick="go('s10')">Proceed to Checkout</button>
-            </div>
-          </div>
-        </section>
-
-        <section class="screen" id="s10">
-          <div class="status"><span>9:41</span><span>●●● 🔋</span></div>
-          <div class="screen-head teal">
-            <button class="back" onclick="go('s9')">‹</button>
-            <h2>Order Placed</h2>
-            <p>Your order is packed and the protection workflow is now active.</p>
-          </div>
-          <div class="scroll">
-            <div class="section">
-              <div class="card center">
-                <div class="check">✅</div>
-                <div class="title">🌾 Rythu Mitra Suraksha Activated</div>
-                <div class="sub">Order #KD-20245 confirmed for ₹2,750. Next stop: scan your product before sowing.</div>
-              </div>
-            </div>
-            <div class="section">
-              <div class="card">
-                <div class="list">
-                  <div class="row space">
-                    <div>
-                      <div class="strong">🔍 Scan your products before sowing</div>
-                      <div class="mini">Confirm authenticity and batch details.</div>
-                    </div>
-                    <button class="btn btn-teal" onclick="go('s21')">Scan Now</button>
-                  </div>
-                  <div class="row space">
-                    <div>
-                      <div class="strong">🌾 View your yield commitments</div>
-                      <div class="mini">See the result targets attached to this order.</div>
-                    </div>
-                    <button class="btn btn-outline" onclick="go('s20')">View Targets</button>
-                  </div>
-                  <div class="row space">
-                    <div>
-                      <div class="strong">🔄 Report an issue anytime</div>
-                      <div class="mini">Use replacement support if a product underperforms.</div>
-                    </div>
-                    <button class="btn btn-outline" onclick="go('s23')">Report Issue</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="screen" id="s11">
-          <div class="status"><span>9:41</span><span>●●● 🔋</span></div>
-          <div class="screen-head green">
-            <button class="back" onclick="go('s6')">‹</button>
-            <h2>My Orders</h2>
-            <p>Track order status and raise an issue from the same place.</p>
-          </div>
-          <div class="tabs"><span class="active">Orders</span><span>Issues</span><span>History</span></div>
-          <div class="scroll">
-            <div class="section">
-              <div class="list">
-                <div class="card">
-                  <div class="row space" style="margin-bottom:10px;">
-                    <div>
-                      <div class="strong">Order #KD-20245</div>
-                      <div class="mini">Placed today · DKC 9108 Seed + Coragen</div>
-                    </div>
-                    <div class="badge teal">🌾 Suraksha Active</div>
-                  </div>
-                  <div class="btn-row">
-                    <button class="btn btn-outline" onclick="go('s12')">Track</button>
-                    <button class="btn btn-teal" onclick="go('s23')">Report Issue</button>
-                  </div>
-                </div>
-                <div class="card">
-                  <div class="row space" style="margin-bottom:10px;">
-                    <div>
-                      <div class="strong">Order #KD-20241</div>
-                      <div class="mini">Mar 2, 2025 · Coragen</div>
-                    </div>
-                    <div class="badge teal">🌾 Suraksha Active</div>
-                  </div>
-                  <div class="btn-row">
-                    <button class="btn btn-outline" onclick="go('s12')">Track</button>
-                    <button class="btn btn-teal" onclick="go('s23')">Report Issue</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="bnav">
-            <div class="item" onclick="go('s6')"><span class="ico">🏠</span>Home</div>
-            <div class="item" onclick="go('s7')"><span class="ico">🛍️</span>Products</div>
-            <div class="item active" onclick="go('s11')"><span class="ico">📦</span>Orders</div>
-            <div class="item" onclick="go('s13')"><span class="ico">🌿</span>Advisory</div>
-            <div class="item" onclick="go('s17')"><span class="ico">👤</span>Profile</div>
-          </div>
-        </section>
-
-        <section class="screen" id="s12">
-          <div class="status"><span>9:41</span><span>●●● 🔋</span></div>
-          <div class="screen-head green">
-            <button class="back" onclick="go('s11')">‹</button>
-            <h2>Order Tracking</h2>
-            <p>Order #KD-20245 · Nandgaon delivery cluster</p>
-          </div>
-          <div class="scroll">
-            <div class="section">
-              <div class="card">
-                <div class="label">Current status</div>
-                <div class="title">Out for delivery</div>
-                <div class="sub">Expected by 12 PM today. Driver will call before arrival.</div>
-              </div>
-            </div>
-            <div class="section">
-              <div class="card">
-                <div class="timeline">
-                  <div class="step"><div class="num">✓</div><div><div class="strong">Order confirmed</div><div class="mini">Today, 8:15 AM</div></div></div>
-                  <div class="step"><div class="num">✓</div><div><div class="strong">Packed at village hub</div><div class="mini">Today, 9:00 AM</div></div></div>
-                  <div class="step"><div class="num">3</div><div><div class="strong">Out for delivery</div><div class="mini">Today, 10:10 AM</div></div></div>
-                </div>
-              </div>
-            </div>
-            <div class="section">
-              <button class="btn btn-outline full-btn" onclick="go('s23')">Something wrong with your order? → Request Free Replacement</button>
-            </div>
-          </div>
-        </section>
-
-        <section class="screen" id="s13">
-          <div class="status"><span>9:41</span><span>●●● 🔋</span></div>
-          <div class="screen-head green">
-            <button class="back" onclick="go('s6')">‹</button>
-            <h2>Crop Advisory</h2>
-            <p>Stage-by-stage tasks for your current maize season.</p>
-          </div>
-          <div class="scroll">
-            <div class="section">
-              <div class="card">
-                <div class="badge green">Current Stage · Germination</div>
-                <div class="title" style="margin-top:12px;">Tasks for this week</div>
-                <div class="list">
-                  <div class="row"><div class="icon-box">📸</div><div><div class="strong">Seed bag photo</div><div class="mini">Keep batch details visible for Suraksha verification.</div></div></div>
-                  <div class="row"><div class="icon-box">💧</div><div><div class="strong">Light irrigation</div><div class="mini">Keep the soil moist without waterlogging.</div></div></div>
-                  <div class="row"><div class="icon-box">📐</div><div><div class="strong">Verify row spacing</div><div class="mini">60 cm x 20 cm spacing recommended.</div></div></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="bnav">
-            <div class="item" onclick="go('s6')"><span class="ico">🏠</span>Home</div>
-            <div class="item" onclick="go('s7')"><span class="ico">🛍️</span>Products</div>
-            <div class="item" onclick="go('s11')"><span class="ico">📦</span>Orders</div>
-            <div class="item active" onclick="go('s13')"><span class="ico">🌿</span>Advisory</div>
-            <div class="item" onclick="go('s17')"><span class="ico">👤</span>Profile</div>
-          </div>
-        </section>
-
-        <section class="screen" id="s14">
-          <div class="status"><span>9:41</span><span>●●● 🔋</span></div>
-          <div class="screen-head teal">
-            <button class="back" onclick="go('s6')">‹</button>
-            <h2>Notifications</h2>
-            <p>Updates that matter before and during the season.</p>
-          </div>
-          <div class="scroll">
-            <div class="section">
-              <div class="list">
-                <div class="card">
-                  <div class="row">
-                    <div class="icon-box teal">🌾</div>
-                    <div>
-                      <div class="strong">🌾 Suraksha Active - Scan your products before sowing</div>
-                      <div class="mini">Your new order is ready for verification.</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="card">
-                  <div class="row">
-                    <div class="icon-box teal">🔄</div>
-                    <div>
-                      <div class="strong">🔄 Replacement update - Your replacement is out for delivery</div>
-                      <div class="mini">Expected before 12 PM at your village pickup point.</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="screen" id="s15">
-          <div class="status"><span>9:41</span><span>●●● 🔋</span></div>
-          <div class="screen-head green">
-            <button class="back" onclick="go('s6')">‹</button>
-            <h2>Support</h2>
-            <p>Reach the team by phone, WhatsApp, or replacement form.</p>
-          </div>
-          <div class="scroll">
-            <div class="section">
-              <div class="list">
-                <div class="card">
-                  <div class="row space">
-                    <div><div class="strong">📞 Call Support</div><div class="mini">+91 98765 43210</div></div>
-                    <button class="btn btn-green">Call</button>
-                  </div>
-                </div>
-                <div class="card">
-                  <div class="row space">
-                    <div><div class="strong">💬 WhatsApp</div><div class="mini">Share crop photos and product labels</div></div>
-                    <button class="btn btn-green">Open</button>
-                  </div>
-                </div>
-                <div class="card">
-                  <div class="row space">
-                    <div><div class="strong">🔄 Free Replacement</div><div class="mini">Next-day delivery after approval</div></div>
-                    <button class="btn btn-teal" onclick="go('s23')">Request</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="screen" id="s16">
-          <div class="status"><span>9:41</span><span>●●● 🔋</span></div>
-          <div class="screen-head green">
-            <button class="back" onclick="go('s15')">‹</button>
-            <h2>FAQ</h2>
-            <p>Quick answers from the support team.</p>
-          </div>
-          <div class="scroll">
-            <div class="section">
-              <div class="list">
-                <div class="card"><div class="strong">How is Suraksha different from a refund promise?</div><div class="sub" style="margin-top:8px;">It verifies the product before sowing, sets a target, and supports replacement while the season is still active.</div></div>
-                <div class="card"><div class="strong">How fast is replacement delivery?</div><div class="sub" style="margin-top:8px;">Approved replacement is dispatched the same day and delivered the next day.</div></div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="screen" id="s17">
-          <div class="status"><span>9:41</span><span>●●● 🔋</span></div>
-          <div class="screen-head green">
-            <button class="back" onclick="go('s6')">‹</button>
-            <h2>Profile</h2>
-            <p>Ramesh Kumar · KD-F-00124 · Nandgaon Village</p>
-          </div>
-          <div class="scroll">
-            <div class="section">
-              <div class="card">
-                <div class="menu-item" onclick="go('s20')"><span>🌾 Rythu Mitra Suraksha</span><span>›</span></div>
-                <div class="menu-item" onclick="go('s11')"><span>📦 My Orders</span><span>›</span></div>
-                <div class="menu-item" onclick="go('s14')"><span>🔔 Notifications</span><span>›</span></div>
-                <div class="menu-item" onclick="go('s18')"><span>⚙️ Settings</span><span>›</span></div>
-              </div>
-            </div>
-          </div>
-          <div class="bnav">
-            <div class="item" onclick="go('s6')"><span class="ico">🏠</span>Home</div>
-            <div class="item" onclick="go('s7')"><span class="ico">🛍️</span>Products</div>
-            <div class="item" onclick="go('s11')"><span class="ico">📦</span>Orders</div>
-            <div class="item" onclick="go('s13')"><span class="ico">🌿</span>Advisory</div>
-            <div class="item active" onclick="go('s17')"><span class="ico">👤</span>Profile</div>
-          </div>
-        </section>
-
-        <section class="screen" id="s18">
-          <div class="status"><span>9:41</span><span>●●● 🔋</span></div>
-          <div class="screen-head green">
-            <button class="back" onclick="go('s17')">‹</button>
-            <h2>Settings</h2>
-            <p>Manage contact and support preferences.</p>
-          </div>
-          <div class="scroll">
-            <div class="section">
-              <div class="card">
-                <div class="menu-item"><span>📱 App language</span><span>English</span></div>
-                <div class="menu-item"><span>💬 WhatsApp alerts</span><span>On</span></div>
-                <div class="menu-item"><span>📦 Delivery preference</span><span>Morning</span></div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="screen" id="s19">
-          <div class="status"><span>9:41</span><span>●●● 🔋</span></div>
-          <div class="screen-head green">
-            <button class="back" onclick="go('s17')">‹</button>
-            <h2>Preferences</h2>
-            <p>Simple settings for village, season, and reminders.</p>
-          </div>
-          <div class="scroll">
-            <div class="section">
-              <div class="card">
-                <div class="menu-item"><span>📍 Village cluster</span><span>Nandgaon</span></div>
-                <div class="menu-item"><span>🌦️ Seasonal alerts</span><span>On</span></div>
-                <div class="menu-item"><span>📞 Replacement calls</span><span>Enabled</span></div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="screen" id="s20">
-          <div class="status light"><span>9:41</span><span>●●● 🔋</span></div>
-          <div class="screen-head teal">
-            <button class="back" onclick="go('s6')">‹</button>
-            <h2>Rythu Mitra Suraksha</h2>
-            <p>రైతు మిత్ర సురక్ష · Your crop's best friend - three ways we protect you</p>
-          </div>
-          <div class="scroll">
-            <div class="section">
-              <div class="card" style="background:linear-gradient(135deg,var(--rm-teal-d),var(--rm-teal));color:#fff;border:none;">
-                <div class="center" style="font-size:54px;margin-bottom:10px;">🌾</div>
-                <div class="title center" style="color:#fff;">Rythu Mitra Suraksha</div>
-                <div class="sub center" style="color:rgba(255,255,255,.78);">Your Crop's Best Friend - Three Ways We Protect You</div>
-              </div>
-            </div>
-            <div class="section">
-              <div class="list">
-                <div class="card">
-                  <div class="row">
-                    <div class="icon-box teal">🔍</div>
-                    <div style="flex:1;">
-                      <div class="strong">Authenticity Seal</div>
-                      <div class="mini">Scan the QR code on your product. Verify batch origin, lab test, and expiry before it goes into your soil.</div>
-                    </div>
-                  </div>
-                  <button class="btn btn-teal full-btn" style="margin-top:14px;" onclick="go('s21')">Scan a Product →</button>
-                </div>
-                <div class="card">
-                  <div class="row">
-                    <div class="icon-box teal">🌾</div>
-                    <div style="flex:1;">
-                      <div class="strong">Yield Commitment</div>
-                      <div class="mini">Every product comes with a minimum yield target. Follow our guide - and these are the results you should see.</div>
-                    </div>
-                  </div>
-                  <button class="btn btn-outline full-btn" style="margin-top:14px;">View My Yield Targets →</button>
-                </div>
-                <div class="card">
-                  <div class="row">
-                    <div class="icon-box teal">🔄</div>
-                    <div style="flex:1;">
-                      <div class="strong">Free Replacement</div>
-                      <div class="mini">Any product that underperforms gets replaced free - seeds, pesticides, herbicides. Next day. No arguments.</div>
-                    </div>
-                  </div>
-                  <button class="btn btn-outline full-btn" style="margin-top:14px;" onclick="go('s23')">Report an Issue →</button>
-                </div>
-                <div class="card" style="background:#f6f8f8;">
-                  <div class="row">
-                    <div class="icon-box">📞</div>
-                    <div style="flex:1;">
-                      <div class="row space" style="margin-bottom:4px;">
-                        <div class="strong">Expert Agronomist</div>
-                        <div class="badge gold">Coming Kharif 2026</div>
-                      </div>
-                      <div class="mini">A certified crop doctor assigned to every order. Season-long guidance via WhatsApp.</div>
-                    </div>
-                  </div>
-                  <button class="btn btn-outline full-btn" style="margin-top:14px;" onclick="go('s15')">Get Notified</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="screen" id="s21">
-          <div class="status"><span>9:41</span><span>●●● 🔋</span></div>
-          <div class="screen-head teal">
-            <button class="back" onclick="go('s20')">‹</button>
-            <h2>🔍 Scan Product</h2>
-            <p>Verify your product is authentic before sowing</p>
-          </div>
-          <div class="scroll">
-            <div class="section center">
-              <div id="scanFrame" class="scan-frame">
-                <div class="scan-line"></div>
-                <div class="strong" style="color:var(--rm-teal-d);text-align:center;max-width:140px;">QR Scan Frame</div>
-              </div>
-              <div id="scanHint" class="sub" style="max-width:260px;margin:0 auto 16px;">Point camera at the QR code on your product packaging</div>
-              <button id="scanBtn" class="btn btn-teal" onclick="simulateScan()">Simulate Scan</button>
-            </div>
-          </div>
-        </section>
-
-        <section class="screen" id="s22">
-          <div class="status"><span>9:41</span><span>●●● 🔋</span></div>
-          <div class="screen-head teal">
-            <button class="back" onclick="go('s21')">‹</button>
-            <h2>✅ Authentic Product Verified</h2>
-            <p>Rythu Mitra Suraksha Certified</p>
-          </div>
-          <div class="scroll">
-            <div class="section">
-              <div class="card">
-                <div class="row space">
-                  <div class="strong">🌾 DKC 9108 Hybrid Maize Seed</div>
-                  <div class="badge teal">🌾 Verified</div>
-                </div>
-                <div class="info-table">
-                  <div><strong>Batch Number:</strong> RM-BATCH-2025-0341</div>
-                  <div><strong>Manufactured by:</strong> Dekalb Seed Company (Bayer CropScience)</div>
-                  <div><strong>Mfg Date:</strong> January 2025</div>
-                  <div><strong>Expiry Date:</strong> December 2026</div>
-                  <div><strong>Lab Tested On:</strong> February 3, 2025</div>
-                </div>
-                <div class="info-table">
-                  <div>✅ Germination Rate: 96%</div>
-                  <div>✅ Moisture Content: 12%</div>
-                  <div>✅ Seed Purity: 99.8%</div>
-                  <div>🌾 Rythu Mitra Suraksha Verified</div>
-                </div>
-              </div>
-            </div>
-            <div class="section">
-              <button class="btn btn-outline full-btn" onclick="go('s23')">Report a Problem</button>
-            </div>
-          </div>
-        </section>
-
-        <section class="screen" id="s23">
-          <div class="status"><span>9:41</span><span>●●● 🔋</span></div>
-          <div class="screen-head teal">
-            <button class="back" onclick="go('s11')">‹</button>
-            <h2>🔄 Request Free Replacement</h2>
-            <p>Something not working? We replace it - free, next day.</p>
-          </div>
-          <div class="scroll">
-            <div class="section">
-              <form onsubmit="submitReplacement(event)">
-                <div class="field">
-                  <label>Select Product</label>
-                  <select>
-                    <option>Order #KD-20245 - DKC 9108 Seed</option>
-                    <option>Order #KD-20241 - Coragen</option>
-                  </select>
-                </div>
-                <div class="field">
-                  <label>Issue Type</label>
-                  <select>
-                    <option>Product didn't perform as expected</option>
-                    <option>Suspected fake / counterfeit product</option>
-                    <option>Damaged on delivery</option>
-                    <option>Wrong product delivered</option>
-                  </select>
-                </div>
-                <div class="field">
-                  <label>Describe the issue</label>
-                  <textarea placeholder="Tell us what happened..."></textarea>
-                </div>
-                <div class="field">
-                  <label>Upload Photo</label>
-                  <div class="photo-placeholder">📸 Add Photo</div>
-                </div>
-                <div class="field">
-                  <label>Preferred delivery slot for replacement</label>
-                  <div class="radio-row">
-                    <div class="radio active" onclick="pickDelivery(this)">Morning (8 AM - 12 PM)</div>
-                    <div class="radio" onclick="pickDelivery(this)">Afternoon (12 PM - 5 PM)</div>
-                    <div class="radio" onclick="pickDelivery(this)">Evening (5 PM - 8 PM)</div>
-                  </div>
-                </div>
-                <button class="btn btn-teal full-btn">📦 Request Free Replacement</button>
-              </form>
-            </div>
-          </div>
-        </section>
-
-        <section class="screen" id="s24">
-          <div class="status"><span>9:41</span><span>●●● 🔋</span></div>
-          <div class="screen-head teal">
-            <button class="back" onclick="go('s23')">‹</button>
-            <h2>Replacement Confirmed</h2>
-            <p>Your request has been approved and queued for tomorrow.</p>
-          </div>
-          <div class="scroll">
-            <div class="section">
-              <div class="card center">
-                <div class="check">✅</div>
-                <div class="title">Replacement Confirmed!</div>
-                <div class="sub">Your replacement will be delivered tomorrow.</div>
-                <div class="card" style="margin-top:16px;background:#f8fcfc;border-color:rgba(13,115,119,.14);">
-                  <div class="strong" style="color:var(--rm-teal-d);">Morning delivery · 8 AM - 12 PM</div>
-                  <div class="mini">Our team will call you to confirm.</div>
-                </div>
-                <button class="btn btn-teal full-btn" style="margin-top:16px;" onclick="go('s12')">Track Replacement</button>
-              </div>
-            </div>
-          </div>
-        </section>
+  <!-- ════════ 2. ONBOARD 1 ════════ -->
+  <div class="scr" id="s-ob1">
+    <div class="ob-wrap">
+      <div class="ob-art ob1">⚠️</div>
+      <div class="ob-body ob1">
+        <div class="ob-chip" style="color:var(--red);">The Problem</div>
+        <div class="ob-title">Fake Seeds are Destroying Farmer Livelihoods</div>
+        <div class="ob-desc">Every year, thousands of farmers lose their entire crop to counterfeit seeds and adulterated pesticides sold by unaccountable local dealers. No proof. No refund. No support.</div>
+        <div class="ob-dots">
+          <div class="ob-dot on"></div>
+          <div class="ob-dot"></div>
+          <div class="ob-dot"></div>
+        </div>
+        <div class="ob-btns">
+          <button class="btn btn-outline btn-md" style="flex:1;" onclick="go('login')">Skip</button>
+          <button class="btn btn-primary btn-md" style="flex:2;" onclick="go('ob2')">Next →</button>
+        </div>
       </div>
     </div>
   </div>
 
-  <script>
-    function go(id) {
-      document.querySelectorAll('.screen').forEach(screen => screen.classList.remove('active'));
-      document.getElementById(id).classList.add('active');
-      document.querySelectorAll('.jump-btn').forEach(btn => {
-        btn.classList.toggle('active', btn.dataset.screen === id);
-      });
-      if (id === 's21') resetScan();
-    }
+  <!-- ════════ 3. ONBOARD 2 ════════ -->
+  <div class="scr" id="s-ob2">
+    <div class="ob-wrap">
+      <div class="ob-art ob2">🏭</div>
+      <div class="ob-body ob2">
+        <div class="ob-chip" style="color:var(--g600);">Our Solution</div>
+        <div class="ob-title">Direct from Factory to Your Farm</div>
+        <div class="ob-desc">We source seeds and pesticides directly from licensed manufacturers. No middlemen. No markup. No fake products. Every item is tested, verified, and traceable back to the source.</div>
+        <div class="ob-dots">
+          <div class="ob-dot"></div>
+          <div class="ob-dot on"></div>
+          <div class="ob-dot"></div>
+        </div>
+        <div class="ob-btns">
+          <button class="btn btn-outline btn-md" style="flex:1;" onclick="go('ob1')">← Back</button>
+          <button class="btn btn-primary btn-md" style="flex:2;" onclick="go('ob3')">Next →</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
-    function resetScan() {
-      const frame = document.getElementById('scanFrame');
-      const hint = document.getElementById('scanHint');
-      const btn = document.getElementById('scanBtn');
-      frame.classList.remove('scanning');
-      hint.textContent = 'Point camera at the QR code on your product packaging';
-      btn.textContent = 'Simulate Scan';
-      btn.disabled = false;
-    }
+  <!-- ════════ 4. ONBOARD 3 ════════ -->
+  <div class="scr" id="s-ob3">
+    <div class="ob-wrap">
+      <div class="ob-art ob3">🛡️</div>
+      <div class="ob-body ob3">
+        <div class="ob-chip" style="color:var(--blue);">Our Promise</div>
+        <div class="ob-title">100% Crop Guarantee — or Your Money Back</div>
+        <div class="ob-desc">Follow our farming guidelines. If your crop fails due to any product issue, we inspect your field and issue a full refund within 7 days. No arguments. No delays.</div>
+        <div class="ob-dots">
+          <div class="ob-dot"></div>
+          <div class="ob-dot"></div>
+          <div class="ob-dot on"></div>
+        </div>
+        <div class="ob-btns">
+          <button class="btn btn-outline btn-md" style="flex:1;" onclick="go('ob2')">← Back</button>
+          <button class="btn btn-primary btn-md" style="flex:2;" onclick="go('login')">Get Started</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
-    function simulateScan() {
-      const frame = document.getElementById('scanFrame');
-      const hint = document.getElementById('scanHint');
-      const btn = document.getElementById('scanBtn');
-      frame.classList.add('scanning');
-      hint.textContent = 'Scanning product...';
-      btn.textContent = 'Scanning...';
-      btn.disabled = true;
-      window.setTimeout(() => go('s22'), 1500);
-    }
+  <!-- ════════ 5. LOGIN ════════ -->
+  <div class="scr" id="s-login" style="background:var(--off);">
+    <div style="height:190px;background:linear-gradient(135deg,var(--g800),var(--g500));display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;">
+      <div style="font-size:46px;">🌾</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:700;color:#fff;">Rythu Mitra</div>
+      <div style="font-size:11px;color:rgba(255,255,255,.5);">Trusted Farming Inputs</div>
+    </div>
+    <div style="flex:1;padding:22px 20px;background:var(--wh);border-radius:20px 20px 0 0;margin-top:-14px;">
+      <div style="font-size:20px;font-weight:800;color:var(--t1);margin-bottom:4px;">Welcome Back 👋</div>
+      <div style="font-size:12px;color:var(--t3);margin-bottom:18px;">Enter your mobile number to continue</div>
+      <div class="inp-lbl">Mobile Number</div>
+      <div class="phone-input-row" style="margin-bottom:14px;">
+        <div class="country-code">+91</div>
+        <input class="inp" placeholder="98765 43210" value="98765 43210"/>
+      </div>
+      <button class="btn btn-primary btn-lg" onclick="go('home')" style="border-radius:10px;">Send OTP</button>
+      <div class="divider" style="margin:16px 0;">or continue with</div>
+      <div class="social-btn" style="margin-bottom:10px;">
+        <span>📱</span> Continue with WhatsApp
+      </div>
+      <div class="footer-link">
+        New farmer? <span onclick="go('register')">Register here</span>
+      </div>
+    </div>
+  </div>
 
-    function submitReplacement(event) {
-      event.preventDefault();
-      go('s24');
-    }
+  <!-- ════════ 6. REGISTER ════════ -->
+  <div class="scr" id="s-register" style="background:var(--off);">
+    <div class="reg-hdr">
+      <button class="back-btn" onclick="go('login')" style="position:relative;transform:none;margin-bottom:10px;">←</button>
+      <h2>Create Account</h2>
+      <p>Join Rythu Mitra — India's trusted farm input platform</p>
+    </div>
+    <div class="scroll" style="padding:16px 18px 20px;background:var(--wh);border-radius:16px 16px 0 0;margin-top:-12px;">
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div>
+          <div class="inp-lbl">Full Name</div>
+          <input class="inp" placeholder="Ramesh Kumar" value="Ramesh Kumar"/>
+        </div>
+        <div class="form-row">
+          <div>
+            <div class="inp-lbl">Mobile</div>
+            <input class="inp" placeholder="98765 43210" value="98765 43210"/>
+          </div>
+          <div>
+            <div class="inp-lbl">Village</div>
+            <input class="inp" placeholder="Nandgaon" value="Nandgaon"/>
+          </div>
+        </div>
+        <div>
+          <div class="inp-lbl">Land Holding</div>
+          <div class="radio-group">
+            <div class="radio-opt on">
+              <div class="ro-icon">🌾</div>
+              <div class="ro-lbl">1–5 Acres</div>
+            </div>
+            <div class="radio-opt">
+              <div class="ro-icon">🚜</div>
+              <div class="ro-lbl">5–10 Acres</div>
+            </div>
+            <div class="radio-opt">
+              <div class="ro-icon">🏡</div>
+              <div class="ro-lbl">10+ Acres</div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="inp-lbl">Primary Crop</div>
+          <select class="inp" style="appearance:none;">
+            <option>🌽 Maize (Corn)</option>
+            <option>🌾 Wheat</option>
+            <option>🌱 Soybean</option>
+          </select>
+        </div>
+        <div>
+          <div class="inp-lbl">Preferred Language</div>
+          <div class="radio-group">
+            <div class="radio-opt on"><div class="ro-lbl">English</div></div>
+            <div class="radio-opt"><div class="ro-lbl">हिंदी</div></div>
+            <div class="radio-opt"><div class="ro-lbl">मराठी</div></div>
+          </div>
+        </div>
+        <button class="btn btn-primary btn-lg" onclick="go('home')" style="border-radius:10px;margin-top:4px;">
+          Create My Account 🚀
+        </button>
+        <div class="footer-link">Already registered? <span onclick="go('login')">Login</span></div>
+      </div>
+    </div>
+  </div>
 
-    function pickDelivery(el) {
-      el.parentElement.querySelectorAll('.radio').forEach(node => node.classList.remove('active'));
-      el.classList.add('active');
+  <!-- ════════ 7. HOME ════════ -->
+  <div class="scr" id="s-home">
+    <div class="home-hero">
+      <div class="hero-greeting">Good morning ☀️ · Nandgaon Village</div>
+      <div class="hero-name">Ramesh Kumar</div>
+      <div class="hero-badges">
+        <div class="hbadge"><span class="dot"></span> Guarantee Active</div>
+        <div class="hbadge">🌽 Kharif Season</div>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item"><div class="stat-val">3</div><div class="stat-lbl">Orders</div></div>
+      <div class="stat-item"><div class="stat-val">4.2ac</div><div class="stat-lbl">Farm Area</div></div>
+      <div class="stat-item"><div class="stat-val">₹0</div><div class="stat-lbl">Claims</div></div>
+    </div>
+    <div style="display:flex;gap:8px;align-items:center;margin:6px 18px;">
+      <div class="search-row" style="flex:1;margin:0;">
+        <span style="font-size:14px;color:var(--t4);">🔍</span>
+        <input placeholder="Search seeds, pesticides…" readonly style="font-size:12px;font-family:'Nunito',sans-serif;border:none;background:transparent;outline:none;width:100%;color:var(--t2);"/>
+      </div>
+      <div class="notif-btn" onclick="go('notifs')">🔔<div class="notif-badge">3</div></div>
+    </div>
+    <!-- Guarantee strip -->
+    <div class="guarantee-strip" onclick="go('claim')" style="cursor:pointer;">
+      <div class="gs-icon">🛡️</div>
+      <div><div class="gs-title">100% Crop Guarantee</div><div class="gs-sub">Follow our guide. Crop fails? Full refund.</div></div>
+      <div style="margin-left:auto;color:rgba(255,255,255,.5);font-size:14px;">›</div>
+    </div>
+    <div class="slbl">Categories</div>
+    <div class="chips-row" style="margin-bottom:8px;">
+      <div class="chip on">🌽 All</div>
+      <div class="chip" onclick="go('catalog')">🌱 Seeds</div>
+      <div class="chip" onclick="go('catalog')">🧴 Pesticides</div>
+      <div class="chip" onclick="go('catalog')">🌿 Herbicides</div>
+      <div class="chip" onclick="go('catalog')">🍄 Fungicides</div>
+    </div>
+    <div class="scroll" style="padding-bottom:72px;">
+      <div class="slbl" style="padding-top:4px;">Featured Products</div>
+      <div class="prod-card" onclick="go('product')">
+        <div class="prod-img">🌽</div>
+        <div class="prod-info">
+          <div class="prod-name">DKC 9108 Hybrid Maize Seed</div>
+          <div class="prod-tag">✔ Verified · High Yield</div>
+          <div class="prod-foot">
+            <div><div class="prod-price">₹1,800 <span class="prod-unit">/bag</span></div></div>
+            <button class="add-btn" onclick="go('cart')">+ Add</button>
+          </div>
+        </div>
+      </div>
+      <div class="prod-card" onclick="go('product')">
+        <div class="prod-img">🧴</div>
+        <div class="prod-info">
+          <div class="prod-name">Coragen – Fall Armyworm Control</div>
+          <div class="prod-tag">✔ Verified · Fast Acting</div>
+          <div class="prod-foot">
+            <div><div class="prod-price">₹950 <span class="prod-unit">/bottle</span></div></div>
+            <button class="add-btn" onclick="go('cart')">+ Add</button>
+          </div>
+        </div>
+      </div>
+      <div class="prod-card" onclick="go('product')">
+        <div class="prod-img">🌿</div>
+        <div class="prod-info">
+          <div class="prod-name">Atrazine 50% WP – Weed Control</div>
+          <div class="prod-tag">✔ Verified · Broad Spectrum</div>
+          <div class="prod-foot">
+            <div><div class="prod-price">₹420 <span class="prod-unit">/pack</span></div></div>
+            <button class="add-btn" onclick="go('cart')">+ Add</button>
+          </div>
+        </div>
+      </div>
+      <div class="slbl">🌿 Crop Advisory</div>
+      <div class="alert-card" onclick="go('advisory')">
+        <div class="ac-icon">⚠️</div>
+        <div>
+          <div class="ac-title">Fall Armyworm Alert – High Risk</div>
+          <div class="ac-sub">Spraying recommended this week. See advisory for timing and dosage.</div>
+        </div>
+      </div>
+    </div>
+    <div class="bnav">
+      <div class="ni on"><span class="ico">🏠</span>Home<div class="ni-dot"></div></div>
+      <div class="ni" onclick="go('catalog')"><span class="ico">🛍️</span>Products</div>
+      <div class="ni" onclick="go('orders')"><span class="ico">📦</span>Orders</div>
+      <div class="ni" onclick="go('advisory')"><span class="ico">🌿</span>Advisory</div>
+      <div class="ni" onclick="go('profile')"><span class="ico">👤</span>Profile</div>
+    </div>
+  </div>
+
+  <!-- ════════ 8. CATALOG ════════ -->
+  <div class="scr" id="s-catalog">
+    <div class="hdr green" style="padding-top:16px;">
+      <div style="display:flex;align-items:center;gap:10px;position:relative;z-index:1;">
+        <button class="back-btn" onclick="go('home')" style="position:relative;transform:none;background:rgba(255,255,255,.15);">←</button>
+        <div>
+          <h2 style="font-size:18px;">Product Catalogue</h2>
+          <p>12 verified products</p>
+        </div>
+      </div>
+    </div>
+    <div class="filter-bar">
+      <div style="display:flex;gap:6px;overflow-x:auto;flex:1;">
+        <div class="filter-btn active-filter">All</div>
+        <div class="filter-btn">Seeds</div>
+        <div class="filter-btn">Pesticides</div>
+        <div class="filter-btn">Herbicides</div>
+        <div class="filter-btn">Fungicides</div>
+      </div>
+      <div class="filter-btn" style="flex-shrink:0;">⚙️</div>
+    </div>
+    <div class="scroll" style="padding-bottom:20px;">
+      <div class="cat-section-hdr">
+        <div style="font-size:12px;font-weight:800;color:var(--t1);">🌱 Seeds (3)</div>
+        <span>See all</span>
+      </div>
+      <div class="prod-grid">
+        <div class="grid-card" onclick="go('product')">
+          <div class="gc-img">🌽</div>
+          <div class="gc-body">
+            <div class="gc-name">DKC 9108 Hybrid Maize</div>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:6px;">
+              <div class="gc-price">₹1,800</div>
+              <button class="gc-add" onclick="go('cart')">+</button>
+            </div>
+          </div>
+        </div>
+        <div class="grid-card" onclick="go('product')">
+          <div class="gc-img">🌾</div>
+          <div class="gc-body">
+            <div class="gc-name">P3522 Drought Tolerant Maize</div>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:6px;">
+              <div class="gc-price">₹1,650</div>
+              <button class="gc-add" onclick="go('cart')">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cat-section-hdr">
+        <div style="font-size:12px;font-weight:800;color:var(--t1);">🧴 Pesticides (4)</div>
+        <span>See all</span>
+      </div>
+      <div class="prod-grid">
+        <div class="grid-card" onclick="go('product')">
+          <div class="gc-img">🧴</div>
+          <div class="gc-body">
+            <div class="gc-name">Coragen Fall Armyworm</div>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:6px;">
+              <div class="gc-price">₹950</div>
+              <button class="gc-add" onclick="go('cart')">+</button>
+            </div>
+          </div>
+        </div>
+        <div class="grid-card" onclick="go('product')">
+          <div class="gc-img">🧪</div>
+          <div class="gc-body">
+            <div class="gc-name">Chlorpyrifos Stem Borer</div>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:6px;">
+              <div class="gc-price">₹620</div>
+              <button class="gc-add" onclick="go('cart')">+</button>
+            </div>
+          </div>
+        </div>
+        <div class="grid-card" onclick="go('product')">
+          <div class="gc-img">🌿</div>
+          <div class="gc-body">
+            <div class="gc-name">Atrazine Herbicide 50%</div>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:6px;">
+              <div class="gc-price">₹420</div>
+              <button class="gc-add" onclick="go('cart')">+</button>
+            </div>
+          </div>
+        </div>
+        <div class="grid-card" onclick="go('product')">
+          <div class="gc-img">🍄</div>
+          <div class="gc-body">
+            <div class="gc-name">Mancozeb Fungicide</div>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:6px;">
+              <div class="gc-price">₹380</div>
+              <button class="gc-add" onclick="go('cart')">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════ 9. PRODUCT DETAIL ════════ -->
+  <div class="scr" id="s-product">
+    <div class="det-hero">
+      <button class="det-back" onclick="go('catalog')">←</button>
+      <button class="det-share">⎋</button>
+      🌽
+    </div>
+    <div class="scroll" style="padding-bottom:72px;">
+      <div class="det-body">
+        <div class="det-cat">🌱 Hybrid Maize Seed</div>
+        <div class="det-name">DKC 9108 Hybrid Maize Seed</div>
+        <div class="det-price-row">
+          <div class="det-price">₹1,800</div>
+          <div class="det-old">₹2,100</div>
+          <div class="det-save">Save ₹300</div>
+        </div>
+        <div class="det-rating">
+          <span class="stars">⭐⭐⭐⭐⭐</span>
+          <span class="rating-val">4.8</span>
+          <span class="rating-cnt">(142 farmers)</span>
+          <span class="badge green" style="margin-left:6px;">✔ Verified</span>
+        </div>
+        <div class="qty-row">
+          <div style="font-size:12px;font-weight:700;color:var(--t2);">Quantity:</div>
+          <div class="qty-box">
+            <button class="qty-btn">−</button>
+            <span class="qty-val">2</span>
+            <button class="qty-btn">+</button>
+          </div>
+          <div style="font-size:12px;color:var(--t4);">bags · ₹3,600 total</div>
+        </div>
+        <div class="info-box">
+          <h5>📋 Usage Instructions</h5>
+          <div class="info-row"><span class="ir-icon">📏</span><div class="ir-text">Seed rate: 8–10 kg per acre</div></div>
+          <div class="info-row"><span class="ir-icon">📐</span><div class="ir-text">Spacing: 60 cm × 20 cm (row × plant)</div></div>
+          <div class="info-row"><span class="ir-icon">📅</span><div class="ir-text">Best sowing: June – July (Kharif)</div></div>
+          <div class="info-row"><span class="ir-icon">💧</span><div class="ir-text">Irrigate within 48 hours of sowing</div></div>
+          <div class="info-row"><span class="ir-icon">🌡️</span><div class="ir-text">Ideal soil temp: 20–30°C</div></div>
+        </div>
+        <div class="info-box">
+          <h5>🛡️ Guarantee Conditions</h5>
+          <div class="info-row"><span class="ir-icon">✅</span><div class="ir-text">Follow our spacing & dosage guidelines</div></div>
+          <div class="info-row"><span class="ir-icon">📸</span><div class="ir-text">Submit crop photos at 3 stages</div></div>
+          <div class="info-row"><span class="ir-icon">🔄</span><div class="ir-text">Refund in 7 days after field inspection</div></div>
+        </div>
+        <div class="info-box">
+          <h5>📦 Product Details</h5>
+          <div class="info-row"><span class="ir-icon">🏭</span><div class="ir-text">Manufacturer: Dekalb Agri India Pvt. Ltd.</div></div>
+          <div class="info-row"><span class="ir-icon">🗓️</span><div class="ir-text">MFG: Jan 2025 · EXP: Jan 2027</div></div>
+          <div class="info-row"><span class="ir-icon">⚖️</span><div class="ir-text">Net weight: 4 kg per bag</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="det-cta">
+      <div class="wish-btn">🤍</div>
+      <button class="btn btn-primary btn-lg" style="border-radius:10px;height:44px;width:auto;flex:1;" onclick="go('cart')">Add to Cart – ₹3,600</button>
+    </div>
+  </div>
+
+  <!-- ════════ 10. CART ════════ -->
+  <div class="scr" id="s-cart">
+    <div class="hdr green" style="padding-top:16px;">
+      <div style="display:flex;align-items:center;gap:10px;position:relative;z-index:1;">
+        <button class="back-btn" onclick="go('home')" style="position:relative;transform:none;background:rgba(255,255,255,.15);">←</button>
+        <div>
+          <h2 style="font-size:18px;">My Cart</h2>
+          <p>3 items · ₹6,770</p>
+        </div>
+      </div>
+    </div>
+    <div class="scroll" style="padding:14px 0 20px;">
+      <div class="cart-item">
+        <div class="ci-img">🌽</div>
+        <div class="ci-info">
+          <div class="ci-name">DKC 9108 Hybrid Maize Seed</div>
+          <div class="ci-sub">₹1,800 per bag</div>
+          <div class="ci-foot">
+            <div class="ci-price">₹3,600</div>
+            <div class="ci-qty">
+              <button class="cq-btn">−</button>
+              <span class="cq-val">2</span>
+              <button class="cq-btn">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cart-item">
+        <div class="ci-img">🧴</div>
+        <div class="ci-info">
+          <div class="ci-name">Coragen – Fall Armyworm</div>
+          <div class="ci-sub">₹950 per bottle</div>
+          <div class="ci-foot">
+            <div class="ci-price">₹1,900</div>
+            <div class="ci-qty">
+              <button class="cq-btn">−</button>
+              <span class="cq-val">2</span>
+              <button class="cq-btn">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cart-item">
+        <div class="ci-img">🌿</div>
+        <div class="ci-info">
+          <div class="ci-name">Atrazine 50% WP Herbicide</div>
+          <div class="ci-sub">₹420 per pack</div>
+          <div class="ci-foot">
+            <div class="ci-price">₹1,260</div>
+            <div class="ci-qty">
+              <button class="cq-btn">−</button>
+              <span class="cq-val">3</span>
+              <button class="cq-btn">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="slbl" style="padding-top:8px;">Promo Code</div>
+      <div class="promo-row">
+        <input class="inp" placeholder="Enter promo code" value="KISAN50"/>
+        <button class="promo-btn">Apply</button>
+      </div>
+      <div class="slbl" style="padding-top:8px;">Order Summary</div>
+      <div class="summary-box">
+        <div class="sum-row"><span>Subtotal</span><span>₹6,760</span></div>
+        <div class="sum-row"><span>Delivery</span><span style="color:var(--g600);font-weight:700;">FREE</span></div>
+        <div class="sum-row"><span>Promo (KISAN50)</span><span style="color:var(--g600);font-weight:700;">−₹50</span></div>
+        <div class="sum-row total"><span>Total</span><span>₹6,710</span></div>
+      </div>
+      <div style="padding:0 18px;margin-top:6px;">
+        <button class="btn btn-primary btn-lg" onclick="go('checkout')" style="border-radius:10px;">Proceed to Checkout →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════ 11. CHECKOUT ════════ -->
+  <div class="scr" id="s-checkout">
+    <div class="hdr green" style="padding-top:16px;">
+      <div style="display:flex;align-items:center;gap:10px;position:relative;z-index:1;">
+        <button class="back-btn" onclick="go('cart')" style="position:relative;transform:none;background:rgba(255,255,255,.15);">←</button>
+        <div><h2 style="font-size:18px;">Checkout</h2><p>Final step</p></div>
+      </div>
+    </div>
+    <div class="scroll" style="padding:14px 18px 20px;display:flex;flex-direction:column;gap:14px;">
+      <!-- Delivery -->
+      <div>
+        <div class="slbl" style="padding:0 0 8px;">Delivery Option</div>
+        <div class="delivery-opt">
+          <div class="do-card sel">
+            <div class="do-icon">🏠</div>
+            <div class="do-title">Home Delivery</div>
+            <div class="do-sub">Same / Next day</div>
+          </div>
+          <div class="do-card">
+            <div class="do-icon">📦</div>
+            <div class="do-title">Village Pickup</div>
+            <div class="do-sub">Ready in 2 hrs</div>
+          </div>
+        </div>
+      </div>
+      <!-- Address -->
+      <div>
+        <div class="slbl" style="padding:0 0 8px;">Delivery Address</div>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <input class="inp" value="Ramesh Kumar" placeholder="Full name"/>
+          <input class="inp" value="House No. 12, Nandgaon Village" placeholder="Address"/>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+            <input class="inp" value="Nandgaon" placeholder="Village"/>
+            <input class="inp" value="441001" placeholder="PIN code"/>
+          </div>
+        </div>
+      </div>
+      <!-- Payment -->
+      <div>
+        <div class="slbl" style="padding:0 0 8px;">Payment Method</div>
+        <div class="payment-opt sel">
+          <div class="po-icon">💵</div>
+          <div class="po-info">
+            <div class="po-title">Cash on Delivery</div>
+            <div class="po-sub">Pay when you receive</div>
+          </div>
+          <div class="po-radio sel"></div>
+        </div>
+        <div class="payment-opt">
+          <div class="po-icon">📲</div>
+          <div class="po-info">
+            <div class="po-title">UPI Payment</div>
+            <div class="po-sub">GPay, PhonePe, Paytm</div>
+          </div>
+          <div class="po-radio"></div>
+        </div>
+      </div>
+      <!-- Summary -->
+      <div class="summary-box" style="margin:0;">
+        <div class="sum-row"><span>Items (6)</span><span>₹6,760</span></div>
+        <div class="sum-row"><span>Promo</span><span style="color:var(--g600);">−₹50</span></div>
+        <div class="sum-row total"><span>Total</span><span>₹6,710</span></div>
+      </div>
+      <button class="btn btn-primary btn-lg" onclick="go('confirm')" style="border-radius:10px;">
+        Place Order – ₹6,710 💚
+      </button>
+    </div>
+  </div>
+
+  <!-- ════════ 12. ORDER CONFIRMED ════════ -->
+  <div class="scr" id="s-confirm" style="background:var(--g20);">
+    <div class="confirm-wrap">
+      <div class="confirm-circle">✅</div>
+      <div class="confirm-title">Order Placed!</div>
+      <div class="confirm-sub">Your farm inputs are being packed and will reach you by tomorrow morning.</div>
+      <div class="confirm-detail">
+        <div class="cd-row"><span>Order ID</span><strong>#KD-20245</strong></div>
+        <div class="cd-row"><span>Items</span><strong>3 products · 7 units</strong></div>
+        <div class="cd-row"><span>Amount</span><strong>₹6,710</strong></div>
+        <div class="cd-row"><span>Payment</span><strong>Cash on Delivery</strong></div>
+        <div class="cd-row"><span>Delivery</span><strong>Tomorrow, 8 AM – 12 PM</strong></div>
+      </div>
+      <div style="background:var(--g50);border-radius:12px;border:1px solid var(--g100);padding:12px 14px;width:100%;margin-bottom:16px;">
+        <div style="font-size:11px;font-weight:700;color:var(--g800);margin-bottom:6px;">🛡️ Guarantee Activated</div>
+        <div style="font-size:11px;color:var(--t3);line-height:1.5;">Photograph your seed bag before sowing and submit via the Guarantee section to activate your crop protection.</div>
+      </div>
+      <div style="display:flex;gap:10px;width:100%;">
+        <button class="btn btn-outline btn-md" style="flex:1;border-radius:10px;" onclick="go('home')">Back to Home</button>
+        <button class="btn btn-primary btn-md" style="flex:1;border-radius:10px;" onclick="go('tracking')">Track Order</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════ 13. ORDERS LIST ════════ -->
+  <div class="scr" id="s-orders">
+    <div class="hdr green" style="padding-top:16px;">
+      <h2>My Orders</h2>
+      <p>All your farm input purchases</p>
+    </div>
+    <div class="order-tabs">
+      <div class="otab on">All (3)</div>
+      <div class="otab">Active (1)</div>
+      <div class="otab">Delivered (2)</div>
+      <div class="otab">Claims (0)</div>
+    </div>
+    <div class="scroll" style="padding:14px 0 72px;">
+      <div class="order-card" onclick="go('tracking')">
+        <div class="oc-top">
+          <div><div class="oc-id">Order #KD-20245</div><div class="oc-date">Placed today</div></div>
+          <div class="badge blue">🚚 Out for Delivery</div>
+        </div>
+        <div class="oc-product">
+          <div class="oc-emoji">🌽</div>
+          <div><div class="oc-pname">DKC 9108 + 2 more items</div><div class="oc-psub">7 units</div></div>
+          <div class="oc-price">₹6,710</div>
+        </div>
+        <div class="tbar" style="margin-top:10px;padding-top:10px;border-top:1px solid var(--br);">
+          <div class="tstep"><div class="tdot done">✓</div><span>Confirmed</span></div>
+          <div class="tline done"></div>
+          <div class="tstep"><div class="tdot done">✓</div><span>Packed</span></div>
+          <div class="tline done"></div>
+          <div class="tstep"><div class="tdot cur">→</div><span>Shipped</span></div>
+          <div class="tline"></div>
+          <div class="tstep"><div class="tdot"></div><span>Delivered</span></div>
+        </div>
+      </div>
+      <div class="order-card" onclick="go('tracking')">
+        <div class="oc-top">
+          <div><div class="oc-id">Order #KD-20241</div><div class="oc-date">Mar 2, 2025</div></div>
+          <div class="badge green">✔ Delivered</div>
+        </div>
+        <div class="oc-product">
+          <div class="oc-emoji">🧴</div>
+          <div><div class="oc-pname">Coragen Insecticide × 1</div><div class="oc-psub">1 unit</div></div>
+          <div class="oc-price">₹950</div>
+        </div>
+        <div class="tbar" style="margin-top:10px;padding-top:10px;border-top:1px solid var(--br);">
+          <div class="tstep"><div class="tdot done">✓</div><span>Confirmed</span></div>
+          <div class="tline done"></div>
+          <div class="tstep"><div class="tdot done">✓</div><span>Packed</span></div>
+          <div class="tline done"></div>
+          <div class="tstep"><div class="tdot done">✓</div><span>Shipped</span></div>
+          <div class="tline done"></div>
+          <div class="tstep"><div class="tdot done">✓</div><span>Delivered</span></div>
+        </div>
+      </div>
+      <div class="order-card">
+        <div class="oc-top">
+          <div><div class="oc-id">Order #KD-20238</div><div class="oc-date">Feb 25, 2025</div></div>
+          <div class="badge green">✔ Delivered</div>
+        </div>
+        <div class="oc-product">
+          <div class="oc-emoji">🌽</div>
+          <div><div class="oc-pname">DKC 9108 Seed × 2</div><div class="oc-psub">2 units</div></div>
+          <div class="oc-price">₹3,600</div>
+        </div>
+      </div>
+    </div>
+    <div class="bnav">
+      <div class="ni" onclick="go('home')"><span class="ico">🏠</span>Home</div>
+      <div class="ni" onclick="go('catalog')"><span class="ico">🛍️</span>Products</div>
+      <div class="ni on"><span class="ico">📦</span>Orders<div class="ni-dot"></div></div>
+      <div class="ni" onclick="go('advisory')"><span class="ico">🌿</span>Advisory</div>
+      <div class="ni" onclick="go('profile')"><span class="ico">👤</span>Profile</div>
+    </div>
+  </div>
+
+  <!-- ════════ 14. ORDER TRACKING ════════ -->
+  <div class="scr" id="s-tracking">
+    <div class="hdr green" style="padding-top:16px;">
+      <div style="display:flex;align-items:center;gap:10px;position:relative;z-index:1;">
+        <button class="back-btn" onclick="go('orders')" style="position:relative;transform:none;background:rgba(255,255,255,.15);">←</button>
+        <div>
+          <h2 style="font-size:18px;">Order #KD-20245</h2>
+          <p>Arriving tomorrow · 8 AM – 12 PM</p>
+        </div>
+      </div>
+    </div>
+    <div class="scroll" style="padding:14px 0 20px;">
+      <div class="track-card">
+        <div class="track-map">
+          <div class="map-pin">📍</div>
+        </div>
+        <div style="font-size:12px;font-weight:700;color:var(--t1);margin-bottom:4px;">🚚 Out for Delivery</div>
+        <div style="font-size:11px;color:var(--t4);">Delivery agent: Suresh Patil · 📞 Call</div>
+      </div>
+      <div class="track-card">
+        <h5 style="font-size:11px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:.5px;margin-bottom:12px;">Live Timeline</h5>
+        <div class="track-timeline">
+          <div class="tt-item done">
+            <div class="tt-dot done"></div>
+            <div class="tt-info"><div class="tt-title">✅ Order Confirmed</div><div class="tt-time">Today 9:41 AM</div></div>
+          </div>
+          <div class="tt-item done">
+            <div class="tt-dot done"></div>
+            <div class="tt-info"><div class="tt-title">📦 Order Packed</div><div class="tt-time">Today 11:20 AM</div></div>
+          </div>
+          <div class="tt-item done">
+            <div class="tt-dot cur"></div>
+            <div class="tt-info"><div class="tt-title">🚚 Out for Delivery</div><div class="tt-time">Today 12:05 PM · In progress</div></div>
+          </div>
+          <div class="tt-item">
+            <div class="tt-dot"></div>
+            <div class="tt-info"><div class="tt-title" style="color:var(--t4);">🏠 Delivered</div><div class="tt-time">Expected tomorrow 8–12 AM</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="slbl">Items in Order</div>
+      <div class="cart-item" style="margin:0 18px 8px;">
+        <div class="ci-img">🌽</div>
+        <div class="ci-info">
+          <div class="ci-name">DKC 9108 Hybrid Maize Seed</div>
+          <div class="ci-sub">2 bags · ₹3,600</div>
+        </div>
+      </div>
+      <div class="cart-item" style="margin:0 18px 8px;">
+        <div class="ci-img">🧴</div>
+        <div class="ci-info">
+          <div class="ci-name">Coragen Insecticide</div>
+          <div class="ci-sub">2 bottles · ₹1,900</div>
+        </div>
+      </div>
+      <div style="padding:0 18px;margin-top:8px;">
+        <button class="btn btn-gold btn-lg" onclick="go('claim')" style="border-radius:10px;">
+          🛡️ File Guarantee Claim
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════ 15. GUARANTEE CLAIM ════════ -->
+  <div class="scr" id="s-claim">
+    <div class="claim-hdr">
+      <div style="display:flex;align-items:center;gap:10px;position:relative;z-index:1;">
+        <button class="back-btn" onclick="go('home')" style="position:relative;transform:none;background:rgba(255,255,255,.15);color:#fff;">←</button>
+        <div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;">Guarantee Claim</div>
+          <div style="font-size:11px;color:rgba(255,255,255,.65);">Refund in 7 days after inspection</div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll" style="padding:14px 18px 20px;display:flex;flex-direction:column;gap:12px;">
+      <div>
+        <div class="slbl" style="padding:0 0 8px;">Select Order</div>
+        <select class="inp">
+          <option>Order #KD-20245 – DKC 9108 Seed</option>
+          <option>Order #KD-20241 – Coragen</option>
+        </select>
+      </div>
+      <div>
+        <div class="slbl" style="padding:0 0 8px;">Describe the Problem</div>
+        <textarea class="inp" rows="3" style="resize:none;" placeholder="e.g. Seeds did not germinate even after 15 days of sowing following all recommended steps…">Seeds did not germinate even after 15 days of sowing. Followed all spacing and watering guidelines.</textarea>
+      </div>
+      <div>
+        <div class="slbl" style="padding:0 0 8px;">Crop Stage at Claim</div>
+        <div class="radio-group">
+          <div class="radio-opt on"><div class="ro-icon">🌱</div><div class="ro-lbl">Germination</div></div>
+          <div class="radio-opt"><div class="ro-icon">🌿</div><div class="ro-lbl">Vegetative</div></div>
+          <div class="radio-opt"><div class="ro-icon">🌽</div><div class="ro-lbl">Harvest</div></div>
+        </div>
+      </div>
+      <div>
+        <div class="slbl" style="padding:0 0 8px;">Upload Photo Evidence</div>
+        <div class="upload-box">
+          <div class="ub-icon">📸</div>
+          <div class="ub-title">Tap to upload photos</div>
+          <div class="ub-sub">Seed bag · Field photos · Problem area</div>
+          <div class="photo-thumbs" style="justify-content:center;">
+            <div class="thumb">🌾<div class="x">×</div></div>
+            <div class="thumb">📦<div class="x">×</div></div>
+            <div class="thumb">🌱<div class="x">×</div></div>
+            <div style="width:60px;height:60px;border-radius:8px;border:2px dashed var(--g200);display:flex;align-items:center;justify-content:center;font-size:22px;cursor:pointer;">+</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="slbl" style="padding:0 0 8px;">What Happens Next</div>
+        <div class="claim-step">
+          <div class="cs-num">1</div>
+          <div class="cs-info"><div class="cs-title">Claim Submitted</div><div class="cs-sub">We review your photos & order within 24 hours.</div></div>
+        </div>
+        <div class="claim-step">
+          <div class="cs-num">2</div>
+          <div class="cs-info"><div class="cs-title">Field Inspection (if needed)</div><div class="cs-sub">Our agent may visit your farm for verification.</div></div>
+        </div>
+        <div class="claim-step">
+          <div class="cs-num">3</div>
+          <div class="cs-info"><div class="cs-title">Refund Processed</div><div class="cs-sub">Full refund issued within 7 days if approved.</div></div>
+        </div>
+      </div>
+      <button class="btn btn-gold btn-lg" style="border-radius:10px;">Submit Guarantee Claim 🛡️</button>
+    </div>
+  </div>
+
+  <!-- ════════ 16. CROP ADVISORY ════════ -->
+  <div class="scr" id="s-advisory">
+    <div class="advisory-hero">
+      <div style="display:flex;justify-content:space-between;align-items:center;position:relative;z-index:1;">
+        <div>
+          <div style="font-size:10px;color:rgba(255,255,255,.55);margin-bottom:2px;">CROP ADVISORY</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;color:#fff;">Maize Farming Guide</div>
+        </div>
+        <span class="badge gold">Kharif 2025</span>
+      </div>
+      <div class="weather-row">
+        <div class="wr-icon">☀️</div>
+        <div>
+          <div class="wr-temp">32°C</div>
+          <div class="wr-desc">Clear · Nandgaon</div>
+        </div>
+        <div class="wr-right">
+          <div style="color:#fff;font-size:13px;font-weight:700;">💧 68%</div>
+          <div class="wr-hum">Humidity</div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll" style="padding-bottom:72px;">
+      <div class="slbl">⚠️ Active Alerts</div>
+      <div class="alert-card">
+        <div class="ac-icon">🐛</div>
+        <div>
+          <div class="ac-title">Fall Armyworm – High Risk This Week</div>
+          <div class="ac-sub">Apply Coragen at 20–25 days after sowing. Spray in the morning before 10 AM.</div>
+        </div>
+      </div>
+      <div class="slbl">🌾 Crop Stage Guide</div>
+      <div class="stage-card">
+        <div class="sc-top">
+          <div class="sc-emoji">🌱</div>
+          <div>
+            <div class="sc-title">Germination Stage</div>
+            <div class="sc-sub">Day 0 – Day 7</div>
+          </div>
+          <div class="sc-badge"><span class="badge green">Current</span></div>
+        </div>
+        <div class="sc-tips">
+          <div class="tip-row"><span class="tip-icon">💧</span><div class="tip-text">Irrigate lightly every 2 days. Avoid waterlogging.</div></div>
+          <div class="tip-row"><span class="tip-icon">🌡️</span><div class="tip-text">Ideal soil temp: 20–30°C. Use soil thermometer if available.</div></div>
+          <div class="tip-row"><span class="tip-icon">📸</span><div class="tip-text">Submit Day 7 germination photo to activate guarantee.</div></div>
+        </div>
+      </div>
+      <div class="stage-card">
+        <div class="sc-top">
+          <div class="sc-emoji">🌿</div>
+          <div>
+            <div class="sc-title">Vegetative Stage</div>
+            <div class="sc-sub">Day 8 – Day 45</div>
+          </div>
+          <div class="sc-badge"><span class="badge" style="background:var(--br);color:var(--t4);">Upcoming</span></div>
+        </div>
+        <div class="sc-tips">
+          <div class="tip-row"><span class="tip-icon">🧴</span><div class="tip-text">Apply Coragen at day 20–25 for Fall Armyworm prevention.</div></div>
+          <div class="tip-row"><span class="tip-icon">🌿</span><div class="tip-text">Apply Atrazine herbicide 3–5 days after sowing for weed control.</div></div>
+        </div>
+      </div>
+      <div class="stage-card">
+        <div class="sc-top">
+          <div class="sc-emoji">🌽</div>
+          <div>
+            <div class="sc-title">Flowering & Grain Fill</div>
+            <div class="sc-sub">Day 46 – Day 90</div>
+          </div>
+          <div class="sc-badge"><span class="badge" style="background:var(--br);color:var(--t4);">Upcoming</span></div>
+        </div>
+        <div class="sc-tips">
+          <div class="tip-row"><span class="tip-icon">💧</span><div class="tip-text">Critical irrigation window: do not let crop stress during silking.</div></div>
+          <div class="tip-row"><span class="tip-icon">🍄</span><div class="tip-text">Apply Mancozeb fungicide if leaf blight symptoms appear.</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="bnav">
+      <div class="ni" onclick="go('home')"><span class="ico">🏠</span>Home</div>
+      <div class="ni" onclick="go('catalog')"><span class="ico">🛍️</span>Products</div>
+      <div class="ni" onclick="go('orders')"><span class="ico">📦</span>Orders</div>
+      <div class="ni on"><span class="ico">🌿</span>Advisory<div class="ni-dot"></div></div>
+      <div class="ni" onclick="go('profile')"><span class="ico">👤</span>Profile</div>
+    </div>
+  </div>
+
+  <!-- ════════ 17. NOTIFICATIONS ════════ -->
+  <div class="scr" id="s-notifs">
+    <div class="hdr green" style="padding-top:16px;">
+      <div style="display:flex;align-items:center;justify-content:space-between;position:relative;z-index:1;">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <button class="back-btn" onclick="go('home')" style="position:relative;transform:none;background:rgba(255,255,255,.15);">←</button>
+          <div><h2 style="font-size:18px;">Notifications</h2><p>3 unread</p></div>
+        </div>
+        <div style="font-size:11px;color:rgba(255,255,255,.5);cursor:pointer;">Mark all read</div>
+      </div>
+    </div>
+    <div class="scroll">
+      <div style="padding:10px 0;">
+        <div style="font-size:10px;font-weight:700;color:var(--t4);letter-spacing:.5px;padding:8px 18px 4px;">TODAY</div>
+        <div class="notif-item unread">
+          <div class="ni-icon blue">🚚</div>
+          <div class="ni-body">
+            <div class="ni-title">Order Out for Delivery</div>
+            <div class="ni-desc">Your order #KD-20245 is out for delivery. Expected by 12 PM today.</div>
+            <div class="ni-time">Just now</div>
+          </div>
+          <div class="ni-unread-dot"></div>
+        </div>
+        <div class="notif-item unread">
+          <div class="ni-icon gold">⚠️</div>
+          <div class="ni-body">
+            <div class="ni-title">Pest Alert – Act Now</div>
+            <div class="ni-desc">Fall Armyworm risk is high in your area. Spray Coragen in the next 3 days.</div>
+            <div class="ni-time">2 hours ago</div>
+          </div>
+          <div class="ni-unread-dot"></div>
+        </div>
+        <div class="notif-item unread">
+          <div class="ni-icon green">🌧️</div>
+          <div class="ni-body">
+            <div class="ni-title">Weather Advisory</div>
+            <div class="ni-desc">Heavy rain expected tomorrow. Avoid spraying pesticides today.</div>
+            <div class="ni-time">5 hours ago</div>
+          </div>
+          <div class="ni-unread-dot"></div>
+        </div>
+        <div style="font-size:10px;font-weight:700;color:var(--t4);letter-spacing:.5px;padding:12px 18px 4px;">YESTERDAY</div>
+        <div class="notif-item">
+          <div class="ni-icon green">✅</div>
+          <div class="ni-body">
+            <div class="ni-title">Order Confirmed</div>
+            <div class="ni-desc">Your order #KD-20245 for ₹6,710 has been confirmed. Packing in progress.</div>
+            <div class="ni-time">Yesterday 9:41 AM</div>
+          </div>
+        </div>
+        <div class="notif-item">
+          <div class="ni-icon gold">🛡️</div>
+          <div class="ni-body">
+            <div class="ni-title">Guarantee Reminder</div>
+            <div class="ni-desc">Submit your Day 7 germination photo to keep your crop guarantee active.</div>
+            <div class="ni-time">Yesterday 7:00 AM</div>
+          </div>
+        </div>
+        <div class="notif-item">
+          <div class="ni-icon" style="background:#e8f0ff;">🌽</div>
+          <div class="ni-body">
+            <div class="ni-title">New Product Available</div>
+            <div class="ni-desc">Pioneer P3522 – drought-tolerant maize seed is now in stock.</div>
+            <div class="ni-time">Yesterday 6:00 AM</div>
+          </div>
+        </div>
+        <div class="notif-item">
+          <div class="ni-icon red">📋</div>
+          <div class="ni-body">
+            <div class="ni-title">Advisory: Sowing Window</div>
+            <div class="ni-desc">Optimal maize sowing window is open (June 10–20). Order seeds now.</div>
+            <div class="ni-time">2 days ago</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════ 18. SUPPORT ════════ -->
+  <div class="scr" id="s-support">
+    <div class="hdr green" style="padding-top:16px;">
+      <h2>Farmer Support</h2>
+      <p>We're here to help your crop succeed 🌽</p>
+    </div>
+    <div class="scroll" style="padding-bottom:72px;">
+      <div style="margin-top:-12px;padding-bottom:4px;">
+        <div class="contact-card" style="margin-top:0;border-radius:0 0 14px 14px;margin-bottom:14px;background:var(--g50);border:none;">
+          <div style="font-size:11px;color:var(--t3);line-height:1.6;">
+            <strong style="color:var(--g800);">Response time: Under 2 hours</strong><br/>Mon–Sat · 8 AM – 7 PM
+          </div>
+        </div>
+        <div class="slbl" style="padding-top:4px;">Contact Us</div>
+        <div class="contact-card">
+          <div class="cc-icon g">📞</div>
+          <div class="cc-info"><h4>Call Us</h4><p>Free · Mon–Sat 8 AM–7 PM</p></div>
+          <div class="cc-arrow">›</div>
+        </div>
+        <div class="contact-card">
+          <div class="cc-icon w">💬</div>
+          <div class="cc-info"><h4>WhatsApp Support</h4><p>Share crop photos · Instant advice</p></div>
+          <div class="cc-arrow">›</div>
+        </div>
+        <div class="contact-card">
+          <div class="cc-icon o">🛡️</div>
+          <div class="cc-info"><h4>File a Guarantee Claim</h4><p>Upload photos · 7-day refund</p></div>
+          <div class="cc-arrow" onclick="go('claim')">›</div>
+        </div>
+        <div class="slbl">Frequently Asked Questions</div>
+        <div class="faq-item">
+          <div class="faq-q">How does the crop guarantee work? <span>∨</span></div>
+          <div class="faq-a">Follow our guidelines, if the crop fails due to product issues, we inspect and refund fully within 7 days.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">What photos do I need for a claim? <span>∨</span></div>
+          <div class="faq-a">Seed bag before sowing, field after sowing, crop at 20 days, and problem area with visible date.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">How long does delivery take? <span>∨</span></div>
+          <div class="faq-a">Same day or next day within the village. You get a notification when out for delivery.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Can I pay cash on delivery? <span>∨</span></div>
+          <div class="faq-a">Yes — we accept Cash on Delivery and UPI (GPay, PhonePe, Paytm).</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Are the products genuine? <span>∨</span></div>
+          <div class="faq-a">Every product is sourced directly from licensed manufacturers. We provide batch traceability for all items.</div>
+        </div>
+      </div>
+    </div>
+    <div class="bnav">
+      <div class="ni" onclick="go('home')"><span class="ico">🏠</span>Home</div>
+      <div class="ni" onclick="go('catalog')"><span class="ico">🛍️</span>Products</div>
+      <div class="ni" onclick="go('orders')"><span class="ico">📦</span>Orders</div>
+      <div class="ni" onclick="go('advisory')"><span class="ico">🌿</span>Advisory</div>
+      <div class="ni" onclick="go('profile')"><span class="ico">👤</span>Profile</div>
+    </div>
+  </div>
+
+  <!-- ════════ 19. PROFILE ════════ -->
+  <div class="scr" id="s-profile">
+    <div class="profile-hero">
+      <div class="avatar">👨‍🌾</div>
+      <div class="profile-name">Ramesh Kumar</div>
+      <div class="profile-id">Farmer ID: KD-F-00124 · Nandgaon Village</div>
+    </div>
+    <div class="profile-stats">
+      <div class="ps-item"><div class="ps-val">3</div><div class="ps-lbl">Orders</div></div>
+      <div class="ps-item"><div class="ps-val">4.2ac</div><div class="ps-lbl">Farm Area</div></div>
+      <div class="ps-item"><div class="ps-val">₹11K</div><div class="ps-lbl">Spent</div></div>
+    </div>
+    <div class="scroll" style="padding-bottom:72px;margin-top:4px;">
+      <div class="slbl">My Account</div>
+      <div class="menu-item">
+        <div class="mi-icon">👤</div>
+        <div class="mi-label">Personal Details</div>
+        <div class="mi-arrow">›</div>
+      </div>
+      <div class="menu-item">
+        <div class="mi-icon">🏡</div>
+        <div class="mi-label">Farm Profile</div>
+        <div class="mi-arrow">›</div>
+      </div>
+      <div class="menu-item" onclick="go('orders')">
+        <div class="mi-icon">📦</div>
+        <div class="mi-label">Order History</div>
+        <div class="mi-arrow">›</div>
+      </div>
+      <div class="menu-item" onclick="go('claim')">
+        <div class="mi-icon">🛡️</div>
+        <div class="mi-label">My Guarantee Claims</div>
+        <div class="mi-badge">0 Active</div>
+        <div class="mi-arrow">›</div>
+      </div>
+      <div class="slbl">Preferences</div>
+      <div class="menu-item">
+        <div class="mi-icon">🌐</div>
+        <div class="mi-label">Language</div>
+        <div style="font-size:12px;color:var(--t4);margin-right:6px;">English</div>
+        <div class="mi-arrow">›</div>
+      </div>
+      <div class="menu-item" onclick="go('notifs')">
+        <div class="mi-icon">🔔</div>
+        <div class="mi-label">Notifications</div>
+        <div class="mi-badge">3</div>
+        <div class="mi-arrow">›</div>
+      </div>
+      <div class="menu-item">
+        <div class="mi-icon">📍</div>
+        <div class="mi-label">Delivery Address</div>
+        <div class="mi-arrow">›</div>
+      </div>
+      <div class="slbl">Support</div>
+      <div class="menu-item" onclick="go('support')">
+        <div class="mi-icon">💬</div>
+        <div class="mi-label">Help & Support</div>
+        <div class="mi-arrow">›</div>
+      </div>
+      <div class="menu-item" onclick="go('advisory')">
+        <div class="mi-icon">🌿</div>
+        <div class="mi-label">Crop Advisory</div>
+        <div class="mi-arrow">›</div>
+      </div>
+      <div class="menu-item">
+        <div class="mi-icon">📜</div>
+        <div class="mi-label">Terms & Privacy</div>
+        <div class="mi-arrow">›</div>
+      </div>
+      <div class="menu-item" style="border-bottom:none;">
+        <div class="mi-icon" style="background:#fff0f0;">🚪</div>
+        <div class="mi-label" style="color:var(--red);">Logout</div>
+      </div>
+    </div>
+    <div class="bnav">
+      <div class="ni" onclick="go('home')"><span class="ico">🏠</span>Home</div>
+      <div class="ni" onclick="go('catalog')"><span class="ico">🛍️</span>Products</div>
+      <div class="ni" onclick="go('orders')"><span class="ico">📦</span>Orders</div>
+      <div class="ni" onclick="go('advisory')"><span class="ico">🌿</span>Advisory</div>
+      <div class="ni on"><span class="ico">👤</span>Profile<div class="ni-dot"></div></div>
+    </div>
+  </div>
+
+  </div><!-- end .screens -->
+</div><!-- end phone-screen -->
+</div><!-- end phone-frame -->
+</div><!-- end phone-wrap -->
+
+<script>
+const smap = {
+  splash:'s-splash', ob1:'s-ob1', ob2:'s-ob2', ob3:'s-ob3',
+  login:'s-login', register:'s-register',
+  home:'s-home', catalog:'s-catalog', product:'s-product',
+  cart:'s-cart', checkout:'s-checkout', confirm:'s-confirm',
+  orders:'s-orders', tracking:'s-tracking', claim:'s-claim',
+  advisory:'s-advisory', notifs:'s-notifs', support:'s-support', profile:'s-profile'
+};
+const lightScreens = ['splash','ob1','ob2','ob3'];
+function go(key){
+  // hide all
+  document.querySelectorAll('.scr').forEach(s=>s.classList.remove('active'));
+  // show target
+  document.getElementById(smap[key]).classList.add('active');
+  // status bar color
+  const sb = document.getElementById('sbar');
+  sb.className = lightScreens.includes(key) ? 'sbar light' : 'sbar';
+  // update jump nav
+  document.querySelectorAll('.jbtn').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.jbtn').forEach(b=>{
+    if(b.getAttribute('onclick')&&b.getAttribute('onclick').includes("'"+key+"'")){
+      b.classList.add('active');
     }
-  </script>
+  });
+  // scroll screen to top
+  const el = document.getElementById(smap[key]);
+  el.querySelectorAll('.scroll').forEach(s=>s.scrollTop=0);
+}
+// splash auto-advance
+setTimeout(()=>{ if(document.getElementById('s-splash').classList.contains('active')) go('ob1'); }, 2800);
+// make splash click work too
+document.getElementById('s-splash').addEventListener('click',()=>go('ob1'));
+</script>
 </body>
 </html>
