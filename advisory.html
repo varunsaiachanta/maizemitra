@@ -9,9 +9,30 @@
 <link rel="stylesheet" href="shared.css"/>
 <style>
 /* hero */
-.adv-hero { background:linear-gradient(135deg,var(--g900),var(--g700)); padding:90px 0 80px; position:relative; overflow:hidden; }
-.adv-hero::before { content:''; position:absolute; inset:0; background:radial-gradient(circle at 80% 40%,rgba(74,173,114,.12),transparent 55%); }
+.adv-hero { background:linear-gradient(135deg,var(--g900),var(--g700)); padding:116px 0 82px; position:relative; overflow:hidden; }
+.adv-hero::before {
+  content:'';
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255,255,255,.1), transparent 20%),
+    linear-gradient(180deg, rgba(255,255,255,.06), transparent 40%);
+}
 .adv-hero::after { content:''; position:absolute; bottom:-2px; left:0; right:0; height:90px; background:var(--wh); clip-path:polygon(0 100%,100% 100%,100% 10%,0 100%); }
+.adv-hero .breadcrumb,
+.adv-hero .breadcrumb a { color:rgba(255,255,255,.72); }
+.adv-hero .breadcrumb .sep { color:rgba(255,255,255,.24); }
+.adv-hero-mark {
+  position:absolute;
+  right:-10px;
+  bottom:-18px;
+  font-size:clamp(170px,18vw,240px);
+  opacity:.08;
+  transform:rotate(-10deg);
+  line-height:1;
+  pointer-events:none;
+  z-index:0;
+}
 /* weather card */
 .weather-card {
   background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.15);
@@ -148,6 +169,7 @@
 
 <!-- HERO -->
 <section class="adv-hero">
+  <div class="adv-hero-mark" aria-hidden="true">🌿</div>
   <div class="container" style="position:relative;z-index:1;">
     <div class="breadcrumb"><a href="index.html">Home</a><span class="sep">›</span><span class="cur">Crop Advisory</span></div>
     <div style="font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--g300);margin-bottom:12px;">Free with Every Order</div>

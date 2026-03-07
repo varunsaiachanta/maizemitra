@@ -8,9 +8,30 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&amp;family=Nunito:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="shared.css"/>
 <style>
-.about-hero { background:linear-gradient(135deg,var(--g900),var(--g700)); padding:90px 0 90px; position:relative; overflow:hidden; }
-.about-hero::before { content:''; position:absolute; inset:0; background:radial-gradient(circle at 70% 50%,rgba(74,173,114,.1),transparent 55%); }
+.about-hero { background:linear-gradient(135deg,var(--g900),var(--g700)); padding:116px 0 82px; position:relative; overflow:hidden; }
+.about-hero::before {
+  content:'';
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255,255,255,.1), transparent 20%),
+    linear-gradient(180deg, rgba(255,255,255,.06), transparent 40%);
+}
 .about-hero::after { content:''; position:absolute; bottom:-2px; left:0; right:0; height:90px; background:var(--cream); clip-path:polygon(0 100%,100% 100%,100% 10%,0 100%); }
+.about-hero .breadcrumb,
+.about-hero .breadcrumb a { color:rgba(255,255,255,.72); }
+.about-hero .breadcrumb .sep { color:rgba(255,255,255,.24); }
+.about-hero-mark {
+  position:absolute;
+  right:-10px;
+  bottom:-16px;
+  font-size:clamp(170px,18vw,240px);
+  opacity:.08;
+  transform:rotate(-10deg);
+  line-height:1;
+  pointer-events:none;
+  z-index:0;
+}
 /* origin story */
 .origin { background:var(--cream); }
 .origin-inner { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
@@ -128,6 +149,7 @@
 
 <!-- HERO -->
 <section class="about-hero">
+  <div class="about-hero-mark" aria-hidden="true">🌾</div>
   <div class="container" style="position:relative;z-index:1;">
     <div class="breadcrumb"><a href="index.html">Home</a><span class="sep">›</span><span class="cur">About Us</span></div>
     <div style="font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--g300);margin-bottom:12px;">Our Story</div>
