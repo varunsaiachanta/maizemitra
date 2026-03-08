@@ -295,6 +295,7 @@ button {
   display: flex;
   align-items: center;
   gap: 8px;
+  flex-wrap: nowrap;
   justify-content: flex-end;
   grid-column: 3;
   justify-self: end;
@@ -323,6 +324,7 @@ button {
   font-weight: 800;
   color: var(--t3);
   transition: all .2s;
+  white-space: nowrap;
 }
 
 .lang-pill:hover {
@@ -345,6 +347,9 @@ button {
   cursor: pointer;
   border: none;
   transition: all .2s;
+  white-space: nowrap;
+  line-height: 1.1;
+  flex-shrink: 0;
 }
 
 .btn-nav-primary,
@@ -491,6 +496,8 @@ button {
   color: rgba(255, 255, 255, .82);
   border: 1px solid rgba(255, 255, 255, .18);
   background: rgba(255, 255, 255, .06);
+  white-space: nowrap;
+  line-height: 1.1;
 }
 
 .mobile-lang-switch a.active {
@@ -507,6 +514,72 @@ button {
   font-weight: 800;
   border: none;
   border-bottom: none;
+  white-space: nowrap;
+  line-height: 1.1;
+}
+
+/* ── PRODUCT TILE BALANCE ───────────────────── */
+.home-products-grid > .home-product-card,
+.products-grid > .product-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.home-product-card .pc-body,
+.product-card .product-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.home-product-card .pc-name,
+.product-card .product-body h3,
+.product-card h3 {
+  min-height: calc(1.35em * 2);
+}
+
+.product-card .product-copy {
+  min-height: calc(1.7em * 3);
+}
+
+.home-product-card .pc-verified,
+.product-card .verified-badge,
+.product-card .product-verified,
+.home-product-card .pc-tag,
+.product-card .product-tags span,
+.home-product-card .pc-btn,
+.product-card .price-row button,
+.product-card .btn-chip,
+.btn-appcta {
+  white-space: nowrap;
+}
+
+.home-product-card .pc-btn,
+.product-card .price-row button,
+.product-card .btn-chip,
+.btn-appcta {
+  line-height: 1.1;
+  flex-shrink: 0;
+}
+
+.product-card .yield-line {
+  display: flex;
+  align-items: flex-start;
+  min-height: 2.8em;
+}
+
+.home-product-card .pc-price-row,
+.product-card .price-row,
+.product-card .product-row {
+  margin-top: auto;
+  align-items: flex-end;
+}
+
+.home-product-card .pc-price-row > :first-child,
+.product-card .price-row > :first-child,
+.product-card .product-row > :first-child {
+  min-width: 0;
 }
 
 /* ── PAGE HERO (inner pages) ─────────────────── */
