@@ -6,13 +6,22 @@
   ],
   "routes": [
     { "src": "/",            "dest": "/index.html" },
+    { "src": "/te",          "dest": "/index-te.html" },
     { "src": "/products",    "dest": "/products.html" },
+    { "src": "/te/products", "dest": "/products-te.html" },
     { "src": "/suraksha",    "dest": "/suraksha.html" },
+    { "src": "/te/suraksha", "dest": "/suraksha-te.html" },
     { "src": "/guarantee",   "dest": "/suraksha.html" },
+    { "src": "/te/guarantee","dest": "/guarantee-te.html" },
     { "src": "/advisory",    "dest": "/advisory.html" },
+    { "src": "/te/advisory", "dest": "/advisory-te.html" },
     { "src": "/about",       "dest": "/about.html" },
+    { "src": "/te/about",    "dest": "/about-te.html" },
     { "src": "/contact",     "dest": "/contact.html" },
+    { "src": "/te/contact",  "dest": "/contact-te.html" },
     { "src": "/support",     "dest": "/contact.html" },
-    { "src": "/app",         "dest": "/app.html" }
+    { "src": "/te/support",  "dest": "/contact-te.html" },
+    { "src": "/app",         "dest": "/app.html" },
+    { "src": "/te/app",      "dest": "/app-te.html" }
   ]
 }

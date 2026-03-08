@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="రైతు మిత్ర – అసలైన మొక్కజొన్న విత్తనాలు మరియు పంట రక్షణ ఉత్పత్తులు, నేరుగా ఫ్యాక్టరీ నుంచి. రైతు మిత్ర సురక్ష కింద నిజస్వరూప ధృవీకరణ, దిగుబడి లక్ష్యం, ఉచిత మార్పిడి రక్షణతో."
+  />
+  <title>రైతు మిత్ర – మీ పంటకు ఉత్తమ మిత్రుడు</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&amp;family=Nunito:wght@300;400;500;600;700;800;900&amp;display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="shared.css" />
+  <style>
+    body {
+      background:
+        radial-gradient(circle at top right, rgba(74, 173, 114, .12), transparent 26%),
+        linear-gradient(180deg, #f7fbf8 0%, #ffffff 18%, #f8fcf9 100%);
+    }
+
+    .suraksha-hero {
+      position: relative;
+      overflow: hidden;
+      padding: 118px 0 88px;
+      background: linear-gradient(135deg, var(--rm-teal-d), var(--rm-teal));
+    }
+
+    .suraksha-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 16%, rgba(255, 255, 255, .14), transparent 18%),
+        linear-gradient(180deg, rgba(255, 255, 255, .08), transparent 45%);
+      pointer-events: none;
+    }
+
+    .suraksha-hero::after {
+      content: '🌾';
+      position: absolute;
+      right: -10px;
+      bottom: -18px;
+      font-size: clamp(180px, 18vw, 250px);
+      opacity: .08;
+      transform: rotate(-10deg);
+      pointer-events: none;
+    }
+
+    .suraksha-hero .breadcrumb,
+    .suraksha-hero .breadcrumb a {
+      color: rgba(255, 255, 255, .74);
+    }
+
+    .suraksha-hero .breadcrumb .sep {
+      color: rgba(255, 255, 255, .28);
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 16px;
+      border-radius: var(--rr);
+      border: 1px solid rgba(255, 255, 255, .18);
+      background: rgba(255, 255, 255, .08);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      color: rgba(255, 255, 255, .82);
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .suraksha-hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(46px, 6vw, 74px);
+      line-height: 1.02;
+      font-weight: 700;
+      letter-spacing: -.8px;
+      color: #fff;
+      margin-bottom: 18px;
+      max-width: 780px;
+    }
+
+    .suraksha-hero p {
+      max-width: 680px;
+      font-size: 18px;
+      line-height: 1.9;
+      color: rgba(255, 255, 255, .8);
+    }
+
+    .promise-bar {
+      background: var(--g900);
+      border-bottom: 1px solid rgba(45, 122, 79, .18);
+    }
+
+    .promise-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      padding: 22px 0;
+    }
+
+    .promise-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #fff;
+    }
+
+    .promise-item .icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, .12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    .promise-item strong {
+      display: block;
+      font-size: 14px;
+      font-weight: 900;
+      margin-bottom: 4px;
+    }
+
+    .promise-item span {
+      display: block;
+      font-size: 12px;
+      color: rgba(255, 255, 255, .62);
+      line-height: 1.5;
+    }
+
+    .promise-item.soon {
+      opacity: .62;
+    }
+
+    .soon-badge {
+      display: inline-flex;
+      padding: 3px 9px;
+      border-radius: var(--rr);
+      background: rgba(255, 255, 255, .12);
+      color: rgba(255, 255, 255, .78);
+      font-size: 10px;
+      font-weight: 800;
+      margin-top: 6px;
+      text-transform: uppercase;
+      letter-spacing: .6px;
+    }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: 1.08fr .92fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .eyebrow-teal {
+      color: var(--rm-teal-d);
+    }
+
+    .pillar-copy p {
+      font-size: 15px;
+      color: var(--t3);
+      line-height: 1.9;
+      margin-bottom: 18px;
+    }
+
+    .pill-list {
+      display: grid;
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+
+    .pill-list div {
+      display: flex;
+      gap: 12px;
+      align-items: start;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: #fff;
+      border: 1px solid rgba(45, 122, 79, .12);
+      box-shadow: 0 8px 20px rgba(15, 46, 26, .05);
+      font-size: 14px;
+      color: var(--t2);
+      line-height: 1.7;
+    }
+
+    .pill-list span {
+      color: var(--rm-teal-d);
+      font-size: 18px;
+      line-height: 1;
+      margin-top: 1px;
+    }
+
+    .link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: none;
+      background: transparent;
+      color: var(--rm-teal-d);
+      font-size: 14px;
+      font-weight: 900;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    .phone-demo {
+      background: linear-gradient(160deg, #0c2113, #173623 50%, #235c38);
+      border-radius: 30px;
+      padding: 18px;
+      box-shadow: 0 28px 60px rgba(26, 77, 46, .2);
+      position: sticky;
+      top: 96px;
+    }
+
+    .phone-inner {
+      background: #fbfdfb;
+      border-radius: 22px;
+      overflow: hidden;
+      min-height: 540px;
+    }
+
+    .phone-top {
+      padding: 14px 18px;
+      background: linear-gradient(135deg, var(--rm-teal-d), var(--rm-teal));
+      color: #fff;
+      font-size: 12px;
+      font-weight: 800;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .phone-body {
+      padding: 18px;
+    }
+
+    .scan-window {
+      border: 2px dashed rgba(45, 122, 79, .35);
+      border-radius: 24px;
+      padding: 26px 18px;
+      text-align: center;
+      margin-bottom: 18px;
+      background: linear-gradient(180deg, #ffffff, #f5faf6);
+    }
+
+    .scan-window .icon {
+      font-size: 54px;
+      margin-bottom: 12px;
+    }
+
+    .scan-window strong {
+      display: block;
+      color: var(--t1);
+      font-size: 18px;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+
+    .scan-window p {
+      font-size: 13px;
+      color: var(--t3);
+      line-height: 1.7;
+    }
+
+    .result-card {
+      display: none;
+      border-radius: 20px;
+      background: #fff;
+      border: 1px solid rgba(45, 122, 79, .16);
+      padding: 20px;
+      box-shadow: 0 16px 32px rgba(26, 77, 46, .1);
+      margin-top: 18px;
+    }
+
+    .result-card.open {
+      display: block;
+    }
+
+    .verified-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .verified-header strong {
+      font-size: 16px;
+      font-weight: 900;
+      color: var(--t1);
+    }
+
+    .verified-header span {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--rm-teal-d);
+      background: var(--rm-teal-l);
+      border-radius: var(--rr);
+      padding: 6px 10px;
+      white-space: nowrap;
+    }
+
+    .result-card dl {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 9px;
+      margin-bottom: 14px;
+    }
+
+    .result-card dt,
+    .result-card dd {
+      display: inline;
+      font-size: 13px;
+    }
+
+    .result-card dt {
+      font-weight: 800;
+      color: var(--t1);
+      margin-right: 6px;
+    }
+
+    .result-card dd {
+      color: var(--t3);
+    }
+
+    .lab-list {
+      display: grid;
+      gap: 8px;
+      padding-top: 14px;
+      border-top: 1px solid var(--br);
+    }
+
+    .lab-list div {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--t2);
+    }
+
+    .table-card,
+    .process-card,
+    .cover-card,
+    .soon-card,
+    .faq-item {
+      background: #fff;
+      border: 1px solid var(--br);
+      border-radius: 24px;
+      box-shadow: 0 10px 30px rgba(15, 46, 26, .05);
+    }
+
+    .table-card {
+      overflow: hidden;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      padding: 16px 18px;
+      text-align: left;
+      border-bottom: 1px solid #edf4ef;
+      vertical-align: top;
+    }
+
+    th {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .7px;
+      text-transform: uppercase;
+      color: var(--t4);
+      background: #f7fbf8;
+    }
+
+    td {
+      font-size: 14px;
+      color: var(--t2);
+      line-height: 1.7;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .yield-label {
+      font-weight: 900;
+      color: var(--t1);
+    }
+
+    .replacement-layout {
+      display: grid;
+      grid-template-columns: .92fr 1.08fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .process-card,
+    .cover-card {
+      padding: 24px;
+    }
+
+    .process-list,
+    .cover-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .process-list div,
+    .cover-list div {
+      display: flex;
+      gap: 12px;
+      align-items: start;
+      font-size: 14px;
+      color: var(--t2);
+      line-height: 1.7;
+    }
+
+    .process-list strong,
+    .cover-list strong {
+      color: var(--t1);
+    }
+
+    .cover-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 24px;
+    }
+
+    .cover-card h3 {
+      font-size: 18px;
+      font-weight: 900;
+      margin-bottom: 14px;
+    }
+
+    .cover-card.good h3 {
+      color: var(--g800);
+    }
+
+    .cover-card.bad h3 {
+      color: #a92f2f;
+    }
+
+    .replace-form {
+      padding: 28px;
+      background: linear-gradient(180deg, #ffffff 0%, #f7fbf8 100%);
+      border-radius: 24px;
+      border: 1px solid rgba(45, 122, 79, .16);
+      box-shadow: 0 16px 34px rgba(26, 77, 46, .08);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-grid .full {
+      grid-column: 1 / -1;
+    }
+
+    .replace-form label {
+      display: block;
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--t3);
+      margin-bottom: 6px;
+    }
+
+    .replace-form input,
+    .replace-form select,
+    .replace-form textarea {
+      width: 100%;
+      border: 1.5px solid rgba(45, 122, 79, .16);
+      background: #fff;
+      border-radius: 14px;
+      padding: 12px 14px;
+      font-size: 14px;
+      color: var(--t1);
+      font-family: 'Nunito', sans-serif;
+      outline: none;
+    }
+
+    .replace-form textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .upload-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 116px;
+      border-radius: 18px;
+      border: 2px dashed rgba(45, 122, 79, .24);
+      background: rgba(45, 122, 79, .04);
+      color: var(--rm-teal-d);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .slot-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .slot {
+      flex: 1;
+      min-width: 120px;
+      border-radius: 14px;
+      border: 1px solid rgba(45, 122, 79, .16);
+      padding: 12px 14px;
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--t2);
+      cursor: pointer;
+      background: #fff;
+      text-align: center;
+    }
+
+    .slot.active {
+      background: var(--rm-teal);
+      color: #fff;
+      border-color: var(--rm-teal);
+    }
+
+    .form-success {
+      display: none;
+      margin-top: 18px;
+      padding: 18px 20px;
+      border-radius: 18px;
+      background: #edf6ef;
+      border: 1px solid rgba(45, 122, 79, .18);
+      color: var(--rm-teal-d);
+      font-size: 15px;
+      font-weight: 900;
+    }
+
+    .form-success.open {
+      display: block;
+    }
+
+    .soon-card {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--g900), var(--g700));
+      color: #fff;
+      padding: 32px;
+      border-color: rgba(255, 255, 255, .08);
+    }
+
+    .soon-card::before {
+      content: '📞';
+      position: absolute;
+      right: 18px;
+      top: 10px;
+      font-size: 110px;
+      opacity: .08;
+    }
+
+    .soon-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 40px;
+      line-height: 1.08;
+      margin-bottom: 10px;
+      max-width: 620px;
+    }
+
+    .soon-card p {
+      max-width: 640px;
+      color: rgba(255, 255, 255, .74);
+      font-size: 15px;
+      line-height: 1.85;
+      margin-bottom: 22px;
+    }
+
+    .faq-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .faq-item {
+      padding: 22px 24px;
+    }
+
+    .faq-item h3 {
+      font-size: 18px;
+      font-weight: 900;
+      color: var(--t1);
+      margin-bottom: 10px;
+    }
+
+    .faq-item p {
+      font-size: 14px;
+      color: var(--t3);
+      line-height: 1.85;
+    }
+
+    @media (max-width: 1080px) {
+      .promise-grid,
+      .replacement-layout,
+      .section-grid,
+      .cover-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .phone-demo {
+        position: static;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .promise-grid,
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .suraksha-hero {
+        padding-top: 106px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="mobile-nav" id="mobileNav">
+    <a class="mnl" href="index-te.html">హోమ్</a>
+    <a class="mnl" href="products-te.html">ఉత్పత్తులు</a>
+    <a class="mnl active" href="suraksha-te.html">సురక్ష</a>
+    <a class="mnl" href="advisory-te.html">సలహా</a>
+    <a class="mnl" href="about-te.html">మా గురించి</a>
+    <a class="mnl" href="contact-te.html">సహాయం</a>
+    <div class="mobile-nav-ctas">
+      <a href="app-te.html" style="background:var(--g800);color:#fff;">📱 యాప్ ప్రివ్యూ</a>
+      <a href="products-te.html" style="background:var(--gold);color:#fff;">🛒 ఇప్పుడే కొనండి</a>
+    </div>
+  </div>
+
+  <nav id="navbar">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index-te.html" class="logo">
+          <span class="logo-icon">🌾</span>
+          <span class="logo-text">రైతు మిత్ర</span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="products-te.html">ఉత్పత్తులు</a></li>
+          <li><a href="suraksha-te.html" class="active">సురక్ష</a></li>
+          <li><a href="advisory-te.html">సలహా</a></li>
+          <li><a href="about-te.html">మా గురించి</a></li>
+          <li><a href="contact-te.html">సహాయం</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="app-te.html"><button class="btn-nav btn-nav-outline">📱 యాప్ ప్రివ్యూ</button></a>
+          <a href="products-te.html"><button class="btn-nav btn-nav-solid">ఇప్పుడే కొనండి</button></a>
+        </div>
+        <div class="hamburger" onclick="toggleNav()">
+          <div class="hline"></div>
+          <div class="hline"></div>
+          <div class="hline"></div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="suraksha-hero">
+    <div class="container" style="position:relative;z-index:1;">
+      <div class="breadcrumb">
+        <a href="index-te.html">హోమ్</a>
+        <span class="sep">›</span>
+        <span>సురక్ష</span>
+      </div>
+      <div class="hero-eyebrow reveal">రైతు మిత్ర సురక్ష</div>
+      <h1 class="reveal d1">మీ పంటను మేము కాపాడే మూడు మార్గాలు</h1>
+      <p class="reveal d2">
+        ఇది డబ్బు తిరిగి ఇస్తామనే వాగ్దానం కాదు. ఇంకా బలమైనది — ప్రతి ఆర్డర్‌లోనే నివారణ, ధృవీకరణ, మార్పిడి అమర్చబడి ఉన్నాయి.
+      </p>
+    </div>
+  </section>
+
+  <div class="promise-bar">
+    <div class="container">
+      <div class="promise-grid">
+        <div class="promise-item">
+          <div class="icon">🔍</div>
+          <div>
+            <strong>స్కాన్ చేసి ధృవీకరించండి</strong>
+            <span>విత్తే ముందు</span>
+          </div>
+        </div>
+        <div class="promise-item">
+          <div class="icon">🌾</div>
+          <div>
+            <strong>దిగుబడి లక్ష్యం</strong>
+            <span>ఏమి ఆశించాలో తెలుసుకోండి</span>
+          </div>
+        </div>
+        <div class="promise-item">
+          <div class="icon">🔄</div>
+          <div>
+            <strong>ఉచిత మార్పిడి</strong>
+            <span>ఏదైనా తప్పు జరిగితే</span>
+          </div>
+        </div>
+        <div class="promise-item soon">
+          <div class="icon">📞</div>
+          <div>
+            <strong>నిపుణ అగ్రోనమిస్ట్</strong>
+            <span>ఖరీఫ్ 2026లో</span>
+            <div class="soon-badge">త్వరలో</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="sec">
+    <div class="container">
+      <div class="section-grid">
+        <div class="pillar-copy">
+          <div class="section-eyebrow eyebrow-teal reveal">3లో 1వ స్తంభం</div>
+          <h2 class="section-title reveal d1">విత్తే ముందు స్కాన్ చేయండి</h2>
+          <p class="reveal d2">
+            ప్రతి రైతు మిత్ర ఉత్పత్తి ప్యాకింగ్‌పై ప్రత్యేకమైన QR కోడ్ ముద్రించబడి ఉంటుంది. దాన్ని తెరవక ముందే స్కాన్ చేసి, పొలంలో అవసరమైన ధృవీకరిత వివరాలను వెంటనే చూడండి.
+          </p>
+          <div class="pill-list">
+            <div class="reveal"><span>✓</span>తయారీదారుడి పేరు మరియు లైసెన్స్ నంబర్</div>
+            <div class="reveal d1"><span>✓</span>బ్యాచ్ నంబర్ మరియు తయారీ తేదీ</div>
+            <div class="reveal d2"><span>✓</span>గడువు తేదీ మరియు మొలక, తేమ, స్వచ్ఛతకు సంబంధించిన ల్యాబ్ పరీక్ష ఫలితాలు</div>
+            <div class="reveal d3"><span>✓</span>ఉత్పత్తి నేలలోకి వెళ్లే ముందే రైతు మిత్ర ధృవీకరణ బ్యాడ్జ్</div>
+          </div>
+          <button class="link-btn reveal d2" onclick="toggleSample()">నమూనా స్కాన్ ఫలితం చూడండి →</button>
+        </div>
+
+        <aside class="phone-demo reveal d1">
+          <div class="phone-inner">
+            <div class="phone-top">
+              <span>9:41</span>
+              <span>🔍 ఉత్పత్తి స్కాన్</span>
+            </div>
+            <div class="phone-body">
+              <div class="scan-window">
+                <div class="icon">📱</div>
+                <strong>QR కోడ్ వైపు కెమెరా చూపించండి</strong>
+                <p>విత్తే ముందు, స్ప్రే చేసే ముందు లేదా ప్యాక్ తెరవకముందే ఉత్పత్తి అసలైనదో కాదో ధృవీకరించండి.</p>
+              </div>
+              <div id="sampleCard" class="result-card">
+                <div class="verified-header">
+                  <strong>✅ అసలైన ఉత్పత్తి — రైతు మిత్ర ధృవీకరితం</strong>
+                  <span>🌾 సురక్ష ధృవీకరితం</span>
+                </div>
+                <dl>
+                  <div><dt>ఉత్పత్తి:</dt><dd>DKC 9108 Hybrid Maize Seed</dd></div>
+                  <div><dt>బ్యాచ్ నంబర్:</dt><dd>RM-BATCH-2025-0341</dd></div>
+                  <div><dt>తయారీదారు:</dt><dd>Dekalb Seed Company (Bayer CropScience)</dd></div>
+                  <div><dt>తయారీ తేదీ:</dt><dd>జనవరి 2025</dd></div>
+                  <div><dt>గడువు తేదీ:</dt><dd>డిసెంబర్ 2026</dd></div>
+                  <div><dt>ల్యాబ్ పరీక్ష తేదీ:</dt><dd>ఫిబ్రవరి 3, 2025</dd></div>
+                </dl>
+                <div class="lab-list">
+                  <div>✅ మొలక శాతం: 96%</div>
+                  <div>✅ తేమ శాతం: 12%</div>
+                  <div>✅ విత్తన స్వచ్ఛత: 99.8%</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec-soft">
+    <div class="container">
+      <div class="section-eyebrow eyebrow-teal reveal">3లో 2వ స్తంభం</div>
+      <h2 class="section-title reveal d1">లక్ష్యాన్ని మనం కలిసి నిర్ణయిస్తాం.</h2>
+      <p class="section-desc reveal d2" style="max-width:760px;margin-bottom:26px;">
+        మా క్యాటలాగ్‌లోని ప్రతి ఉత్పత్తికి కనీస దిగుబడి లక్ష్యం ఉంటుంది. మీ ఆర్డర్‌తో వచ్చే వినియోగ మార్గదర్శకాన్ని అనుసరించండి — అప్పుడు మీరు ఆశించాల్సిన ఫలితాలు ఇవే. సూచనలు పాటించినా ఫలితం తక్కువైతే? మేము దానిని సరిచేస్తాం.
+      </p>
+      <div class="table-card reveal d2">
+        <table>
+          <thead>
+            <tr>
+              <th>ఉత్పత్తి</th>
+              <th>ఆశించిన ఫలితం</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="yield-label">DKC 9108 Hybrid Maize</td><td>ఎకరానికి 28–32 క్వింటాళ్లు</td></tr>
+            <tr><td class="yield-label">P3522 ఎండనిరోధక మొక్కజొన్న</td><td>ఎకరానికి 22–26 క్వింటాళ్లు</td></tr>
+            <tr><td class="yield-label">Kaveri KMH 3712</td><td>ఎకరానికి 24–28 క్వింటాళ్లు</td></tr>
+            <tr><td class="yield-label">Coragen</td><td>48 గంటల్లో 95%+ FAW నియంత్రణ</td></tr>
+            <tr><td class="yield-label">Chlorpyrifos 20% EC</td><td>72 గంటల్లో 90%+ స్టెమ్ బోరర్ నియంత్రణ</td></tr>
+            <tr><td class="yield-label">Thiamethoxam 25% WG</td><td>21 రోజుల సిస్టమిక్ రక్షణ</td></tr>
+            <tr><td class="yield-label">Lambda Cyhalothrin</td><td>85%+ విస్తృత పురుగు నియంత్రణ</td></tr>
+            <tr><td class="yield-label">Atrazine 50% WP</td><td>6 వారాల పాటు 80%+ కలుపు నియంత్రణ</td></tr>
+            <tr><td class="yield-label">Pendimethalin 30% EC</td><td>మొలకెత్తే ముందే 75%+ గడ్డి కలుపు నియంత్రణ</td></tr>
+            <tr><td class="yield-label">2,4-D Amine Salt</td><td>పోస్ట్-ఎమర్జెంట్ విశాల ఆకుల కలుపు తొలగింపు</td></tr>
+            <tr><td class="yield-label">Mancozeb 75% WP</td><td>14 రోజుల ఆకుమచ్చ నివారణ రక్షణ</td></tr>
+            <tr><td class="yield-label">Propiconazole 25% EC</td><td>21 రోజుల సిస్టమిక్ రస్ట్ & బ్లైట్ నియంత్రణ</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="container">
+      <div class="section-eyebrow eyebrow-teal reveal">3లో 3వ స్తంభం</div>
+      <h2 class="section-title reveal d1">పనిచేయలేదా? మేమే మార్చి ఇస్తాం.</h2>
+      <p class="section-desc reveal d2" style="max-width:760px;margin-bottom:26px;">
+        విత్తనం, పురుగుమందు, కలుపుమందు, శిలీంద్రనాశకం — ఏ ఉత్పత్తి అయినా సరైన వినియోగం చేసినప్పటికీ లక్ష్యానికి తగ్గ ఫలితం ఇవ్వకపోతే, మేము ఉచితంగా మార్చి ఇస్తాం. మరుసటి రోజు డెలివరీ. మా క్యాటలాగ్‌లోని ప్రతి ఉత్పత్తికి ఇది వర్తిస్తుంది.
+      </p>
+
+      <div class="replacement-layout">
+        <div>
+          <div class="process-card reveal">
+            <h3 style="font-size:20px;font-weight:900;color:var(--t1);">మార్పిడి ప్రక్రియ</h3>
+            <div class="process-list">
+              <div><span>1.</span><span>యాప్, WhatsApp లేదా ఈ ఫారం ద్వారా సమస్యను తెలపండి.</span></div>
+              <div><span>2.</span><span>మా బృందం సమీక్షించి మీకు కాల్ చేస్తుంది — <strong>4 గంటల్లో</strong>.</span></div>
+              <div><span>3.</span><span>మార్పిడి పంపించి డెలివరీ చేస్తాం <strong>మరుసటి రోజు</strong>.</span></div>
+            </div>
+          </div>
+
+          <div class="cover-grid">
+            <div class="cover-card good reveal d1">
+              <h3>ఏవి కవర్లో ఉంటాయి</h3>
+              <div class="cover-list">
+                <div>✅ హామీ కంటే తక్కువ మొలక వచ్చిన విత్తనాలు</div>
+                <div>✅ హామీ కంటే తక్కువ పురుగు నియంత్రణ ఇచ్చిన పురుగుమందు</div>
+                <div>✅ హామీ కంటే తక్కువ కలుపు నియంత్రణ ఇచ్చిన కలుపుమందు</div>
+                <div>✅ హామీ కంటే తక్కువ వ్యాధి నియంత్రణ ఇచ్చిన శిలీంద్రనాశకం</div>
+                <div>✅ డెలివరీ సమయంలో దెబ్బతిన్న లేదా లోపభూయిష్ట ఉత్పత్తి</div>
+                <div>✅ తప్పు ఉత్పత్తి డెలివరీ అయినప్పుడు</div>
+              </div>
+            </div>
+            <div class="cover-card bad reveal d2">
+              <h3>ఏవి కవర్లో ఉండవు</h3>
+              <div class="cover-list">
+                <div>❌ ప్రకృతి వైపరీత్యాలు — వరద, కరువు, వడగళ్ల వాన</div>
+                <div>❌ తప్పు వినియోగం — తప్పు మోతాదు, తప్పు సమయం, తప్పు అప్లికేషన్ విధానం</div>
+                <div>❌ సమస్యకు సంబంధించిన ఫోటో ఆధారం లేకపోవడం</div>
+                <div>❌ సమస్య కనిపించిన 30 రోజుల తర్వాత ఫిర్యాదు చేయడం</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <form class="replace-form reveal d1" onsubmit="submitReplacement(event)">
+          <div class="section-eyebrow eyebrow-teal" style="margin-bottom:10px;">మార్పిడి కోరండి</div>
+          <div class="form-grid">
+            <div>
+              <label for="name">పేరు</label>
+              <input id="name" placeholder="Ramesh Kumar" required />
+            </div>
+            <div>
+              <label for="mobile">మొబైల్</label>
+              <input id="mobile" placeholder="98765 43210" required />
+            </div>
+            <div>
+              <label for="order">ఆర్డర్ నంబర్</label>
+              <input id="order" placeholder="RM-20256" required />
+            </div>
+            <div>
+              <label for="product">ఉత్పత్తిని ఎంచుకోండి</label>
+              <select id="product" required>
+                <option value="">ఉత్పత్తిని ఎంచుకోండి</option>
+                <option>DKC 9108 Hybrid Maize Seed</option>
+                <option>P3522 ఎండనిరోధక మొక్కజొన్న</option>
+                <option>Coragen</option>
+                <option>Atrazine 50% WP</option>
+                <option>Mancozeb 75% WP</option>
+              </select>
+            </div>
+            <div class="full">
+              <label for="issue">సమస్య రకం</label>
+              <select id="issue" required>
+                <option value="">సమస్యను ఎంచుకోండి</option>
+                <option>ఉత్పత్తి పని చేయలేదు</option>
+                <option>నకిలీ అనుమానం</option>
+                <option>డెలివరీలో దెబ్బతింది</option>
+                <option>తప్పు ఉత్పత్తి</option>
+              </select>
+            </div>
+            <div class="full">
+              <label for="description">సమస్యను వివరించండి</label>
+              <textarea id="description" placeholder="ఏం జరిగిందో, పొలంలో ఏమి గమనించారో వివరించండి..." required></textarea>
+            </div>
+            <div class="full">
+              <label>ఫోటో అప్లోడ్ చేయండి</label>
+              <div class="upload-box">📸 ఫోటో జోడించండి</div>
+            </div>
+            <div class="full">
+              <label>మార్పిడి డెలివరీకి ఇష్టమైన సమయం</label>
+              <div class="slot-row" id="slots">
+                <button type="button" class="slot active" onclick="pickSlot(this)">ఉదయం</button>
+                <button type="button" class="slot" onclick="pickSlot(this)">మధ్యాహ్నం</button>
+                <button type="button" class="slot" onclick="pickSlot(this)">సాయంత్రం</button>
+              </div>
+            </div>
+            <div class="full">
+              <button class="btn btn-suraksha btn-lg" style="border-radius:16px;width:100%;padding:15px 20px;">📦 ఉచిత మార్పిడి కోరండి</button>
+            </div>
+          </div>
+          <div id="successState" class="form-success">✅ మార్పిడి ధృవీకరించబడింది — రేపు చేరుతుంది</div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec-dark">
+    <div class="container">
+      <div class="soon-card reveal">
+        <div class="badge badge-gray" style="background:rgba(255,255,255,.08);color:#fff;border-color:rgba(255,255,255,.14);margin-bottom:16px;">త్వరలో</div>
+        <h3>నిపుణ అగ్రోనమిస్ట్ — ఖరీఫ్ 2026లో</h3>
+        <p>
+          ప్రతి రైతు మిత్ర ఆర్డర్‌కు ఒక ధృవీకరిత అగ్రోనమిస్ట్‌ను కేటాయిస్తాము. సీజన్ అంతా WhatsApp ద్వారా పంట మార్గదర్శనం అందుబాటులో ఉంటుంది. ఇది మా 2వ దశ విస్తరణతో ప్రారంభమవుతుంది.
+        </p>
+        <a href="contact-te.html"><button class="btn btn-lg" style="background:#fff;color:var(--rm-teal-d);border-radius:var(--rr);padding:14px 26px;">ప్రారంభమైనప్పుడు తెలియజేయండి</button></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="container">
+      <div class="section-head" style="margin-bottom:22px;">
+        <div>
+          <div class="section-eyebrow eyebrow-teal reveal">తరచుగా అడిగే ప్రశ్నలు</div>
+          <h2 class="section-title reveal d1">రైతు మిత్ర సురక్ష గురించి సాధారణ ప్రశ్నలు</h2>
+        </div>
+      </div>
+
+      <div class="faq-grid">
+        <article class="faq-item reveal">
+          <h3>రైతు మిత్ర సురక్ష డబ్బు తిరిగి హామీతో ఎలా భిన్నంగా ఉంటుంది?</h3>
+          <p>డబ్బు తిరిగి హామీ అనేది పంట విఫలమైన తర్వాత మాత్రమే ఉపశమనాన్ని ఇస్తుంది. రైతు మిత్ర సురక్ష మాత్రం సీజన్‌కు ముందు మరియు సీజన్‌లో పనిచేస్తుంది — విత్తే ముందు ఉత్పత్తి అసలైనదో కాదో ధృవీకరిస్తుంది, దిగుబడి లక్ష్యాన్ని ఇస్తుంది, మధ్యలో తక్కువ ఫలితం ఇచ్చే ఉత్పత్తిని మార్పిడి చేస్తుంది కాబట్టి మీ పంటకు ఇంకా అవకాశం ఉంటుంది.</p>
+        </article>
+        <article class="faq-item reveal d1">
+          <h3>మార్పిడి రావడానికి ఎంత సమయం పడుతుంది?</h3>
+          <p>మీ మార్పిడి అభ్యర్థన సమర్పించిన 4 గంటల్లో ఆమోదం పొందిన వెంటనే, మార్పిడి ఉత్పత్తి పంపించి మరుసటి రోజు మీ ఇల్లు లేదా గ్రామ పికప్ పాయింట్‌కు చేరుస్తాం.</p>
+        </article>
+        <article class="faq-item reveal d2">
+          <h3>మార్పిడి అన్ని ఉత్పత్తులకు వర్తిస్తుందా?</h3>
+          <p>అవును. విత్తనాలు, పురుగుమందులు, కలుపుమందులు, శిలీంద్రనాశకాలు — రైతు మిత్ర క్యాటలాగ్‌లోని ప్రతి ఉత్పత్తికి ఉచిత మార్పిడి విధానం వర్తిస్తుంది.</p>
+        </article>
+        <article class="faq-item reveal d1">
+          <h3>QR స్కాన్ చేసినప్పుడు "ధృవీకరించబడలేదు" అని చూపితే ఏమి చేయాలి?</h3>
+          <p>ఉత్పత్తిని వాడకండి. ఉత్పత్తి మరియు QR కోడ్ ఫోటోతో వెంటనే WhatsAppలో మమ్మల్ని సంప్రదించండి. మేము 24 గంటల్లో పరిశీలించి ఉచితంగా మార్పిడి చేస్తాం.</p>
+        </article>
+        <article class="faq-item reveal d2">
+          <h3>మార్పిడి కోసం ఉత్పత్తిని తిరిగి ఇవ్వాలా?</h3>
+          <p>తిరిగి పంపాల్సిన అవసరం లేదు. సమస్య ఫోటో మరియు మీ ఆర్డర్ నంబర్ ఉంటే చాలు, మార్పిడి అభ్యర్థనను ప్రాసెస్ చేస్తాం.</p>
+        </article>
+        <article class="faq-item reveal d3">
+          <h3>ఒకే సీజన్‌లో ఒకటి కంటే ఎక్కువసార్లు మార్పిడి కోరవచ్చా?</h3>
+          <p>అవును. మీ ఆర్డర్‌లోని ప్రతి ఉత్పత్తి విడిగా కవర్ అవుతుంది. ఒకటి కంటే ఎక్కువ ఉత్పత్తులు తక్కువ ఫలితం ఇస్తే, ప్రతి ఉత్పత్తికి విడిగా మార్పిడి కోరవచ్చు.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="fb-logo">
+            <span class="fb-logo-icon">🌾</span>
+            <span class="fb-logo-text">రైతు మిత్ర</span>
+          </div>
+          <p>రైతు మిత్ర — అసలైన మొక్కజొన్న విత్తనాలు మరియు పంట రక్షణ ఉత్పత్తులు, నేరుగా ఫ్యాక్టరీ నుంచి. ప్రతి కొనుగోలుకూ రైతు మిత్ర సురక్ష రక్షణ ఉంటుంది.</p>
+          <div class="social-row">
+            <div class="social-ico">📘</div>
+            <div class="social-ico">💬</div>
+            <div class="social-ico">📸</div>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>ఉత్పత్తులు</h4>
+          <ul>
+            <li><a href="products-te.html">మొక్కజొన్న విత్తనాలు</a></li>
+            <li><a href="products-te.html">పురుగుమందులు</a></li>
+            <li><a href="products-te.html">కలుపుమందులు</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>ప్లాట్‌ఫారం</h4>
+          <ul>
+            <li><a href="suraksha-te.html">సురక్ష</a></li>
+            <li><a href="advisory-te.html">సలహా</a></li>
+            <li><a href="about-te.html">మా గురించి</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>సహాయం</h4>
+          <ul>
+            <li><a href="contact-te.html">సంప్రదించండి</a></li>
+            <li><a href="contact-te.html">support@rythymitra.in</a></li>
+            <li><a href="suraksha-te.html">మార్పిడి కోరండి</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 రైతు మిత్ర. అన్ని హక్కులు పరిరక్షించబడ్డాయి.</span>
+        <span>రైతు మిత్ర 💚 మీ పంటకు మేము స్నేహితులు</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleNav() {
+      document.getElementById('mobileNav').classList.toggle('open');
+    }
+
+    function toggleSample() {
+      document.getElementById('sampleCard').classList.toggle('open');
+    }
+
+    function pickSlot(button) {
+      document.querySelectorAll('.slot').forEach(slot => slot.classList.remove('active'));
+      button.classList.add('active');
+    }
+
+    function submitReplacement(event) {
+      event.preventDefault();
+      document.getElementById('successState').classList.add('open');
+    }
+
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add('up');
+        });
+      },
+      { threshold: 0.14 }
+    );
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

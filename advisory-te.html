@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="రైతు మిత్ర – అసలైన మొక్కజొన్న విత్తనాలు మరియు పంట రక్షణ ఉత్పత్తులు, నేరుగా ఫ్యాక్టరీ నుంచి. రైతు మిత్ర సురక్ష కింద నిజస్వరూప ధృవీకరణ, దిగుబడి లక్ష్యం, ఉచిత మార్పిడి రక్షణతో."/>
+<title>రైతు మిత్ర – మీ పంటకు ఉత్తమ మిత్రుడు</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&amp;family=Nunito:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="shared.css"/>
+<style>
+/* hero */
+.adv-hero { background:linear-gradient(135deg,var(--g900),var(--g700)); padding:116px 0 82px; position:relative; overflow:hidden; }
+.adv-hero::before {
+  content:'';
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255,255,255,.1), transparent 20%),
+    linear-gradient(180deg, rgba(255,255,255,.06), transparent 40%);
+}
+.adv-hero::after {
+  content:'';
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  height:1px;
+  background:rgba(255,255,255,.08);
+}
+.adv-hero .breadcrumb,
+.adv-hero .breadcrumb a { color:rgba(255,255,255,.72); }
+.adv-hero .breadcrumb .sep { color:rgba(255,255,255,.24); }
+.adv-hero-mark {
+  position:absolute;
+  right:-10px;
+  bottom:-18px;
+  font-size:clamp(170px,18vw,240px);
+  opacity:.08;
+  transform:rotate(-10deg);
+  line-height:1;
+  pointer-events:none;
+  z-index:0;
+}
+/* weather card */
+.weather-card {
+  background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.15);
+  border-radius:var(--r20); padding:24px 28px;
+  display:grid; grid-template-columns:1fr auto; gap:20px; align-items:center;
+  margin-top:28px; max-width:600px;
+}
+.wc-main { display:flex; align-items:center; gap:20px; }
+.wc-icon { font-size:52px; }
+.wc-temp { font-family:'Cormorant Garamond',serif; font-size:52px; font-weight:700; color:#fff; line-height:1; }
+.wc-desc { font-size:14px; color:rgba(255,255,255,.6); margin-top:4px; }
+.wc-details { display:flex; flex-direction:column; gap:8px; }
+.wcd-item { font-size:13px; color:rgba(255,255,255,.65); display:flex; align-items:center; gap:6px; }
+/* alerts */
+.alert-strip { background:linear-gradient(90deg,#7a3900,#b85700); border-radius:var(--r14); padding:18px 22px; display:flex; align-items:flex-start; gap:14px; margin-bottom:14px; }
+.as-icon { font-size:28px; flex-shrink:0; }
+.as-badge { font-size:10px; font-weight:700; background:rgba(255,255,255,.2); color:#fff; border-radius:var(--rr); padding:2px 8px; margin-bottom:4px; display:inline-block; }
+.as-title { font-size:15px; font-weight:800; color:#fff; margin-bottom:4px; }
+.as-desc { font-size:13px; color:rgba(255,255,255,.7); line-height:1.5; }
+.as-action { margin-left:auto; flex-shrink:0; }
+.as-btn { padding:8px 16px; border-radius:var(--rr); border:1.5px solid rgba(255,255,255,.4); background:transparent; color:#fff; font-size:12px; font-weight:700; cursor:pointer; font-family:'Nunito',sans-serif; white-space:nowrap; }
+/* crop calendar */
+.calendar-wrap { overflow-x:auto; }
+.crop-calendar { display:flex; gap:0; min-width:700px; }
+.cal-month { flex:1; text-align:center; }
+.cal-month-label { font-size:11px; font-weight:700; color:var(--t4); padding:8px 4px; border-right:1px solid var(--br); }
+.cal-bar { height:32px; position:relative; }
+.stage-bar { position:absolute; top:4px; height:24px; border-radius:4px; display:flex; align-items:center; justify-content:center; font-size:10px; font-weight:700; color:#fff; overflow:hidden; white-space:nowrap; }
+/* stage tabs */
+.stage-tabs { display:flex; gap:0; border:1px solid var(--br); border-radius:var(--r14); overflow:hidden; margin-bottom:32px; }
+.stage-tab { flex:1; padding:12px 8px; text-align:center; cursor:pointer; font-size:13px; font-weight:700; color:var(--t4); border-right:1px solid var(--br); transition:all .2s; }
+.stage-tab:last-child { border-right:none; }
+.stage-tab.active { background:var(--g800); color:#fff; }
+/* stage detail card */
+.stage-detail { background:var(--wh); border-radius:var(--r20); border:1px solid var(--br); box-shadow:0 4px 20px var(--sh); overflow:hidden; }
+.sd-header { background:linear-gradient(135deg,var(--g800),var(--g600)); padding:24px 28px; display:flex; align-items:center; gap:20px; }
+.sd-header .emoji { font-size:48px; }
+.sd-header h2 { font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:700; color:#fff; margin-bottom:4px; }
+.sd-header p { font-size:13px; color:rgba(255,255,255,.6); }
+.sd-body { padding:28px; display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+.sd-col h4 { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.5px; color:var(--t4); margin-bottom:14px; }
+.task-item { display:flex; gap:12px; align-items:flex-start; padding:12px 14px; background:var(--g50); border-radius:var(--r8); margin-bottom:8px; border:1px solid var(--br); }
+.task-icon { font-size:18px; flex-shrink:0; }
+.task-label { font-size:13px; font-weight:700; color:var(--t1); margin-bottom:3px; }
+.task-sub { font-size:12px; color:var(--t4); line-height:1.4; }
+.task-urgent { border-color:var(--gold); background:var(--gold-l); }
+.product-rec { display:flex; align-items:center; gap:12px; padding:12px 14px; background:var(--g50); border-radius:var(--r8); margin-bottom:8px; border:1px solid var(--br); cursor:pointer; transition:all .2s; }
+.product-rec:hover { border-color:var(--g400); }
+.pr-icon { font-size:28px; }
+.pr-name { font-size:13px; font-weight:700; color:var(--t1); margin-bottom:2px; }
+.pr-dosage { font-size:11px; color:var(--t4); }
+.pr-btn { margin-left:auto; padding:6px 12px; background:var(--g800); color:#fff; border:none; border-radius:var(--r8); font-size:11px; font-weight:700; cursor:pointer; flex-shrink:0; font-family:'Nunito',sans-serif; }
+/* spray schedule */
+.spray-table { width:100%; border-collapse:collapse; font-size:13px; }
+.spray-table th { padding:10px 14px; background:var(--g800); color:#fff; font-size:11px; font-weight:700; text-align:left; letter-spacing:.3px; }
+.spray-table th:first-child { border-radius:var(--r8) 0 0 0; }
+.spray-table th:last-child { border-radius:0 var(--r8) 0 0; }
+.spray-table td { padding:12px 14px; border-bottom:1px solid var(--br); color:var(--t2); vertical-align:top; }
+.spray-table tr:last-child td { border-bottom:none; }
+.spray-table tr:hover td { background:var(--g20); }
+.priority-high { color:var(--red); font-weight:700; }
+.priority-med  { color:var(--gold); font-weight:700; }
+.priority-low  { color:var(--g600); font-weight:700; }
+/* pest library */
+.pest-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+.pest-card { background:var(--wh); border-radius:var(--r14); border:1px solid var(--br); overflow:hidden; box-shadow:0 2px 8px var(--sh); transition:all .3s; }
+.pest-card:hover { transform:translateY(-4px); box-shadow:0 10px 32px var(--sh2); }
+.pest-card-top { padding:20px; background:var(--g50); text-align:center; }
+.pest-icon { font-size:48px; margin-bottom:8px; }
+.pest-name { font-size:14px; font-weight:800; color:var(--t1); }
+.pest-card-body { padding:16px; }
+.pest-risk { display:inline-flex; align-items:center; gap:4px; border-radius:var(--rr); padding:3px 9px; font-size:10px; font-weight:700; margin-bottom:10px; }
+.risk-high { background:var(--red-l); color:var(--red); }
+.risk-med  { background:var(--gold-l); color:var(--gold-d); }
+.risk-low  { background:var(--g100); color:var(--g800); }
+.pest-detail { font-size:12px; color:var(--t3); line-height:1.55; margin-bottom:10px; }
+.pest-treatment { font-size:12px; font-weight:700; color:var(--t1); }
+.pest-treatment span { color:var(--g600); }
+/* tips grid */
+.tips-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+.tip-box { background:var(--wh); border-radius:var(--r14); border:1px solid var(--br); padding:20px 16px; text-align:center; }
+.tip-box-icon { font-size:32px; margin-bottom:10px; }
+.tip-box-title { font-size:13px; font-weight:800; color:var(--t1); margin-bottom:6px; }
+.tip-box-desc { font-size:12px; color:var(--t4); line-height:1.5; }
+
+@media(max-width:900px){
+  .sd-body { grid-template-columns:1fr; }
+  .pest-grid { grid-template-columns:1fr 1fr; }
+  .tips-grid { grid-template-columns:1fr 1fr; }
+}
+@media(max-width:600px){
+  .pest-grid { grid-template-columns:1fr; }
+  .tips-grid { grid-template-columns:1fr 1fr; }
+  .stage-tab span { display:none; }
+}
+</style>
+</head>
+<body>
+
+<div class="mobile-nav" id="mobileNav">
+  <a class="mnl" href="index-te.html">హోమ్</a>
+  <a class="mnl" href="products-te.html">ఉత్పత్తులు</a>
+  <a class="mnl" href="suraksha-te.html">సురక్ష</a>
+  <a class="mnl active" href="advisory-te.html">సలహా</a>
+  <a class="mnl" href="about-te.html">మా గురించి</a>
+  <a class="mnl" href="contact-te.html">సహాయం</a>
+  <div class="mobile-nav-ctas">
+    <a href="app-te.html" style="display:block;text-align:center;padding:13px;background:var(--g800);border-radius:50px;color:#fff;font-weight:800;">📱 యాప్ ప్రివ్యూ</a>
+    <a href="products-te.html" style="display:block;text-align:center;padding:13px;background:var(--gold);border-radius:50px;color:#fff;font-weight:800;">🛒 ఇప్పుడే కొనండి</a>
+  </div>
+</div>
+
+<nav id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index-te.html" class="logo"><span class="logo-icon">🌾</span><span class="logo-text">రైతు మిత్ర</span></a>
+      <ul class="nav-links">
+        <li><a href="products-te.html">ఉత్పత్తులు</a></li>
+        <li><a href="suraksha-te.html">సురక్ష</a></li>
+        <li><a href="advisory-te.html" class="active">సలహా</a></li>
+        <li><a href="about-te.html">మా గురించి</a></li>
+        <li><a href="contact-te.html">సహాయం</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="app-te.html"><button class="btn-nav btn-nav-outline">📱 యాప్ ప్రివ్యూ</button></a>
+        <a href="products-te.html"><button class="btn-nav btn-nav-solid">ఇప్పుడే కొనండి</button></a>
+      </div>
+      <div class="hamburger" onclick="toggleNav()"><div class="hline"></div><div class="hline"></div><div class="hline"></div></div>
+    </div>
+  </div>
+</nav>
+
+<div class="page-body">
+
+<!-- HERO -->
+<section class="adv-hero">
+  <div class="adv-hero-mark" aria-hidden="true">🌿</div>
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="breadcrumb"><a href="index-te.html">హోమ్</a><span class="sep">›</span><span class="cur">పంట సలహా</span></div>
+    <div style="font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--g300);margin-bottom:12px;">ప్రతి ఆర్డర్‌తో ఉచితం</div>
+    <h1 style="font-family:'Cormorant Garamond',serif;font-size:clamp(38px,5vw,62px);font-weight:700;color:#fff;line-height:1.08;margin-bottom:14px;">
+      తెలివిగా సాగు చేయండి.<br/>ఎక్కువగా కోయండి.
+    </h1>
+    <p style="font-size:16px;color:rgba(255,255,255,.6);max-width:520px;line-height:1.75;margin-bottom:0;">
+      అగ్రోనమిస్టులు రూపొందించిన, మీ మొక్కజొన్న పొలానికి సరిపోయే దశల వారీ పంట మార్గదర్శకం. ఏం చేయాలి, ఎప్పుడు స్ప్రే చేయాలి, దిగుబడిని ఎలా కాపాడాలి అన్నది స్పష్టంగా తెలుసుకోండి.
+    </p>
+    <div class="weather-card reveal">
+      <div class="wc-main">
+        <div class="wc-icon">🌤️</div>
+        <div>
+          <div class="wc-temp">32°C</div>
+          <div style="font-size:15px;font-weight:700;color:#fff;">కొంత మేఘావృతం</div>
+          <div class="wc-desc">నందగావ్ గ్రామం · 2025 మార్చి 6</div>
+        </div>
+      </div>
+      <div class="wc-details">
+        <div class="wcd-item">💧 ఆర్ద్రత: 68%</div>
+        <div class="wcd-item">💨 గాలి: 12 కి.మీ/గం వాయవ్య దిశ</div>
+        <div class="wcd-item">🌧️ వర్షావకాశం: 20%</div>
+        <div class="wcd-item">🌡️ నేల ఉష్ణోగ్రత: 28°C</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACTIVE ALERTS -->
+<section class="sec-sm" style="background:var(--g20);border-bottom:1px solid var(--br);">
+  <div class="container">
+    <div style="font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--t4);margin-bottom:14px;">⚠️ సక్రియ హెచ్చరికలు — నందగావ్ గ్రామం</div>
+    <div class="alert-strip">
+      <span class="as-icon">🐛</span>
+      <div>
+        <div class="as-badge">అధిక ప్రమాదం</div>
+        <div class="as-title">ఫాల్ ఆర్మీవర్మ్ — ఈ వారం స్ప్రే చేయండి</div>
+        <div class="as-desc">మీ ప్రాంతంలో FAW ఒత్తిడి ఎక్కువగా ఉంది. 20–25 DAPలో Coragen వాడండి. లార్వా ఎక్కువగా చురుకుగా ఉండే ఉదయం 10 గంటలలోపు స్ప్రే చేయండి. ఆకుల దిగువ వైపున కవరేజ్ ఉండాలి.</div>
+      </div>
+      <div class="as-action"><button class="as-btn" onclick="window.location.href='products-te.html'">Coragen కొనండి →</button></div>
+    </div>
+    <div style="background:linear-gradient(90deg,#00457a,#0984e3);border-radius:var(--r14);padding:16px 22px;display:flex;align-items:center;gap:14px;">
+      <span style="font-size:24px;">🌧️</span>
+      <div>
+        <div style="font-size:13px;font-weight:800;color:#fff;margin-bottom:3px;">వాతావరణ సలహా — శుక్రవారం భారీ వర్షం అవకాశం</div>
+        <div style="font-size:12px;color:rgba(255,255,255,.7);">గురువారం సాయంత్రం ఆకులపై స్ప్రేలు చేయొద్దు. శుక్రవారం వర్షం తర్వాత మళ్లీ ప్రారంభించండి. నేల తేమ సరిపోతుంది — ఈ వారం షెడ్యూల్ చేసిన నీరుపోసే పనిని వదిలేయండి.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CROP STAGE GUIDE -->
+<section class="sec">
+  <div class="container">
+    <div class="sec-head">
+      <div class="section-eyebrow reveal">ఖరీఫ్ 2025</div>
+      <h2 class="section-title reveal d1">దశల వారీ పంట మార్గదర్శి</h2>
+      <p class="section-desc reveal d2">కింద ఉన్న ఏ దశనైనా ఎంచుకుని ఆ దశకు సంబంధించిన పూర్తి పనుల జాబితా, సూచించిన ఉత్పత్తులు, సరైన సమయాన్ని చూడండి.</p>
+    </div>
+    <div class="stage-tabs reveal">
+      <div class="stage-tab active" onclick="showStage(0,this)">🌱 <span>మొలక</span><br/><small style="font-size:10px;font-weight:500;">0–10వ రోజు</small></div>
+      <div class="stage-tab" onclick="showStage(1,this)">🌿 <span>వృద్ధి దశ</span><br/><small style="font-size:10px;font-weight:500;">10–45వ రోజు</small></div>
+      <div class="stage-tab" onclick="showStage(2,this)">🌸 <span>పుష్పించే దశ</span><br/><small style="font-size:10px;font-weight:500;">45–75వ రోజు</small></div>
+      <div class="stage-tab" onclick="showStage(3,this)">🌽 <span>గింజ నింపు</span><br/><small style="font-size:10px;font-weight:500;">75–95వ రోజు</small></div>
+      <div class="stage-tab" onclick="showStage(4,this)">🏆 <span>కోత</span><br/><small style="font-size:10px;font-weight:500;">95–110వ రోజు</small></div>
+    </div>
+
+    <!-- Stage 0: మొలక -->
+    <div class="stage-detail" id="stage-0">
+      <div class="sd-header">
+        <div class="emoji">🌱</div>
+        <div>
+          <h2>మొలక దశ</h2>
+          <p>0వ రోజు – 10వ రోజు · <strong style="color:rgba(255,255,255,.85);">ప్రస్తుత దశ</strong> ఖరీఫ్ 2025కు</p>
+        </div>
+        <div style="margin-left:auto;" class="badge badge-green">ప్రస్తుతం చురుకుగా</div>
+      </div>
+      <div class="sd-body">
+        <div class="sd-col">
+          <h4>ఈ వారం పనులు</h4>
+          <div class="task-item task-urgent">
+            <span class="task-icon">📸</span>
+            <div><div class="task-label">విత్తన బ్యాగ్ ఫోటో పంపండి</div><div class="task-sub">బ్యాగ్ తెరవకముందే ఫోటో తీయండి. బ్యాచ్ నంబర్ స్పష్టంగా కనిపించాలి. <strong>సురక్ష ధృవీకరణకు ఇది అవసరం.</strong></div></div>
+          </div>
+          <div class="task-item">
+            <span class="task-icon">💧</span>
+            <div><div class="task-label">తేలికపాటి నీరుపోసే పని</div><div class="task-sub">విత్తిన 48 గంటల్లోపే నీరు ఇవ్వండి. నీరు నిల్వ ఉండకుండా, నేల తడిగా ఉండేంత వరకే ఇవ్వండి.</div></div>
+          </div>
+          <div class="task-item">
+            <span class="task-icon">📐</span>
+            <div><div class="task-label">వరుసల దూరాన్ని ధృవీకరించండి</div><div class="task-sub">విత్తనాలను మట్టితో కప్పే ముందే 60 సెం.మీ. వరుస × 20 సెం.మీ. మొక్కల దూరాన్ని నిర్ధారించండి.</div></div>
+          </div>
+          <div class="task-item">
+            <span class="task-icon">🌡️</span>
+            <div><div class="task-label">నేల ఉష్ణోగ్రతను గమనించండి</div><div class="task-sub">సరైన పరిధి 20–30°C. ఉదయం తొందరగా తనిఖీ చేయండి. 18°C కంటే తక్కువైతే మొలక గణనీయంగా మందగిస్తుంది.</div></div>
+          </div>
+          <div class="task-item task-urgent">
+            <span class="task-icon">📸</span>
+            <div><div class="task-label">7వ రోజు పొల ఫోటో</div><div class="task-sub">7వ రోజున మొలకెత్తిన పంట ఫోటో తీయండి. ఆశించిన మొలక శాతం: 70%+. మీ సురక్ష రికార్డు యాక్టివ్‌గా ఉండేందుకు ఇది అవసరం.</div></div>
+          </div>
+        </div>
+        <div class="sd-col">
+          <h4>సూచించబడింది ఉత్పత్తులు</h4>
+          <div class="product-rec">
+            <div class="pr-icon">🌽</div>
+            <div><div class="pr-name">DKC 9108 హైబ్రిడ్ మొక్కజొన్న విత్తనం</div><div class="pr-dosage">మోతాదు: 8–10 kg/ఎకరం · లోతు: 3–4 cm</div></div>
+            <button class="pr-btn" onclick="window.location.href='products-te.html'">ఆర్డర్ చేయండి</button>
+          </div>
+          <h4 style="margin-top:16px;">మొలక దశ చిట్కాలు</h4>
+          <div style="background:var(--gold-l);border-radius:var(--r8);border:1px solid var(--gold);padding:14px;margin-bottom:8px;">
+            <div style="font-size:12px;font-weight:700;color:var(--gold-d);margin-bottom:6px;">💡 విత్తన శుద్ధి</div>
+            <div style="font-size:12px;color:#7a5200;line-height:1.5;">విత్తన పాడుదల మరియు మొదటి దశలో కుళ్లిపోవడాన్ని నివారించడానికి విత్తే ముందు Thiram (2g/kg)తో విత్తన శుద్ధి చేయండి.</div>
+          </div>
+          <div style="background:var(--blue-l);border-radius:var(--r8);border:1px solid var(--blue);padding:14px;">
+            <div style="font-size:12px;font-weight:700;color:var(--blue);margin-bottom:6px;">🌧️ విత్తిన తర్వాత వర్షమా?</div>
+            <div style="font-size:12px;color:#00457a;line-height:1.5;">విత్తిన 24 గంటల్లో వర్షం ఉండే అవకాశం ఉంటే ముందస్తు నీరుపోసే పనిని మానేయండి. వర్షమే పని చేయనివ్వండి.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stage 1: వృద్ధి దశ (hidden) -->
+    <div class="stage-detail" id="stage-1" style="display:none;">
+      <div class="sd-header"><div class="emoji">🌿</div><div><h2>వృద్ధి దశ</h2><p>10వ రోజు – 45వ రోజు · కీలక పురుగు దశ</p></div></div>
+      <div class="sd-body">
+        <div class="sd-col">
+          <h4>ప్రాధాన్య పనులు</h4>
+          <div class="task-item task-urgent"><span class="task-icon">🐛</span><div><div class="task-label">ఫాల్ ఆర్మీవర్మ్ కోసం స్ప్రే చేయండి (20–25వ రోజు)</div><div class="task-sub">Coragen‌ను 0.4 ml/లీటర్ మోతాదులో వాడండి. ఉదయం స్ప్రే చేయండి. మొక్క పెరుగుదల భాగం మరియు వోర్ల్‌పై స్ప్రే పడాలి.</div></div></div>
+          <div class="task-item"><span class="task-icon">🌿</span><div><div class="task-label">కలుపుమందు వాడండి (3–5వ రోజు)</div><div class="task-sub">Atrazine 50% WPను 1 kg/ఎకరం మోతాదులో ప్రీ-ఎమర్జెంట్‌గా వాడండి. ఉత్తమ ఫలితాల కోసం కలుపు మొలకెత్తే ముందే వాడండి.</div></div></div>
+          <div class="task-item"><span class="task-icon">💧</span><div><div class="task-label">నీరుపోసే షెడ్యూల్</div><div class="task-sub">ప్రతి 7–10 రోజులకు ఒకసారి. వాతావరణం పొడిగా ఉండి ఉష్ణోగ్రత 35°C దాటితే అవృతిని పెంచండి.</div></div></div>
+          <div class="task-item task-urgent"><span class="task-icon">📸</span><div><div class="task-label">20వ రోజు సురక్ష ఫోటో</div><div class="task-sub">మీ పంటకు వైడ్-ఆంగిల్ ఫోటో తీసుకోండి. సురక్ష డాక్యుమెంటేషన్ సమర్పించడానికి ఇదే చివరి అవకాశం.</div></div></div>
+        </div>
+        <div class="sd-col">
+          <h4>సూచించబడింది ఉత్పత్తులు</h4>
+          <div class="product-rec"><div class="pr-icon">🧴</div><div><div class="pr-name">Coragen పురుగుమందు</div><div class="pr-dosage">0.4 ml/లీటర్ · 20–25వ రోజు స్ప్రే</div></div><button class="pr-btn" onclick="window.location.href='products-te.html'">ఆర్డర్ చేయండి</button></div>
+          <div class="product-rec"><div class="pr-icon">🌿</div><div><div class="pr-name">Atrazine 50% WP</div><div class="pr-dosage">1 kg/ఎకరం · ప్రీ-ఎమర్జెంట్ అప్లికేషన్</div></div><button class="pr-btn" onclick="window.location.href='products-te.html'">ఆర్డర్ చేయండి</button></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stages 2–4: Placeholders (same pattern) -->
+    <div class="stage-detail" id="stage-2" style="display:none;">
+      <div class="sd-header"><div class="emoji">🌸</div><div><h2>పుష్పించే దశ</h2><p>45వ రోజు – 75వ రోజు · కీలక నీరుపోసే దశ</p></div></div>
+      <div class="sd-body">
+        <div class="sd-col"><h4>ప్రాధాన్య పనులు</h4>
+          <div class="task-item task-urgent"><span class="task-icon">💧</span><div><div class="task-label">సిల్కింగ్ సమయంలో కీలక నీరుపోసే దశ</div><div class="task-sub">టాసెల్ మరియు సిల్కింగ్ సమయంలో నీటి లోపం రానివ్వకండి. నీటి ఒత్తిడి = 30–50% దిగుబడి నష్టం.</div></div></div>
+          <div class="task-item"><span class="task-icon">🍄</span><div><div class="task-label">ఆకుమచ్చ తెగులు కనిపిస్తే శిలీంద్రనాశకం వాడండి</div><div class="task-sub">ఆకుమచ్చ లక్షణాలు కనిపించగానే Mancozeb 75% WPను 2.5g/లీటర్ మోతాదులో వాడండి. వారానికి ఒకసారి 2–3 సార్లు స్ప్రే చేయండి.</div></div></div>
+        </div>
+        <div class="sd-col"><h4>సూచించబడింది ఉత్పత్తులు</h4>
+          <div class="product-rec"><div class="pr-icon">🍄</div><div><div class="pr-name">Mancozeb 75% WP</div><div class="pr-dosage">2.5g/లీటర్ · నివారణ శిలీంద్రనాశకం</div></div><button class="pr-btn" onclick="window.location.href='products-te.html'">ఆర్డర్ చేయండి</button></div>
+        </div>
+      </div>
+    </div>
+    <div class="stage-detail" id="stage-3" style="display:none;">
+      <div class="sd-header"><div class="emoji">🌽</div><div><h2>గింజ నింపు దశ</h2><p>75వ రోజు – 95వ రోజు · దిగుబడికి చివరి దశ</p></div></div>
+      <div class="sd-body">
+        <div class="sd-col"><h4>ప్రాధాన్య పనులు</h4>
+          <div class="task-item"><span class="task-icon">💧</span><div><div class="task-label">నీరు క్రమంగా తగ్గించండి</div><div class="task-sub">గింజ డో దశకు చేరుకున్నప్పుడు నీరుపోసే పనిని తగ్గించండి. కోతకు 2 వారాల ముందు ఆపండి.</div></div></div>
+          <div class="task-item"><span class="task-icon">🐛</span><div><div class="task-label">కోబ్ బోరర్‌ను గమనించండి</div><div class="task-sub">కాండాలను ప్రతి వారం తనిఖీ చేయండి. 5% కంటే ఎక్కువ మొక్కలపై దెబ్బ కనిపిస్తే chlorpyrifos స్ప్రే చేయండి.</div></div></div>
+        </div>
+        <div class="sd-col"><h4>సూచించబడింది ఉత్పత్తులు</h4>
+          <div class="product-rec"><div class="pr-icon">🔬</div><div><div class="pr-name">Chlorpyrifos 20% EC</div><div class="pr-dosage">2ml/లీటర్ · కోబ్ బోరర్ నియంత్రణ</div></div><button class="pr-btn" onclick="window.location.href='products-te.html'">ఆర్డర్ చేయండి</button></div>
+        </div>
+      </div>
+    </div>
+    <div class="stage-detail" id="stage-4" style="display:none;">
+      <div class="sd-header"><div class="emoji">🏆</div><div><h2>కోత దశ</h2><p>95వ రోజు – 110వ రోజు · మీరు విత్తింది కోయండి</p></div></div>
+      <div class="sd-body">
+        <div class="sd-col"><h4>కోత సిద్ధత తనిఖీలు</h4>
+          <div class="task-item"><span class="task-icon">🌽</span><div><div class="task-label">కంకి &amp; గింజ తనిఖీ</div><div class="task-sub">హస్క్ తీసి చూడండి — గింజలు గట్టిగా ఉండాలి, పూర్తిగా నిండి ఉండాలి, అడుగుభాగంలో నల్ల పొర కనిపించాలి (బ్లాక్ లేయర్ టెస్ట్).</div></div></div>
+          <div class="task-item"><span class="task-icon">💧</span><div><div class="task-label">తేమ తనిఖీ</div><div class="task-sub">తాజా మార్కెట్ కోసం గింజ తేమ 20–25%, నిల్వ కోసం 12–14% ఉండాలి. తేమ మీటర్ ఉపయోగించండి.</div></div></div>
+          <div class="task-item task-urgent"><span class="task-icon">📸</span><div><div class="task-label">చివరి కోత ఫోటో</div><div class="task-sub">కోసిన కాండాలు స్పష్టంగా కనిపించేలా కోత ఫోటో సమర్పించండి. మీ సురక్ష రికార్డు ముగించడానికి ఇది అవసరం.</div></div></div>
+        </div>
+        <div class="sd-col"><h4>కోత తర్వాత చిట్కాలు</h4>
+          <div style="background:var(--g50);border-radius:var(--r8);border:1px solid var(--br);padding:14px;margin-bottom:8px;font-size:13px;color:var(--t2);line-height:1.6;">🌡️ <strong>గింజలను 12–14% తేమకు ఆరబెట్టండి</strong> నిల్వ పెట్టే ముందు అలా చేయడం వల్ల పూత, ఆఫ్లాటాక్సిన్ ఏర్పడకుండా ఉంటుంది.</div>
+          <div style="background:var(--g50);border-radius:var(--r8);border:1px solid var(--br);padding:14px;font-size:13px;color:var(--t2);line-height:1.6;">💰 <strong>మార్కెట్ లింకేజీల కోసం మమ్మల్ని సంప్రదించండి</strong> — మీకు మంచి ధర దొరకే స్థానిక కొనుగోలుదారులతో మేము కలుపుతాం.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPRAY SCHEDULE -->
+<section class="sec sec-soft">
+  <div class="container">
+    <div class="sec-head">
+      <div class="section-eyebrow reveal">పూర్తి సీజన్ ప్రణాళిక</div>
+      <h2 class="section-title reveal d1">స్ప్రే &amp; వినియోగ షెడ్యూల్</h2>
+      <p class="section-desc reveal d2">ఈ షెడ్యూల్‌ను ప్రింట్ చేసి మీ పొలంలో ఉంచుకోండి. ప్రతి తేదీ మీ విత్తిన తేదీ ఆధారంగా ఉంటుంది.</p>
+    </div>
+    <div style="overflow-x:auto;" class="reveal">
+      <table class="spray-table">
+        <thead><tr><th>DAP (నాటి తర్వాత రోజులు)</th><th>పని</th><th>ఉత్పత్తి</th><th>మోతాదు</th><th>ప్రాధాన్యం</th><th>గమనికలు</th></tr></thead>
+        <tbody>
+          <tr><td><strong>0వ రోజు</strong></td><td>విత్తడం</td><td>హైబ్రిడ్ మొక్కజొన్న విత్తనం</td><td>8–10 kg/ఎకరం</td><td class="priority-high">కీలకం</td><td>విత్తే ముందు Thiramతో విత్తన శుద్ధి చేయండి</td></tr>
+          <tr><td><strong>3–5వ రోజు</strong></td><td>కలుపుమందు స్ప్రే</td><td>Atrazine 50% WP</td><td>1 kg/ఎకరం</td><td class="priority-high">కీలకం</td><td>ప్రీ-ఎమర్జెంట్. ఎకరానికి 200L నీటిలో కలిపి వాడండి</td></tr>
+          <tr><td><strong>7వ రోజు</strong></td><td>📸 సురక్ష ఫోటో</td><td>—</td><td>—</td><td class="priority-high">అవసరం</td><td>యాప్ ద్వారా మొలక ఫోటో పంపండి</td></tr>
+          <tr><td><strong>20–25వ రోజు</strong></td><td>పురుగుమందు స్ప్రే</td><td>Coragen</td><td>0.4 ml/L</td><td class="priority-high">కీలకం</td><td>FAW నివారణ. ఉదయం తొందరగా స్ప్రే చేయండి</td></tr>
+          <tr><td><strong>25వ రోజు</strong></td><td>📸 సురక్ష ఫోటో</td><td>—</td><td>—</td><td class="priority-high">అవసరం</td><td>సురక్ష కోసం వృద్ధి దశ ఫోటో పంపండి</td></tr>
+          <tr><td><strong>30–35వ రోజు</strong></td><td>2వ పురుగుమందు స్ప్రే</td><td>Chlorpyrifos 20%</td><td>2 ml/L</td><td class="priority-med">సూచించబడింది</td><td>స్టెమ్ బోరర్ కనిపిస్తే మాత్రమే</td></tr>
+          <tr><td><strong>50–55వ రోజు</strong></td><td>శిలీంద్రనాశక స్ప్రే</td><td>Mancozeb 75% WP</td><td>2.5 g/L</td><td class="priority-med">నివారణ</td><td>ఆకుమచ్చ లక్షణాలు కనిపిస్తే</td></tr>
+          <tr><td><strong>75–80వ రోజు</strong></td><td>కోబ్ బోరర్ తనిఖీ</td><td>Chlorpyrifos 20%</td><td>2 ml/L</td><td class="priority-low">అవసరమైతే</td><td>5% కంటే ఎక్కువ కోబ్‌లు ప్రభావితమైతే మాత్రమే స్ప్రే చేయండి</td></tr>
+          <tr><td><strong>95–110వ రోజు</strong></td><td>కోత</td><td>—</td><td>—</td><td class="priority-high">కీలకం</td><td>తేమ 20–25% ఉన్నప్పుడు కోత చేయండి</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- PEST LIBRARY -->
+<section class="sec">
+  <div class="container">
+    <div class="sec-head">
+      <div class="section-eyebrow reveal">పురుగు &amp; వ్యాధి గ్రంథాలయం</div>
+      <h2 class="section-title reveal d1">మీ శత్రువులను తెలుసుకోండి</h2>
+    </div>
+    <div class="pest-grid">
+      <div class="pest-card reveal"><div class="pest-card-top"><div class="pest-icon">🐛</div><div class="pest-name">ఫాల్ ఆర్మీవర్మ్</div></div><div class="pest-card-body"><div class="pest-risk risk-high">● అధిక ప్రమాదం</div><div class="pest-detail">యువ మొక్కజొన్న మొక్కల వోర్ల్ మరియు ఆకులను తింటుంది. వోర్ల్‌లో మలమూత్రం కనిపిస్తుంది. తీవ్రమైన దాడి వల్ల చిన్న మొక్కల్లో “డెడ్ హార్ట్” వస్తుంది.</div><div class="pest-treatment">నివారణ: <span>Coragen 0.4ml/L · 20–25వ రోజు</span></div></div></div>
+      <div class="pest-card reveal d1"><div class="pest-card-top"><div class="pest-icon">🦗</div><div class="pest-name">స్టెమ్ బోరర్</div></div><div class="pest-card-body"><div class="pest-risk risk-med">● మధ్యస్థ ప్రమాదం</div><div class="pest-detail">కాండంలోకి తొలుచుకుని ఆకులపై “విండో పేన్” వంటి మచ్చలు కలిగిస్తుంది. మొక్క నిర్మాణాన్ని బలహీనపరచి వంగిపోవడానికి దారితీస్తుంది.</div><div class="pest-treatment">నివారణ: <span>Chlorpyrifos 2ml/L · 30–35వ రోజు</span></div></div></div>
+      <div class="pest-card reveal d2"><div class="pest-card-top"><div class="pest-icon">🌿</div><div class="pest-name">కలుపు మొక్కలు (మిశ్రమం)</div></div><div class="pest-card-body"><div class="pest-risk risk-high">● అధిక ప్రమాదం — ప్రారంభ సీజన్</div><div class="pest-detail">ప్రారంభ సీజన్‌లో కలుపు మొక్కలు 30–50% వరకు దిగుబడిని తగ్గిస్తాయి. గడ్డి మరియు విశాల ఆకుల కలుపు మొక్కలు తేమ, పోషకాలకు పోటీ పడతాయి.</div><div class="pest-treatment">నివారణ: <span>Atrazine 1kg/ఎకరం · 3–5వ రోజు</span></div></div></div>
+      <div class="pest-card reveal d3"><div class="pest-card-top"><div class="pest-icon">🍂</div><div class="pest-name">మొక్కజొన్న ఆకుమచ్చ తెగులు</div></div><div class="pest-card-body"><div class="pest-risk risk-med">● మధ్యస్థ ప్రమాదం</div><div class="pest-detail">ఆకులపై పెద్ద గోధుమరంగు మచ్చలు కలిగించే శిలీంద్ర వ్యాధి. తడి, ఆర్ద్ర వాతావరణంలో త్వరగా వ్యాపిస్తుంది. ఫోటోసింథసిస్ మరియు దిగుబడిని తగ్గిస్తుంది.</div><div class="pest-treatment">నివారణ: <span>Mancozeb 2.5g/L · 50–55వ రోజు</span></div></div></div>
+      <div class="pest-card reveal"><div class="pest-card-top"><div class="pest-icon">🟡</div><div class="pest-name">మొక్కజొన్న స్ట్రీక్ వైరస్</div></div><div class="pest-card-body"><div class="pest-risk risk-low">● తక్కువ ప్రమాదం</div><div class="pest-detail">లీఫ్‌హాపర్ ద్వారా వ్యాపించే వైరస్ వల్ల ఆకులపై పసుపు గీతలు కనిపిస్తాయి. వైరస్‌తట్టుకునే హైబ్రిడ్ రకాలు వాడండి, లీఫ్‌హాపర్‌ను నియంత్రించండి.</div><div class="pest-treatment">నియంత్రణ: <span>DKC 9108 వంటి తట్టుకునే రకాలు వాడండి</span></div></div></div>
+      <div class="pest-card reveal d1"><div class="pest-card-top"><div class="pest-icon">🦟</div><div class="pest-name">ఆఫిడ్లు</div></div><div class="pest-card-body"><div class="pest-risk risk-low">● తక్కువ ప్రమాదం — గమనించండి</div><div class="pest-detail">ఆకుల దిగువ వైపున ఉండే చిన్న రసాన్ని పీల్చే పురుగులు. తీవ్రమైన దాడి వల్ల ఆకు ముడుచుకోవడం, తేనె వంటి స్రావం పేరుకుపోవడం జరుగుతుంది. సాధారణంగా సహజ శత్రువులు నియంత్రిస్తాయి.</div><div class="pest-treatment">నివారణ: <span>తీవ్రమైతే Thiamethoxam 0.25g/L</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- GENERAL TIPS -->
+<section class="sec sec-cream">
+  <div class="container">
+    <div class="sec-head center">
+      <div class="section-eyebrow reveal">ఉత్తమ పద్ధతులు</div>
+      <h2 class="section-title reveal d1">సాధారణ వ్యవసాయ చిట్కాలు</h2>
+    </div>
+    <div class="tips-grid">
+      <div class="tip-box reveal"><div class="tip-box-icon">⏰</div><div class="tip-box-title">స్ప్రే సమయం</div><div class="tip-box-desc">పురుగుమందులను ఎల్లప్పుడూ తెల్లవారుజామున (6–9 AM) లేదా సాయంత్రం ఆలస్యంగా స్ప్రే చేయండి. ఇది వేడి కారణంగా ఆవిరైపోవడం, తేనెటీగలకు హాని జరగడం నివారిస్తుంది.</div></div>
+      <div class="tip-box reveal d1"><div class="tip-box-icon">💧</div><div class="tip-box-title">నీటి నాణ్యత</div><div class="tip-box-desc">మిశ్రమం కోసం శుభ్రమైన నీటిని వాడండి. గట్టి నీరు కొన్ని పురుగుమందుల ప్రభావాన్ని తగ్గిస్తుంది. మెరుగైన కవరేజ్ కోసం స్ప్రెడర్-స్టిక్కర్ జోడించండి.</div></div>
+      <div class="tip-box reveal d2"><div class="tip-box-icon">🔄</div><div class="tip-box-title">రసాయనాలను మారుస్తూ వాడండి</div><div class="tip-box-desc">ఫాల్ ఆర్మీవర్మ్ వంటి పురుగుల్లో నిరోధకత పెరగకుండా ప్రతి సీజన్‌లో పురుగుమందుల వర్గాలను మార్చుతూ వాడండి.</div></div>
+      <div class="tip-box reveal d3"><div class="tip-box-icon">🧤</div><div class="tip-box-title">భద్రత ముందుగా</div><div class="tip-box-desc">మిశ్రమం తయారు చేసే సమయంలో, స్ప్రే చేసే సమయంలో ఎల్లప్పుడూ గ్లౌవ్స్, మాస్క్, కళ్లజోడు ధరించండి. ఏ రసాయనాన్ని చేతబట్టినా తర్వాత చేతులను బాగా కడగండి.</div></div>
+      <div class="tip-box reveal"><div class="tip-box-icon">📋</div><div class="tip-box-title">లేబుల్ చదవండి</div><div class="tip-box-desc">ఉత్పత్తి లేబుల్ ఒక చట్టబద్ధ పత్రం. మోతాదు, సమయం, కోతకు ముందు వేచిచూడాల్సిన వ్యవధి వంటి సూచనలను ఎల్లప్పుడూ లేబుల్ ప్రకారం అనుసరించండి.</div></div>
+      <div class="tip-box reveal d1"><div class="tip-box-icon">🌡️</div><div class="tip-box-title">ఉష్ణోగ్రత తనిఖీ</div><div class="tip-box-desc">35°C కంటే ఎక్కువ ఉష్ణోగ్రతల్లో స్ప్రే చేయవద్దు — రసాయనాలు త్వరగా ప్రభావం కోల్పోయి పంటకు హాని చేయవచ్చు.</div></div>
+      <div class="tip-box reveal d2"><div class="tip-box-icon">📷</div><div class="tip-box-title">అన్నింటినీ నమోదు చేయండి</div><div class="tip-box-desc">ప్రతి దశలో మీ పంట ఫోటో తీయండి. అది మీ సురక్ష రికార్డుకు సహాయపడటమే కాక, మా నిపుణులు మెరుగైన సలహా ఇవ్వడానికి కూడా ఉపయోగపడుతుంది.</div></div>
+      <div class="tip-box reveal d3"><div class="tip-box-icon">📞</div><div class="tip-box-title">సందేహం ఉంటే అడగండి</div><div class="tip-box-desc">అంచనా వేయకండి. WhatsAppలో పంట ఫోటో పంపండి; మా అగ్రోనమిస్ట్ 2 గంటల్లోపు స్పష్టమైన సలహాతో స్పందిస్తారు.</div></div>
+    </div>
+  </div>
+</section>
+
+</div><!-- page-body -->
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand"><div class="fb-logo"><span class="fb-logo-icon">🌾</span><span class="fb-logo-text">రైతు మిత్ర</span></div><p>రైతు మిత్ర — అసలైన మొక్కజొన్న విత్తనాలు మరియు పంట రక్షణ ఉత్పత్తులు, నేరుగా ఫ్యాక్టరీ నుంచి. ప్రతి కొనుగోలుకూ రైతు మిత్ర సురక్ష రక్షణ ఉంటుంది.</p><div class="social-row"><div class="social-ico">📘</div><div class="social-ico">💬</div><div class="social-ico">📸</div></div></div>
+      <div class="footer-col"><h4>ఉత్పత్తులు</h4><ul><li><a href="products-te.html">మొక్కజొన్న విత్తనాలు</a></li><li><a href="products-te.html">పురుగుమందులు</a></li><li><a href="products-te.html">కలుపుమందులు</a></li></ul></div>
+      <div class="footer-col"><h4>ప్లాట్‌ఫారం</h4><ul><li><a href="suraksha-te.html">సురక్ష</a></li><li><a href="advisory-te.html">సలహా</a></li><li><a href="about-te.html">మా గురించి</a></li></ul></div>
+      <div class="footer-col"><h4>సహాయం</h4><ul><li><a href="contact-te.html">సంప్రదించండి</a></li><li><a href="suraksha-te.html">మార్పిడి కోరండి</a></li><li><a href="app-te.html">యాప్ ప్రివ్యూ</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 రైతు మిత్ర. అన్ని హక్కులు పరిరక్షించబడ్డాయి.</span><span>రైతు మిత్ర 💚 మీ పంటకు మేము స్నేహితులు</span></div>
+  </div>
+</footer>
+
+<script>
+function toggleNav(){ document.getElementById('mobileNav').classList.toggle('open'); }
+function showStage(idx, el){
+  document.querySelectorAll('.stage-tab').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+  for(let i=0;i<5;i++) document.getElementById('stage-'+i).style.display = i===idx ? 'block' : 'none';
+}
+window.addEventListener('scroll',()=>{ document.getElementById('navbar').classList.toggle('solid', scrollY>50); });
+const obs = new IntersectionObserver(e=>e.forEach(x=>{ if(x.isIntersecting) x.target.classList.add('up'); }),{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>

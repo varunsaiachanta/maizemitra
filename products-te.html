@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="రైతు మిత్ర – అసలైన మొక్కజొన్న విత్తనాలు మరియు పంట రక్షణ ఉత్పత్తులు, నేరుగా ఫ్యాక్టరీ నుంచి. రైతు మిత్ర సురక్ష కింద నిజస్వరూప ధృవీకరణ, దిగుబడి లక్ష్యం, ఉచిత మార్పిడి రక్షణతో."
+  />
+  <title>రైతు మిత్ర – మీ పంటకు ఉత్తమ మిత్రుడు</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&amp;family=Nunito:wght@300;400;500;600;700;800;900&amp;display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="shared.css" />
+  <style>
+    body {
+      background:
+        radial-gradient(circle at top right, rgba(74, 173, 114, .1), transparent 24%),
+        linear-gradient(180deg, #f9fcfa 0%, #ffffff 20%, #f8fcf9 100%);
+    }
+
+    .products-hero {
+      position: relative;
+      overflow: hidden;
+      padding: 116px 0 82px;
+      background: linear-gradient(135deg, var(--g900), var(--g700));
+    }
+
+    .products-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(255, 255, 255, .1), transparent 20%),
+        linear-gradient(180deg, rgba(255, 255, 255, .06), transparent 40%);
+    }
+
+    .products-hero::after {
+      content: '🌾';
+      position: absolute;
+      right: -10px;
+      bottom: -16px;
+      font-size: clamp(170px, 18vw, 240px);
+      opacity: .08;
+      transform: rotate(-10deg);
+    }
+
+    .products-hero .breadcrumb,
+    .products-hero .breadcrumb a {
+      color: rgba(255, 255, 255, .72);
+    }
+
+    .products-hero .breadcrumb .sep {
+      color: rgba(255, 255, 255, .24);
+    }
+
+    .products-hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(44px, 6vw, 68px);
+      line-height: 1.05;
+      color: #fff;
+      margin-bottom: 14px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .products-hero p {
+      max-width: 620px;
+      font-size: 17px;
+      line-height: 1.85;
+      color: rgba(255, 255, 255, .7);
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 16px;
+      border-radius: var(--rr);
+      background: rgba(255, 255, 255, .08);
+      border: 1px solid rgba(255, 255, 255, .14);
+      color: rgba(255, 255, 255, .82);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-badge span {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #fff;
+    }
+
+    .catalog-shell {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 24px;
+      padding: 34px 0 86px;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 92px;
+      align-self: start;
+      display: grid;
+      gap: 16px;
+    }
+
+    .sidebar-card,
+    .bundle-strip,
+    .product-card,
+    .trust-strip {
+      background: #fff;
+      border: 1px solid var(--br);
+      border-radius: 24px;
+      box-shadow: 0 10px 26px rgba(15, 46, 26, .05);
+    }
+
+    .sidebar-card {
+      padding: 20px;
+    }
+
+    .sidebar-card h3 {
+      font-size: 14px;
+      font-weight: 900;
+      color: var(--t1);
+      margin-bottom: 12px;
+    }
+
+    .filter-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .filter-pills span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 12px;
+      border-radius: var(--rr);
+      background: #f4faf5;
+      border: 1px solid var(--br);
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--t2);
+    }
+
+    .filter-pills span.active {
+      background: var(--g800);
+      color: #fff;
+      border-color: var(--g800);
+    }
+
+    .suraksha-card {
+      padding: 20px;
+      background: linear-gradient(135deg, var(--rm-teal-d), var(--rm-teal));
+      border: none;
+      color: #fff;
+    }
+
+    .suraksha-card h3 {
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .suraksha-card p {
+      font-size: 13px;
+      color: rgba(255, 255, 255, .72);
+      line-height: 1.75;
+    }
+
+    .bundle-strip {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 22px 24px;
+      margin-bottom: 22px;
+      background: linear-gradient(90deg, var(--g900), var(--g700));
+      color: #fff;
+    }
+
+    .bundle-strip .icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, .1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      flex-shrink: 0;
+    }
+
+    .bundle-strip strong {
+      display: block;
+      font-size: 18px;
+      font-weight: 900;
+      margin-bottom: 6px;
+    }
+
+    .bundle-strip span {
+      font-size: 13px;
+      color: rgba(255, 255, 255, .7);
+      line-height: 1.7;
+    }
+
+    .bundle-strip a {
+      margin-left: auto;
+      font-size: 14px;
+      font-weight: 900;
+      color: #fff;
+      white-space: nowrap;
+    }
+
+    .section-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 18px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+
+    .section-title-row h2 {
+      font-size: 24px;
+      font-weight: 900;
+      color: var(--t1);
+    }
+
+    .section-title-row p {
+      font-size: 13px;
+      color: var(--t4);
+      font-weight: 700;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 32px;
+    }
+
+    .product-card {
+      overflow: hidden;
+    }
+
+    .product-visual {
+      position: relative;
+      height: 150px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #eef7f0, #f9fbfa);
+      font-size: 56px;
+    }
+
+    .verified-badge {
+      position: absolute;
+      right: 14px;
+      top: 14px;
+      padding: 6px 12px;
+      border-radius: var(--rr);
+      background: var(--rm-teal);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .6px;
+      text-transform: uppercase;
+    }
+
+    .product-body {
+      padding: 20px;
+    }
+
+    .product-type {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .7px;
+      color: var(--g600);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .product-body h3 {
+      font-size: 18px;
+      font-weight: 900;
+      color: var(--t1);
+      line-height: 1.35;
+      margin-bottom: 8px;
+    }
+
+    .product-copy {
+      font-size: 13px;
+      color: var(--t3);
+      line-height: 1.75;
+      margin-bottom: 12px;
+    }
+
+    .product-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .product-tags span {
+      padding: 5px 10px;
+      border-radius: var(--rr);
+      background: #f4faf5;
+      border: 1px solid var(--br);
+      font-size: 11px;
+      color: var(--t2);
+      font-weight: 700;
+    }
+
+    .yield-line {
+      font-size: 11px;
+      color: var(--rm-teal);
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      padding-top: 14px;
+      border-top: 1px solid var(--br);
+    }
+
+    .price-row strong {
+      display: block;
+      font-size: 22px;
+      font-weight: 900;
+      color: var(--g800);
+    }
+
+    .price-row span {
+      display: block;
+      font-size: 11px;
+      color: var(--t4);
+      font-weight: 700;
+      margin-top: 3px;
+    }
+
+    .price-row button {
+      padding: 10px 16px;
+      border-radius: 14px;
+      border: none;
+      background: var(--g800);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .trust-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      padding: 18px 22px;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .trust-item .icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 16px;
+      background: #f4faf5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    .trust-item.teal .icon {
+      background: var(--rm-teal-l);
+      color: var(--rm-teal-d);
+    }
+
+    .trust-item strong {
+      display: block;
+      font-size: 13px;
+      font-weight: 900;
+      color: var(--t1);
+      margin-bottom: 3px;
+    }
+
+    .trust-item span {
+      display: block;
+      font-size: 12px;
+      color: var(--t4);
+      line-height: 1.55;
+    }
+
+    @media (max-width: 1080px) {
+      .catalog-shell {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        position: static;
+      }
+
+      .products-grid,
+      .trust-strip {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 720px) {
+      .products-hero {
+        padding-top: 106px;
+      }
+
+      .products-grid,
+      .trust-strip,
+      .bundle-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .bundle-strip {
+        flex-direction: column;
+        align-items: start;
+      }
+
+      .bundle-strip a {
+        margin-left: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="mobile-nav" id="mobileNav">
+    <a class="mnl" href="index-te.html">హోమ్</a>
+    <a class="mnl active" href="products-te.html">ఉత్పత్తులు</a>
+    <a class="mnl" href="suraksha-te.html">సురక్ష</a>
+    <a class="mnl" href="advisory-te.html">సలహా</a>
+    <a class="mnl" href="about-te.html">మా గురించి</a>
+    <a class="mnl" href="contact-te.html">సహాయం</a>
+    <div class="mobile-nav-ctas">
+      <a href="app-te.html" style="background:var(--g800);color:#fff;">📱 యాప్ ప్రివ్యూ</a>
+      <a href="suraksha-te.html" style="background:var(--rm-teal);color:#fff;">🌾 సురక్ష</a>
+    </div>
+  </div>
+
+  <nav id="navbar">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index-te.html" class="logo">
+          <span class="logo-icon">🌾</span>
+          <span class="logo-text">రైతు మిత్ర</span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="products-te.html" class="active">ఉత్పత్తులు</a></li>
+          <li><a href="suraksha-te.html">సురక్ష</a></li>
+          <li><a href="advisory-te.html">సలహా</a></li>
+          <li><a href="about-te.html">మా గురించి</a></li>
+          <li><a href="contact-te.html">సహాయం</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="app-te.html"><button class="btn-nav btn-nav-outline">📱 యాప్ ప్రివ్యూ</button></a>
+          <a href="suraksha-te.html"><button class="btn-nav btn-nav-solid">🌾 సురక్ష</button></a>
+        </div>
+        <div class="hamburger" onclick="toggleNav()">
+          <div class="hline"></div>
+          <div class="hline"></div>
+          <div class="hline"></div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="products-hero">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="index-te.html">హోమ్</a>
+        <span class="sep">›</span>
+        <span>ఉత్పత్తులు</span>
+      </div>
+      <div class="hero-badge"><span></span> ధృవీకరించిన క్యాటలాగ్</div>
+      <h1>ప్రతి ఉత్పత్తి, పొలానికి ధృవీకరితం.</h1>
+      <p>
+        ఫ్యాక్టరీ నుంచి నేరుగా వచ్చే మొక్కజొన్న విత్తనాలు, పురుగుమందులు, కలుపుమందులు, శిలీంద్రనాశకాలు. సీజన్ ప్రారంభానికి ముందే రైతు మిత్ర సురక్ష ద్వారా ధృవీకరించగల ఫలిత లక్ష్యం ప్రతి ఉత్పత్తి లిస్టింగ్‌లో ఉంటుంది.
+      </p>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="catalog-shell">
+      <aside class="sidebar">
+        <div class="sidebar-card suraksha-card">
+          <h3>🌾 రైతు మిత్ర సురక్ష</h3>
+          <p>ఈ క్యాటలాగ్‌లోని ప్రతి ఉత్పత్తికి నిజస్వరూప ధృవీకరణ, దిగుబడి లక్ష్యం, ఉచిత మార్పిడి వర్తిస్తుంది.</p>
+        </div>
+        <div class="sidebar-card">
+          <h3>వర్గం</h3>
+          <div class="filter-pills">
+            <span class="active">🌽 అన్ని ఉత్పత్తులు</span>
+            <span>🌱 విత్తనాలు</span>
+            <span>🐛 పురుగుమందులు</span>
+            <span>🌿 కలుపుమందులు</span>
+            <span>🍄 శిలీంద్రనాశకాలు</span>
+          </div>
+        </div>
+        <div class="sidebar-card">
+          <h3>రక్షణ పొర</h3>
+          <div class="filter-pills">
+            <span class="active">🔍 ధృవీకరితం</span>
+            <span>🌾 దిగుబడి లక్ష్యం</span>
+            <span>🔄 మార్పిడి</span>
+          </div>
+        </div>
+      </aside>
+
+      <main>
+        <div class="bundle-strip">
+          <div class="icon">☀️</div>
+          <div>
+            <strong>ఖరీఫ్ 2025 రైతు మిత్ర బండిల్</strong>
+            <span>ఒక ఎకరానికి విత్తనం, పురుగు నియంత్రణ, కలుపు నియంత్రణ కలిగిన ప్యాక్ — సురక్ష ప్రక్రియ ముందే అమర్చబడి ఉంటుంది.</span>
+          </div>
+          <a href="suraksha-te.html">రక్షణ వివరాలు చూడండి →</a>
+        </div>
+
+        <section>
+          <div class="section-title-row">
+            <div>
+              <div class="section-eyebrow">విత్తనాలు</div>
+              <h2>హైబ్రిడ్ మొక్కజొన్న విత్తనాలు</h2>
+            </div>
+            <p>3 ధృవీకరించిన రకాలు</p>
+          </div>
+          <div class="products-grid">
+            <article class="product-card">
+              <div class="product-visual">🌽<div class="verified-badge">🌾 RM ధృవీకరితం</div></div>
+              <div class="product-body">
+                <div class="product-type">హైబ్రిడ్ విత్తనం</div>
+                <h3>DKC 9108 Hybrid Maize Seed</h3>
+                <div class="product-copy">గొప్ప కొబ్బరి ఎదుగుదల మరియు నమ్మదగిన ఖరీఫ్ పనితీరు కోసం ఎంపిక చేసిన అధిక దిగుబడి హైబ్రిడ్.</div>
+                <div class="product-tags"><span>అధిక దిగుబడి</span><span>ఖరీఫ్</span><span>4 కిలోల బ్యాగ్</span></div>
+                <div class="yield-line">🌾 ఎకరానికి 28–32 క్వింటాళ్లు</div>
+                <div class="price-row"><div><strong>₹1,800</strong><span>ఒక్కో బ్యాగ్</span></div><button>కార్ట్‌లో జోడించండి</button></div>
+              </div>
+            </article>
+            <article class="product-card">
+              <div class="product-visual">🌾<div class="verified-badge">🌾 RM ధృవీకరితం</div></div>
+              <div class="product-body">
+                <div class="product-type">హైబ్రిడ్ విత్తనం</div>
+                <h3>P3522 ఎండనిరోధక మొక్కజొన్న</h3>
+                <div class="product-copy">అసమాన వర్షాకాల ఒత్తిడిలో ఎక్కువ తట్టుకునే సామర్థ్యం కోరుకునే రైతులకు అనుకూలమైన హైబ్రిడ్.</div>
+                <div class="product-tags"><span>ఎండనిరోధక</span><span>వర్షాధార</span></div>
+                <div class="yield-line">🌾 ఎకరానికి 22–26 క్వింటాళ్లు</div>
+                <div class="price-row"><div><strong>₹1,650</strong><span>ఒక్కో బ్యాగ్</span></div><button>కార్ట్‌లో జోడించండి</button></div>
+              </div>
+            </article>
+            <article class="product-card">
+              <div class="product-visual">🌽<div class="verified-badge">🌾 RM ధృవీకరితం</div></div>
+              <div class="product-body">
+                <div class="product-type">హైబ్రిడ్ విత్తనం</div>
+                <h3>Kaveri KMH 3712</h3>
+                <div class="product-copy">త్వరిత పంట చక్రం మరియు స్థిరమైన మొక్కల నాణ్యత రెండింటినీ కోరుకునే రైతులకు అనువైన త్వరగా పండే హైబ్రిడ్.</div>
+                <div class="product-tags"><span>త్వరగా పండే</span><span>80 రోజులు</span></div>
+                <div class="yield-line">🌾 ఎకరానికి 24–28 క్వింటాళ్లు</div>
+                <div class="price-row"><div><strong>₹1,720</strong><span>ఒక్కో బ్యాగ్</span></div><button>కార్ట్‌లో జోడించండి</button></div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section>
+          <div class="section-title-row">
+            <div>
+              <div class="section-eyebrow">పురుగుమందులు</div>
+              <h2>పురుగు రక్షణ</h2>
+            </div>
+            <p>4 ధృవీకరించిన ఉత్పత్తులు</p>
+          </div>
+          <div class="products-grid">
+            <article class="product-card">
+              <div class="product-visual">🧴<div class="verified-badge">🌾 RM ధృవీకరితం</div></div>
+              <div class="product-body">
+                <div class="product-type">పురుగుమందు</div>
+                <h3>Coragen</h3>
+                <div class="product-copy">మొలక దశలో విపరీతంగా వ్యాపించే FAWపై వేగంగా ప్రభావం చూపే ఉత్పత్తి.</div>
+                <div class="product-tags"><span>ఫాల్ ఆర్మీవర్మ్</span><span>500 మి.లీ.</span></div>
+                <div class="yield-line">🌾 48 గంటల్లో 95%+ FAW నియంత్రణ</div>
+                <div class="price-row"><div><strong>₹950</strong><span>ఒక్కో బాటిల్</span></div><button>కార్ట్‌లో జోడించండి</button></div>
+              </div>
+            </article>
+            <article class="product-card">
+              <div class="product-visual">🔬<div class="verified-badge">🌾 RM ధృవీకరితం</div></div>
+              <div class="product-body">
+                <div class="product-type">పురుగుమందు</div>
+                <h3>Chlorpyrifos 20% EC</h3>
+                <div class="product-copy">వృద్ధి దశ మధ్యలో మరియు కొబ్బరి అభివృద్ధి సమయంలో స్టెమ్ బోరర్ ఒత్తిడికి బలమైన ఎంపిక.</div>
+                <div class="product-tags"><span>స్టెమ్ బోరర్</span><span>1 లీటర్</span></div>
+                <div class="yield-line">🌾 72 గంటల్లో 90%+ స్టెమ్ బోరర్ నియంత్రణ</div>
+                <div class="price-row"><div><strong>₹620</strong><span>ఒక్కో బాటిల్</span></div><button>కార్ట్‌లో జోడించండి</button></div>
+              </div>
+            </article>
+            <article class="product-card">
+              <div class="product-visual">💊<div class="verified-badge">🌾 RM ధృవీకరితం</div></div>
+              <div class="product-body">
+                <div class="product-type">పురుగుమందు</div>
+                <h3>Thiamethoxam 25% WG</h3>
+                <div class="product-copy">శోషక పురుగుల ఒత్తిడికి సిస్టమిక్ రక్షణ. వినియోగ మార్గదర్శకం కూడా అందుబాటులో ఉంటుంది.</div>
+                <div class="product-tags"><span>సిస్టమిక్</span><span>250 గ్రా.</span></div>
+                <div class="yield-line">🌾 21 రోజుల సిస్టమిక్ రక్షణ</div>
+                <div class="price-row"><div><strong>₹480</strong><span>ఒక్కో ప్యాక్</span></div><button>కార్ట్‌లో జోడించండి</button></div>
+              </div>
+            </article>
+            <article class="product-card">
+              <div class="product-visual">🧪<div class="verified-badge">🌾 RM ధృవీకరితం</div></div>
+              <div class="product-body">
+                <div class="product-type">పురుగుమందు</div>
+                <h3>Lambda Cyhalothrin</h3>
+                <div class="product-copy">తక్షణ చర్య అవసరమైనప్పుడు వేగంగా వ్యాపించే పురుగు దాడులపై విస్తృత రక్షణ.</div>
+                <div class="product-tags"><span>విస్తృత ప్రభావం</span><span>500 మి.లీ.</span></div>
+                <div class="yield-line">🌾 85%+ విస్తృత పురుగు నియంత్రణ</div>
+                <div class="price-row"><div><strong>₹380</strong><span>ఒక్కో బాటిల్</span></div><button>కార్ట్‌లో జోడించండి</button></div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section>
+          <div class="section-title-row">
+            <div>
+              <div class="section-eyebrow">కలుపుమందులు</div>
+              <h2>కలుపు నియంత్రణ</h2>
+            </div>
+            <p>3 ధృవీకరించిన ఉత్పత్తులు</p>
+          </div>
+          <div class="products-grid">
+            <article class="product-card">
+              <div class="product-visual">🌿<div class="verified-badge">🌾 RM ధృవీకరితం</div></div>
+              <div class="product-body">
+                <div class="product-type">కలుపుమందు</div>
+                <h3>Atrazine 50% WP</h3>
+                <div class="product-copy">ప్రారంభ దశలో కలుపు మొక్కలు తేమ, పోషకాలను దోచుకోకుండా ఉండే ప్రీ-ఎమర్జెంట్ నియంత్రణ.</div>
+                <div class="product-tags"><span>మొలకెత్తే ముందు</span><span>500 గ్రా.</span></div>
+                <div class="yield-line">🌾 6 వారాల పాటు 80%+ కలుపు నియంత్రణ</div>
+                <div class="price-row"><div><strong>₹420</strong><span>ఒక్కో ప్యాక్</span></div><button>కార్ట్‌లో జోడించండి</button></div>
+              </div>
+            </article>
+            <article class="product-card">
+              <div class="product-visual">🌱<div class="verified-badge">🌾 RM ధృవీకరితం</div></div>
+              <div class="product-body">
+                <div class="product-type">కలుపుమందు</div>
+                <h3>Pendimethalin 30% EC</h3>
+                <div class="product-copy">మొదటి వృద్ధి దశల్లో శుభ్రమైన స్థాపన కోసం గడ్డి కలుపుపై ప్రీ-ఎమర్జెంట్ నియంత్రణ.</div>
+                <div class="product-tags"><span>గడ్డి కలుపు</span><span>1 లీటర్</span></div>
+                <div class="yield-line">🌾 మొలకెత్తే ముందే 75%+ గడ్డి కలుపు నియంత్రణ</div>
+                <div class="price-row"><div><strong>₹560</strong><span>ఒక్కో బాటిల్</span></div><button>కార్ట్‌లో జోడించండి</button></div>
+              </div>
+            </article>
+            <article class="product-card">
+              <div class="product-visual">🍃<div class="verified-badge">🌾 RM ధృవీకరితం</div></div>
+              <div class="product-body">
+                <div class="product-type">కలుపుమందు</div>
+                <h3>2,4-D Amine Salt</h3>
+                <div class="product-copy">పొలంలో కలుపు పోటీ పెరిగిన తర్వాత విశాల ఆకుల కలుపును నియంత్రించడానికి పోస్ట్-ఎమర్జెంట్ ఎంపిక.</div>
+                <div class="product-tags"><span>విశాల ఆకుల కలుపు</span><span>500 మి.లీ.</span></div>
+                <div class="yield-line">🌾 పోస్ట్-ఎమర్జెంట్ విశాల ఆకుల కలుపు తొలగింపు</div>
+                <div class="price-row"><div><strong>₹340</strong><span>ఒక్కో బాటిల్</span></div><button>కార్ట్‌లో జోడించండి</button></div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section>
+          <div class="section-title-row">
+            <div>
+              <div class="section-eyebrow">శిలీంద్రనాశకాలు</div>
+              <h2>వ్యాధి నియంత్రణ</h2>
+            </div>
+            <p>2 ధృవీకరించిన ఉత్పత్తులు</p>
+          </div>
+          <div class="products-grid" style="margin-bottom:24px;">
+            <article class="product-card">
+              <div class="product-visual">🍄<div class="verified-badge">🌾 RM ధృవీకరితం</div></div>
+              <div class="product-body">
+                <div class="product-type">శిలీంద్రనాశకము</div>
+                <h3>Mancozeb 75% WP</h3>
+                <div class="product-copy">తేమ ఎక్కువగా ఉన్న వృద్ధి మరియు పుష్ప దశల్లో ఆకుమచ్చ ఒత్తిడికి నివారణ కవర్.</div>
+                <div class="product-tags"><span>ఆకుమచ్చ తెగులు</span><span>500 గ్రా.</span></div>
+                <div class="yield-line">🌾 14 రోజుల ఆకుమచ్చ నివారణ రక్షణ</div>
+                <div class="price-row"><div><strong>₹410</strong><span>ఒక్కో ప్యాక్</span></div><button>కార్ట్‌లో జోడించండి</button></div>
+              </div>
+            </article>
+            <article class="product-card">
+              <div class="product-visual">🛡️<div class="verified-badge">🌾 RM ధృవీకరితం</div></div>
+              <div class="product-body">
+                <div class="product-type">శిలీంద్రనాశకము</div>
+                <h3>Propiconazole 25% EC</h3>
+                <div class="product-copy">వ్యాధి కాలం సీజన్‌లో పొడిగినప్పుడు రస్ట్ మరియు బ్లైట్‌పై సిస్టమిక్ నియంత్రణ.</div>
+                <div class="product-tags"><span>సిస్టమిక్</span><span>250 మి.లీ.</span></div>
+                <div class="yield-line">🌾 21 రోజుల సిస్టమిక్ రస్ట్ & బ్లైట్ నియంత్రణ</div>
+                <div class="price-row"><div><strong>₹530</strong><span>ఒక్కో బాటిల్</span></div><button>కార్ట్‌లో జోడించండి</button></div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <div class="trust-strip">
+          <div class="trust-item">
+            <div class="icon">🏭</div>
+            <div>
+              <strong>ఫ్యాక్టరీ నుంచి నేరుగా</strong>
+              <span>లైసెన్స్ పొందిన ఇన్‌పుట్లు, పారదర్శక ధరలతో.</span>
+            </div>
+          </div>
+          <div class="trust-item teal">
+            <div class="icon">🌾</div>
+            <div>
+              <strong>రైతు మిత్ర సురక్ష</strong>
+              <span>3-ఆధారాల పంట రక్షణ</span>
+            </div>
+          </div>
+          <div class="trust-item">
+            <div class="icon">📞</div>
+            <div>
+              <strong>కాల్ ద్వారా సహాయం</strong>
+              <span>సహాయం, స్కాన్ మార్గదర్శకం లేదా మార్పిడి త్వరగా పొందండి.</span>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="fb-logo">
+            <span class="fb-logo-icon">🌾</span>
+            <span class="fb-logo-text">రైతు మిత్ర</span>
+          </div>
+          <p>రైతు మిత్ర — అసలైన మొక్కజొన్న విత్తనాలు మరియు పంట రక్షణ ఉత్పత్తులు, నేరుగా ఫ్యాక్టరీ నుంచి. ప్రతి కొనుగోలుకూ రైతు మిత్ర సురక్ష రక్షణ ఉంటుంది.</p>
+          <div class="social-row">
+            <div class="social-ico">📘</div>
+            <div class="social-ico">💬</div>
+            <div class="social-ico">📸</div>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>ఉత్పత్తులు</h4>
+          <ul>
+            <li><a href="products-te.html">మొక్కజొన్న విత్తనాలు</a></li>
+            <li><a href="products-te.html">పురుగుమందులు</a></li>
+            <li><a href="products-te.html">కలుపుమందులు</a></li>
+            <li><a href="products-te.html">శిలీంద్రనాశకాలు</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>ప్లాట్‌ఫారం</h4>
+          <ul>
+            <li><a href="suraksha-te.html">సురక్ష</a></li>
+            <li><a href="advisory-te.html">సలహా</a></li>
+            <li><a href="about-te.html">మా గురించి</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>సహాయం</h4>
+          <ul>
+            <li><a href="contact-te.html">సంప్రదించండి</a></li>
+            <li><a href="contact-te.html">support@rythymitra.in</a></li>
+            <li><a href="suraksha-te.html">మార్పిడి కోరండి</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 రైతు మిత్ర. అన్ని హక్కులు పరిరక్షించబడ్డాయి.</span>
+        <span>రైతు మిత్ర 💚 మీ పంటకు మేము స్నేహితులు</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleNav() {
+      document.getElementById('mobileNav').classList.toggle('open');
+    }
+  </script>
+</body>
+</html>
