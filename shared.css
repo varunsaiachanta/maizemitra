@@ -43,7 +43,7 @@
   --r14: 14px;
   --r20: 20px;
   --rr: 999px;
-  --nav-h: 80px;
+  --nav-h: 68px;
 }
 
 /* ── RESET ───────────────────────────────────── */
@@ -184,8 +184,12 @@ button {
   box-shadow: none;
 }
 
-.nav-inner {
+#navbar .container {
   height: 100%;
+}
+
+.nav-inner {
+  height: var(--nav-h);
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   align-items: center;
@@ -195,7 +199,7 @@ button {
 
 /* legacy aliases used on inner pages */
 .nav-wrap {
-  height: 100%;
+  height: var(--nav-h);
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   align-items: center;

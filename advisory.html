@@ -18,7 +18,15 @@
     radial-gradient(circle at 20% 20%, rgba(255,255,255,.1), transparent 20%),
     linear-gradient(180deg, rgba(255,255,255,.06), transparent 40%);
 }
-.adv-hero::after { content:''; position:absolute; bottom:-2px; left:0; right:0; height:90px; background:var(--wh); clip-path:polygon(0 100%,100% 100%,100% 10%,0 100%); }
+.adv-hero::after {
+  content:'';
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  height:1px;
+  background:rgba(255,255,255,.08);
+}
 .adv-hero .breadcrumb,
 .adv-hero .breadcrumb a { color:rgba(255,255,255,.72); }
 .adv-hero .breadcrumb .sep { color:rgba(255,255,255,.24); }
