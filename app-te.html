@@ -67,6 +67,34 @@
       margin-bottom: 20px;
     }
 
+    .head-lang-switch {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: 12px;
+      padding: 4px;
+      border-radius: var(--rr);
+      background: rgba(255, 255, 255, .9);
+      border: 1px solid var(--br);
+    }
+
+    .head-lang-switch a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 54px;
+      padding: 8px 12px;
+      border-radius: var(--rr);
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--t3);
+    }
+
+    .head-lang-switch a.active {
+      background: var(--g800);
+      color: #fff;
+    }
+
     .page-head h1 {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(28px, 5vw, 40px);
@@ -1001,6 +1029,10 @@
   <div class="page-head">
     <h1>🌾 రైతు మిత్ర</h1>
     <p>పూర్తి రైతు మిత్ర సురక్ష ప్రయాణం కలిగిన 24-స్క్రీన్ మొబైల్ ప్రోటోటైప్.</p>
+    <div class="head-lang-switch">
+      <a href="app.html">EN</a>
+      <a class="active" href="app-te.html">తెలుగు</a>
+    </div>
   </div>
 
   <div class="jump-wrap">
